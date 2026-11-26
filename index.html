@@ -12,7 +12,6 @@
     :root {
       --green: #38f5a3;
       --green-soft: #a5ffd5;
-      --gold: #ffd65a;
       --background: #05070b;
       --muted: #9aa8b5;
       --border: rgba(255,255,255,.1);
@@ -26,7 +25,6 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 30px;
     }
 
     body {
@@ -38,15 +36,6 @@
         var(--background);
       color: #fff;
       font-family: Inter, Arial, sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
     }
 
     .background-grid {
@@ -85,7 +74,7 @@
       bottom: 5%;
     }
 
-    header, main, footer, .information-section {
+    header, main, footer {
       position: relative;
       z-index: 1;
     }
@@ -109,6 +98,8 @@
       font-size: 20px;
       font-weight: 900;
       letter-spacing: 2px;
+      color: white;
+      text-decoration: none;
     }
 
     .logo span {
@@ -391,139 +382,19 @@
       box-shadow: 0 0 15px var(--green);
     }
 
-    .event-section {
-      width: min(680px, 100%);
-      margin: 75px auto 0;
-      padding: 38px 25px;
-      border: 1px solid rgba(255,214,90,.35);
-      border-radius: 20px;
-      background: linear-gradient(145deg, #19170c, #090a0c);
-      box-shadow: 0 15px 60px rgba(0,0,0,.35);
-    }
-
-    .event-heading {
-      color: var(--gold);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 5px;
-    }
-
-    .event-title {
-      margin-top: 12px;
-      font-size: clamp(28px, 6vw, 43px);
-      font-weight: 900;
-    }
-
-    .event-subtitle {
-      margin: 12px 0 30px;
-      color: #aaa;
-      font-size: 11px;
-      letter-spacing: 2px;
-      line-height: 1.8;
-    }
-
-    .event-countdown {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-
-    .event-time {
-      padding: 19px 5px;
-      border: 1px solid rgba(255,214,90,.3);
-      border-radius: 11px;
-      background: rgba(255,214,90,.06);
-    }
-
-    .event-number {
-      display: block;
-      color: var(--gold);
-      font-size: clamp(25px, 6vw, 39px);
-      font-weight: 900;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .event-unit {
-      display: block;
-      margin-top: 8px;
-      color: #aaa;
-      font-size: 8px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .event-details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .event-detail {
-      padding: 17px 9px;
-      border: 1px solid var(--border);
-      border-radius: 11px;
-      background: rgba(255,255,255,.025);
-    }
-
-    .event-detail-label {
-      margin-bottom: 9px;
-      color: var(--gold);
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: 2px;
-    }
-
-    .event-detail-time {
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .event-detail-date {
-      margin-top: 7px;
-      color: #999;
-      font-size: 10px;
-    }
-
-    .calendar-button {
-      width: 100%;
-      padding: 17px;
-      border: 0;
-      border-radius: 9px;
-      background: var(--gold);
-      color: #080808;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: .25s;
-    }
-
-    .calendar-button:hover {
-      transform: translateY(-3px);
-      background: #fff09a;
-    }
-
-    .bottom-text {
-      margin-top: 48px;
-      color: var(--green);
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 4px;
-    }
-
-    .information-section {
-      width: min(850px, 91%);
-      margin: 35px auto;
+    .about {
+      width: min(760px, 91%);
+      margin: 40px auto;
       padding: 35px;
       border: 1px solid var(--border);
       border-radius: 16px;
       background: rgba(12,18,25,.88);
-      scroll-margin-top: 25px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
-    .information-section .section-kicker {
+    .about-label {
       margin-bottom: 12px;
       color: var(--green);
       font-size: 9px;
@@ -531,108 +402,55 @@
       letter-spacing: 4px;
     }
 
-    .information-section h2 {
-      margin-bottom: 20px;
-      font-size: clamp(25px, 5vw, 35px);
+    .about h2 {
+      margin-bottom: 16px;
+      font-size: 30px;
       font-weight: 900;
     }
 
-    .information-section h3 {
-      margin: 23px 0 8px;
-      color: var(--green-soft);
-      font-size: 14px;
-    }
-
-    .information-section p,
-    .information-section li {
+    .about p {
       color: var(--muted);
       font-size: 12px;
-      line-height: 1.9;
+      line-height: 2;
     }
 
-    .information-section ul {
-      padding-left: 20px;
-    }
-
-    .information-section li {
-      margin: 7px 0;
-    }
-
-    .contact-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      margin-top: 20px;
-      padding: 19px;
+    .contact {
+      width: min(760px, 91%);
+      margin: 25px auto 70px;
+      padding: 25px;
       border: 1px solid rgba(56,245,163,.2);
-      border-radius: 12px;
+      border-radius: 15px;
       background: rgba(56,245,163,.04);
+      text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     .contact-label {
-      color: var(--muted);
+      color: var(--green);
       font-size: 9px;
-      font-weight: 800;
-      letter-spacing: 2px;
+      font-weight: 900;
+      letter-spacing: 4px;
     }
 
     .contact-name {
-      margin-top: 7px;
-      color: var(--green);
-      font-size: 20px;
+      margin-top: 12px;
+      color: white;
+      font-size: 22px;
       font-weight: 900;
     }
 
-    .copy-button {
-      padding: 12px 16px;
-      border: 1px solid rgba(56,245,163,.4);
-      border-radius: 7px;
-      background: rgba(56,245,163,.1);
-      color: var(--green);
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      cursor: pointer;
-    }
-
-    .copy-button:hover {
-      background: rgba(56,245,163,.2);
-    }
-
-    .back-top {
-      display: inline-block;
-      margin-top: 25px;
-      color: var(--green);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
+    .contact-description {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 11px;
     }
 
     footer {
-      margin-top: 65px;
+      margin-top: 40px;
       padding: 30px 15px;
       border-top: 1px solid var(--border);
       text-align: center;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      margin-bottom: 23px;
-    }
-
-    .footer-links a {
-      color: #aab5bf;
-      font-size: 10px;
-      font-weight: 700;
-      transition: .2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--green);
     }
 
     .footer-credit {
@@ -706,47 +524,17 @@
         letter-spacing: 1px;
       }
 
-      .event-section {
-        padding: 28px 13px;
-      }
-
-      .event-countdown {
-        gap: 6px;
-      }
-
-      .event-time {
-        padding: 15px 3px;
-      }
-
-      .event-unit {
-        font-size: 7px;
-        letter-spacing: 1px;
-      }
-
-      .event-details {
-        gap: 7px;
-      }
-
-      .event-detail-time {
-        font-size: 11px;
-      }
-
-      .information-section {
+      .about {
         padding: 25px 18px;
       }
 
-      .contact-card {
-        align-items: flex-start;
-        flex-direction: column;
+      .contact {
+        padding: 22px 15px;
       }
 
-      .bottom-text {
+      .footer-credit {
         font-size: 8px;
-        letter-spacing: 2px;
-      }
-
-      .footer-links {
-        gap: 17px;
+        letter-spacing: 1px;
       }
     }
 
@@ -796,6 +584,8 @@
     <div class="year-tag">
       2027 — OFFICIAL DEVELOPMENT YEAR
     </div>
+
+    <!-- THE ONLY COUNTDOWN -->
 
     <div class="section-label">
       COUNTDOWN TO THE BIG REVEAL
@@ -866,92 +656,21 @@
       </div>
     </section>
 
-    <section class="event-section">
-      <div class="event-heading">SPECIAL EVENT</div>
-      <h2 class="event-title">THE BIG REVEAL</h2>
-
-      <p class="event-subtitle">
-        ONE BIG ANNOUNCEMENT. ONE SPECIAL MOMENT. ARE YOU READY?
-      </p>
-
-      <div class="event-countdown">
-        <div class="event-time">
-          <span class="event-number" id="eventDays">00</span>
-          <span class="event-unit">DAYS</span>
-        </div>
-
-        <div class="event-time">
-          <span class="event-number" id="eventHours">00</span>
-          <span class="event-unit">HOURS</span>
-        </div>
-
-        <div class="event-time">
-          <span class="event-number" id="eventMinutes">00</span>
-          <span class="event-unit">MINUTES</span>
-        </div>
-
-        <div class="event-time">
-          <span class="event-number" id="eventSeconds">00</span>
-          <span class="event-unit">SECONDS</span>
-        </div>
-      </div>
-
-      <div class="event-details">
-        <div class="event-detail">
-          <div class="event-detail-label">DOORS OPEN</div>
-          <div class="event-detail-time">6:20 PM GMT</div>
-          <div class="event-detail-date">THU, DEC 31, 2026</div>
-        </div>
-
-        <div class="event-detail">
-          <div class="event-detail-label">EVENT STARTS</div>
-          <div class="event-detail-time">7:00 PM GMT</div>
-          <div class="event-detail-date">THU, DEC 31, 2026</div>
-        </div>
-      </div>
-
-      <button class="calendar-button" onclick="addEventToCalendar()">
-        ▦ &nbsp; ADD TO CALENDAR
-      </button>
-    </section>
-
-    <div class="bottom-text">
-      THE COUNTDOWN HAS BEGUN.
+    <div class="section-label">
+      WHO'S READY?
     </div>
+
+    <p class="hero-description">
+      We're getting ready for something big.
+      Stay tuned for the announcement.
+    </p>
 
   </main>
 
-  <!-- CONTACT -->
-
-  <section class="information-section" id="contact">
-    <div class="section-kicker">GET IN TOUCH</div>
-    <h2>CONTACT</h2>
-
-    <p>
-      Want to get in touch? Find us on Discord.
-      More community links may be added as the project develops.
-    </p>
-
-    <div class="contact-card">
-      <div>
-        <div class="contact-label">DISCORD USERNAME</div>
-        <div class="contact-name">nyxg7</div>
-      </div>
-
-      <button class="copy-button" onclick="copyDiscord()">
-        COPY USERNAME
-      </button>
-    </div>
-
-    <p id="copyMessage" aria-live="polite" style="margin-top:12px;"></p>
-
-    <a class="back-top" href="#top">BACK TO TOP ↑</a>
-  </section>
-
   <!-- ABOUT -->
 
-  <section class="information-section" id="about">
-    <div class="section-kicker">WHO WE ARE</div>
+  <section class="about" id="about">
+    <div class="about-label">WHO WE ARE</div>
     <h2>ABOUT COMING SOON</h2>
 
     <p>
@@ -960,186 +679,27 @@
       future updates.
     </p>
 
-    <h3>Our goal</h3>
-    <p>
-      To build something exciting, create a memorable experience
-      and share more details when the time is right.
+    <p style="margin-top:15px;">
+      Our goal is to build something exciting, create a memorable
+      experience and share more details when the time is right.
     </p>
-
-    <h3>Development</h3>
-    <p>
-      Development is planned throughout 2027. Features, announcements
-      and release information may change as the project progresses.
-      Keep checking this website for future updates.
-    </p>
-
-    <a class="back-top" href="#top">BACK TO TOP ↑</a>
-  </section>
-
-  <!-- PRIVACY POLICY -->
-
-  <section class="information-section" id="privacy">
-    <div class="section-kicker">YOUR INFORMATION</div>
-    <h2>PRIVACY POLICY</h2>
-
-    <p><strong>Last updated: November 2026</strong></p>
 
     <p style="margin-top:15px;">
-      This Privacy Policy explains how the COMING SOON website handles
-      information when you visit it. We aim to be clear about what
-      this website does and does not collect.
+      Official development year: 2027.
     </p>
-
-    <h3>1. Information you provide</h3>
-    <p>
-      This website does not currently provide account registration,
-      user profiles, contact forms or payment facilities. Please do
-      not send private or sensitive information through public
-      social media channels.
-    </p>
-
-    <h3>2. Technical information</h3>
-    <p>
-      Our website is hosted using GitHub Pages. The hosting provider
-      may process technical information, such as IP addresses,
-      browser details and request information, as part of delivering
-      and securing the website. This processing is subject to the
-      provider's own policies and practices.
-    </p>
-
-    <h3>3. Cookies and storage</h3>
-    <p>
-      This website does not intentionally set advertising cookies
-      or use browser storage to create user profiles. Your browser
-      or third-party services may handle information separately.
-    </p>
-
-    <h3>4. External services and links</h3>
-    <p>
-      This website may use external services and may link to
-      platforms such as Discord or TikTok. When you visit those
-      services, they may process information according to their
-      own privacy policies. We do not control their practices.
-    </p>
-
-    <h3>5. How information is used</h3>
-    <p>
-      Technical information processed by the hosting provider may
-      be used to deliver the website, maintain security, prevent
-      misuse and troubleshoot technical problems.
-    </p>
-
-    <h3>6. Data sharing</h3>
-    <p>
-      We do not operate a user database or sell personal information
-      through this website. Hosting and other service providers may
-      process technical information as needed to provide their
-      services.
-    </p>
-
-    <h3>7. Your privacy rights</h3>
-    <p>
-      Depending on where you live, you may have rights relating to
-      personal information, including rights to request access,
-      correction or deletion. Information processed by third-party
-      providers may need to be handled through those providers.
-    </p>
-
-    <h3>8. Children's privacy</h3>
-    <p>
-      This website is not designed to collect personal information
-      from children. We do not knowingly request personal details
-      through the website.
-    </p>
-
-    <h3>9. Changes to this policy</h3>
-    <p>
-      This policy may be updated as the website changes. The latest
-      version will be published on this page with an updated date.
-    </p>
-
-    <h3>10. Contact</h3>
-    <p>
-      For questions about this policy, contact us through the
-      Discord username listed on our Contact section.
-    </p>
-
-    <a class="back-top" href="#top">BACK TO TOP ↑</a>
   </section>
 
-  <!-- TERMS -->
+  <!-- CONTACT INFORMATION - NOT A LINK -->
 
-  <section class="information-section" id="terms">
-    <div class="section-kicker">WEBSITE GUIDELINES</div>
-    <h2>TERMS OF USE</h2>
-
-    <p><strong>Last updated: November 2026</strong></p>
-
-    <h3>1. About this website</h3>
-    <p>
-      COMING SOON is an independent project website used to share
-      announcements, development information and future updates.
-    </p>
-
-    <h3>2. Acceptable use</h3>
-    <p>
-      You agree not to misuse the website, attempt to disrupt its
-      operation, interfere with its security or use it for unlawful
-      purposes.
-    </p>
-
-    <h3>3. Website content</h3>
-    <p>
-      Unless otherwise stated, the original branding, text and
-      design created for this website belong to their respective
-      owner. You may not present our content as your own or
-      redistribute it in a misleading way.
-    </p>
-
-    <h3>4. Project information</h3>
-    <p>
-      Announcements, dates, previews and planned features may change.
-      A countdown or preview does not guarantee that a particular
-      feature or release will be available at a specific time.
-    </p>
-
-    <h3>5. External websites</h3>
-    <p>
-      We may provide links to third-party websites and services.
-      We are not responsible for their content, availability,
-      security or privacy practices.
-    </p>
-
-    <h3>6. Availability</h3>
-    <p>
-      We aim to keep this website available, but we cannot guarantee
-      uninterrupted access. The website may be changed, suspended
-      or updated without notice.
-    </p>
-
-    <h3>7. Changes to these terms</h3>
-    <p>
-      These terms may be updated as the project develops.
-      Please review the latest version when visiting the website.
-    </p>
-
-    <h3>8. Contact</h3>
-    <p>
-      Questions about these terms can be sent through the Discord
-      username listed in the Contact section.
-    </p>
-
-    <a class="back-top" href="#top">BACK TO TOP ↑</a>
+  <section class="contact">
+    <div class="contact-label">STAY CONNECTED</div>
+    <div class="contact-name">DISCORD: nyxg7</div>
+    <div class="contact-description">
+      Follow along for future announcements and updates.
+    </div>
   </section>
 
   <footer>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-      <a href="#privacy">Privacy Policy</a>
-      <a href="#terms">Terms</a>
-    </nav>
-
     <div class="footer-credit">
       © 2027 · MADE BY <span>TAY</span> · SOMETHING BIG IS COMING
     </div>
@@ -1150,7 +710,7 @@
   </footer>
 
   <script>
-    // MAIN COUNTDOWN TO 2027
+    // ONE COUNTDOWN TO 1 JANUARY 2027
 
     const targetTime =
       new Date("2027-01-01T00:00:00Z").getTime();
@@ -1178,99 +738,11 @@
       if (remaining <= 0) {
         document.querySelector(".section-label").textContent =
           "THE BIG REVEAL HAS ARRIVED";
-
-        document.querySelector(".bottom-text").textContent =
-          "WELCOME TO COMING SOON.";
       }
     }
-
-    // SPECIAL EVENT COUNTDOWN
-
-    const eventTime =
-      new Date("2026-12-31T19:00:00Z").getTime();
-
-    function updateEventCountdown() {
-      const remaining = Math.max(0, eventTime - Date.now());
-
-      document.getElementById("eventDays").textContent =
-        String(Math.floor(remaining / 86400000)).padStart(2, "0");
-
-      document.getElementById("eventHours").textContent =
-        String(Math.floor((remaining % 86400000) / 3600000)).padStart(2, "0");
-
-      document.getElementById("eventMinutes").textContent =
-        String(Math.floor((remaining % 3600000) / 60000)).padStart(2, "0");
-
-      document.getElementById("eventSeconds").textContent =
-        String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0");
-
-      if (remaining <= 0) {
-        document.querySelector(".event-subtitle").textContent =
-          "THE BIG MOMENT IS HERE.";
-      }
-    }
-
-    // ADD EVENT TO CALENDAR
-
-    function addEventToCalendar() {
-      const stamp = new Date().toISOString()
-        .replace(/[-:]/g, "")
-        .replace(/\.\d{3}/, "");
-
-      const calendar = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//Coming Soon//Event//EN",
-        "CALSCALE:GREGORIAN",
-        "BEGIN:VEVENT",
-        "UID:coming-soon-event-20261231@coming-soon",
-        "DTSTAMP:" + stamp,
-        "DTSTART:20261231T182000Z",
-        "DTEND:20261231T193000Z",
-        "SUMMARY:Coming Soon - Special Event",
-        "DESCRIPTION:Doors open at 6:20 PM GMT. Event starts at 7:00 PM GMT.",
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ].join("\r\n");
-
-      const blob = new Blob([calendar], {
-        type: "text/calendar;charset=utf-8"
-      });
-
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-
-      link.href = url;
-      link.download = "coming-soon-event.ics";
-
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-    }
-
-    // COPY DISCORD USERNAME
-
-    async function copyDiscord() {
-      const username = "nyxg7";
-      const message = document.getElementById("copyMessage");
-
-      try {
-        await navigator.clipboard.writeText(username);
-        message.textContent = "Discord username copied!";
-      } catch (error) {
-        message.textContent = "Your Discord username is: " + username;
-      }
-    }
-
-    // START COUNTDOWNS
 
     updateCountdown();
-    updateEventCountdown();
-
     setInterval(updateCountdown, 1000);
-    setInterval(updateEventCountdown, 1000);
   </script>
 
 </body>
