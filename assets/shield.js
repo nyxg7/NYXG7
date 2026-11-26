@@ -2,7 +2,7 @@
 (function () {
   var KEY = "nx-h", DAYS = 7, R = document.documentElement;
   // ===== Discord login settings =====
-  var DISCORD_CLIENT_ID = "";                       // paste your Discord app's Client ID here
+  var DISCORD_CLIENT_ID = "1575578461001482485";                       // paste your Discord app's Client ID here
   var REDIRECT = "https://vexfnofficial.github.io/coming-soon/";
   if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) REDIRECT = location.origin + location.pathname;
   var DKEY = "nx-d";
