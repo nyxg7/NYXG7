@@ -1,13 +1,41 @@
-WELCOME – What Coming Soon is.
 
+# ✦ COMING SOON
 
+### THE NEXT ERA STARTS SOON.
 
-THE PROJECT – What is being developed for 2027.
+Something new. Something different. Something worth waiting for.
 
+---
 
+## 01 — ABOUT
 
-THE COUNTDOWN – Information about the upcoming reveal.
+COMING SOON is a project currently in development.
+More details, announcements and surprises will be revealed soon.
 
+## 02 — PROJECT STATUS
 
+🟢 **IN DEVELOPMENT**
 
-CONTACT – Discord: nyxg7.
+Official development year: **2027**
+
+## 03 — COUNTDOWN
+
+The countdown has begun.
+
+**December 31, 2026 — 7:00 PM GMT**
+
+## 04 — CONTACT
+
+Discord: **nyxg7**
+
+## 05 — WEBSITE
+
+[Visit the official website](https://vexfnofficial.github.io/coming-soon/)
+
+---
+
+### WHO'S READY?
+
+The next era starts soon.
+
+**© 2027 · MADE BY TAY**
