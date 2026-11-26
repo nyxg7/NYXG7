@@ -2,1033 +2,1282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#05080b">
-<meta name="description" content="Something extraordinary is coming. The next era begins in 2027.">
-
-<title>COMING SOON — The Next Era</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --green: #25f59a;
-  --green-light: #a0ffd1;
-  --yellow: #ffd600;
-  --bg: #05080b;
-  --muted: #9baab4;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
-  background-color: var(--bg);
-  background-image:
-    radial-gradient(ellipse at 50% 70%, #12452f 0%, transparent 42%),
-    radial-gradient(ellipse at 5% 5%, #172c40 0%, transparent 40%),
-    radial-gradient(ellipse at 95% 10%, #123c30 0%, transparent 35%),
-    linear-gradient(145deg, #05080b, #0a1118, #030507);
-  background-attachment: fixed;
-  color: #fff;
-  font-family: Inter, Arial, sans-serif;
-  position: relative;
-}
-
-/* DISCOURAGE CASUAL COPYING */
-
-body, body * {
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-}
-
-/* BACKGROUND GRID */
-
-.grid-background {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: .16;
-  background-image:
-    linear-gradient(#ffffff0a 1px, transparent 1px),
-    linear-gradient(90deg, #ffffff0a 1px, transparent 1px);
-  background-size: 55px 55px;
-}
-
-/* AMBIENT LIGHT */
-
-.ambient {
-  position: fixed;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: #18ed8725;
-  filter: blur(110px);
-  pointer-events: none;
-  z-index: 0;
-  animation: glow 9s ease-in-out infinite alternate;
-}
-
-.ambient.one {
-  top: 10%;
-  left: -180px;
-}
-
-.ambient.two {
-  right: -180px;
-  bottom: 0;
-  animation-delay: -4s;
-}
-
-@keyframes glow {
-  to {
-    transform: translateY(-45px) scale(1.2);
-    opacity: .65;
-  }
-}
-
-header, main, footer {
-  position: relative;
-  z-index: 1;
-}
-
-/* HEADER */
-
-header {
-  width: min(1200px, 90%);
-  margin: auto;
-  padding: 27px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-size: 21px;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
-
-.logo span {
-  color: var(--green);
-}
-
-.status {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 11px 16px;
-  border: 1px solid #25f59a40;
-  border-radius: 50px;
-  color: var(--green);
-  background: #25f59a0b;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 13px var(--green);
-  animation: blink 1.5s infinite;
-}
-
-@keyframes blink {
-  50% { opacity: .25; }
-}
-
-/* MAIN HERO */
-
-main {
-  width: min(1100px, 92%);
-  margin: auto;
-  padding: 90px 0 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  margin-bottom: 28px;
-  color: var(--green);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 5px;
-  animation: appear .8s both;
-}
-
-.eyebrow::before,
-.eyebrow::after {
-  content: "";
-  width: 27px;
-  height: 1px;
-  background: var(--green);
-}
-
-h1 {
-  max-width: 1000px;
-  font-size: clamp(48px, 10vw, 112px);
-  font-weight: 900;
-  line-height: .96;
-  letter-spacing: -6px;
-  animation: appear 1s .1s both;
-}
-
-h1 span {
-  display: block;
-  color: var(--green);
-  text-shadow: 0 0 35px #25f59a35;
-}
-
-.subtitle {
-  max-width: 550px;
-  margin: 27px auto 25px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 2;
-  animation: appear 1s .2s both;
-}
-
-.year-tag {
-  padding: 12px 20px;
-  border: 1px solid #25f59a50;
-  border-radius: 6px;
-  background: #25f59a0b;
-  color: var(--green-light);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 3px;
-}
-
-/* MAIN COUNTDOWN */
-
-.section-label {
-  margin: 55px 0 19px;
-  color: #91a0aa;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 4px;
-}
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 13px;
-}
-
-.timebox {
-  width: 115px;
-  padding: 22px 10px;
-  border: 1px solid #ffffff17;
-  border-radius: 13px;
-  background: linear-gradient(145deg,#ffffff10,#ffffff03);
-  backdrop-filter: blur(15px);
-  transition: .3s ease;
-}
-
-.timebox:hover {
-  transform: translateY(-5px);
-  border-color: #25f59a80;
-  box-shadow: 0 10px 30px #25f59a10;
-}
-
-.number {
-  display: block;
-  color: var(--green);
-  font-size: 40px;
-  font-weight: 900;
-  font-variant-numeric: tabular-nums;
-  text-shadow: 0 0 22px #25f59a50;
-}
-
-.label {
-  margin-top: 8px;
-  color: #91a0aa;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-/* MYSTERY SECTION */
-
-.mystery {
-  width: min(760px, 100%);
-  margin-top: 75px;
-  padding: 40px 25px;
-  border: 1px solid #25f59a30;
-  border-radius: 20px;
-  background: linear-gradient(145deg,#ffffff09,#25f59a08);
-  box-shadow: 0 15px 60px #00000030;
-  backdrop-filter: blur(12px);
-}
-
-.mystery-label {
-  color: var(--green);
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: 5px;
-  margin-bottom: 17px;
-}
-
-.mystery h2 {
-  font-size: clamp(26px,5vw,40px);
-  font-weight: 900;
-  letter-spacing: -1px;
-}
-
-.mystery-description {
-  max-width: 480px;
-  margin: 15px auto 0;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.9;
-}
-
-.mystery-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 13px;
-  margin-top: 30px;
-}
-
-.mystery-card {
-  min-height: 115px;
-  padding: 21px 10px;
-  border: 1px solid #ffffff17;
-  border-radius: 12px;
-  background: #ffffff06;
-  transition: .3s;
-}
-
-.mystery-card:hover {
-  transform: translateY(-5px);
-  border-color: #25f59a60;
-  background: #25f59a09;
-}
-
-.mystery-icon {
-  font-size: 25px;
-  margin-bottom: 14px;
-}
-
-.mystery-blur {
-  color: var(--green-light);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  filter: blur(3px);
-}
-
-.mystery-footer {
-  margin-top: 27px;
-  color: var(--green);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 3px;
-}
-
-/* VIDEO TEASER */
-
-.teaser {
-  position: relative;
-  width: min(500px,100%);
-  min-height: 235px;
-  margin-top: 55px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  border: 1px solid #25f59a50;
-  border-radius: 20px;
-  background: radial-gradient(ellipse at center,#174a35,#080d12 75%);
-  box-shadow: 0 0 50px #25f59a10;
-}
-
-.teaser::before {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  border: 1px solid #25f59a30;
-  border-radius: 50%;
-  animation: rotate 20s linear infinite;
-}
-
-.teaser::after {
-  content: "";
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  border: 1px dashed #25f59a30;
-  border-radius: 50%;
-  animation: rotate 30s linear infinite reverse;
-}
-
-@keyframes rotate {
-  to { transform: rotate(360deg); }
-}
-
-.teaser-content {
-  position: relative;
-  z-index: 2;
-  padding: 25px;
-}
-
-.crown {
-  font-size: 58px;
-  margin-bottom: 13px;
-  filter: drop-shadow(0 0 18px #25f59a80);
-  animation: float 3s ease-in-out infinite alternate;
-}
-
-@keyframes float {
-  to { transform: translateY(-8px); }
-}
-
-.teaser-title {
-  color: var(--green);
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: 4px;
-}
-
-.teaser-subtitle {
-  margin-top: 11px;
-  color: #b4c0c0;
-  font-size: 9px;
-  letter-spacing: 2px;
-}
-
-.teaser-line {
-  width: 55px;
-  height: 2px;
-  margin: 18px auto 0;
-  background: var(--green);
-  box-shadow: 0 0 15px var(--green);
-}
-
-.teaser-caption {
-  position: absolute;
-  bottom: 16px;
-  left: 18px;
-  color: var(--green);
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 3px;
-}
-
-/* SPECIAL EVENT */
-
-.event-section {
-  width: min(680px,100%);
-  margin-top: 75px;
-  padding: 36px 25px;
-  border: 1px solid #ffd60050;
-  border-radius: 20px;
-  background: linear-gradient(145deg,#19170c,#090a0c);
-  box-shadow: 0 15px 60px #00000040, 0 0 35px #ffd6000c;
-}
-
-.event-heading {
-  color: var(--yellow);
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 5px;
-}
-
-.event-title {
-  margin-top: 12px;
-  font-size: clamp(27px,6vw,43px);
-  font-weight: 900;
-  letter-spacing: -1px;
-}
-
-.event-subtitle {
-  margin-top: 11px;
-  margin-bottom: 30px;
-  color: #a9a9a9;
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-
-.event-countdown {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 10px;
-  margin-bottom: 28px;
-}
-
-.event-time {
-  padding: 19px 5px;
-  border: 1px solid #ffd60045;
-  border-radius: 11px;
-  background: linear-gradient(145deg,#ffd60018,#ffd60005);
-}
-
-.event-number {
-  display: block;
-  color: var(--yellow);
-  font-size: clamp(25px,6vw,39px);
-  font-weight: 900;
-  font-variant-numeric: tabular-nums;
-}
-
-.event-unit {
-  display: block;
-  margin-top: 8px;
-  color: #aaa;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.event-details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.event-detail {
-  padding: 17px 9px;
-  border: 1px solid #ffffff17;
-  border-radius: 11px;
-  background: #ffffff06;
-}
-
-.event-detail-label {
-  color: var(--yellow);
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  margin-bottom: 9px;
-}
-
-.event-detail-time {
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.event-detail-date {
-  margin-top: 7px;
-  color: #999;
-  font-size: 10px;
-}
-
-.calendar-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding: 17px;
-  border: 0;
-  border-radius: 9px;
-  background: var(--yellow);
-  color: #080808;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: .25s;
-}
-
-.calendar-button:hover {
-  background: #fff09a;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px #ffd60025;
-}
-
-/* FOOTER */
-
-.bottom-text {
-  margin-top: 48px;
-  color: var(--green);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 4px;
-}
-
-footer {
-  width: 100%;
-  padding: 28px 15px;
-  border-top: 1px solid #ffffff12;
-  color: #77848d;
-  text-align: center;
-  font-size: 9px;
-  letter-spacing: 2px;
-}
-
-footer span {
-  color: var(--green);
-}
-
-/* ANIMATIONS */
-
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* MOBILE */
-
-@media(max-width:600px) {
-  header {
-    padding: 22px 0;
-  }
-
-  .logo {
-    font-size: 16px;
-  }
-
-  .status {
-    padding: 9px 10px;
-    font-size: 7px;
-    letter-spacing: 1px;
-  }
-
-  main {
-    padding-top: 65px;
-  }
-
-  h1 {
-    letter-spacing: -3px;
-  }
-
-  .eyebrow {
-    font-size: 8px;
-    letter-spacing: 3px;
-  }
-
-  .subtitle {
-    font-size: 12px;
-  }
-
-  .timebox {
-    width: calc(50% - 8px);
-    max-width: 145px;
-  }
-
-  .mystery {
-    padding: 30px 14px;
-  }
-
-  .mystery-grid {
-    gap: 7px;
-  }
-
-  .mystery-card {
-    min-height: 100px;
-    padding: 16px 5px;
-  }
-
-  .mystery-blur {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
-
-  .teaser {
-    min-height: 205px;
-  }
-
-  .event-section {
-    padding: 27px 13px;
-  }
-
-  .event-countdown {
-    gap: 6px;
-  }
-
-  .event-time {
-    padding: 15px 3px;
-  }
-
-  .event-unit {
-    font-size: 7px;
-    letter-spacing: 1px;
-  }
-
-  .event-details {
-    gap: 7px;
-  }
-
-  .event-detail-time {
-    font-size: 11px;
-  }
-
-  .bottom-text {
-    font-size: 8px;
-    letter-spacing: 2px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05070b">
+  <meta name="description" content="Something extraordinary is coming. Discover the next era in 2027.">
+  <title>COMING SOON — The Next Era</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #38f5a3;
+      --green-soft: #a5ffd5;
+      --gold: #ffd65a;
+      --background: #05070b;
+      --panel: #0c1219;
+      --muted: #9aa8b5;
+      --border: rgba(255,255,255,.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 30px;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 50% 25%, rgba(24,110,75,.2), transparent 45%),
+        radial-gradient(ellipse at 0% 80%, rgba(25,65,95,.18), transparent 40%),
+        var(--background);
+      color: #fff;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .background-grid {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .12;
+      background-image:
+        linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+      background-size: 55px 55px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .glow {
+      position: fixed;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: -1;
+      opacity: .12;
+    }
+
+    .glow-one {
+      background: var(--green);
+      top: 15%;
+      left: -220px;
+    }
+
+    .glow-two {
+      background: #2874a9;
+      right: -230px;
+      bottom: 5%;
+    }
+
+    .container {
+      width: min(1100px, 91%);
+      margin: auto;
+    }
+
+    header {
+      width: min(1200px, 91%);
+      margin: auto;
+      padding: 25px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 15px;
+      border: 1px solid rgba(56,245,163,.3);
+      border-radius: 50px;
+      color: var(--green);
+      background: rgba(56,245,163,.06);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: .25; }
+    }
+
+    main {
+      padding: 105px 0 80px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 27px;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 5px;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--green);
+    }
+
+    h1 {
+      font-size: clamp(48px, 10vw, 110px);
+      font-weight: 900;
+      line-height: .96;
+      letter-spacing: -6px;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--green);
+      text-shadow: 0 0 35px rgba(56,245,163,.25);
+    }
+
+    .hero-description {
+      max-width: 570px;
+      margin: 27px auto;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .year-tag {
+      display: inline-block;
+      padding: 12px 19px;
+      border: 1px solid rgba(56,245,163,.35);
+      border-radius: 6px;
+      background: rgba(56,245,163,.06);
+      color: var(--green-soft);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .section-label {
+      margin: 65px 0 20px;
+      color: #a5b1bd;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .time-box {
+      width: 120px;
+      padding: 23px 10px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      backdrop-filter: blur(12px);
+      transition: .25s;
+    }
+
+    .time-box:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56,245,163,.55);
+    }
+
+    .number {
+      display: block;
+      color: var(--green);
+      font-size: 39px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .time-label {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .panel {
+      width: min(760px, 100%);
+      margin: 75px auto 0;
+      padding: 42px 28px;
+      border: 1px solid rgba(56,245,163,.2);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(56,245,163,.035));
+      box-shadow: 0 20px 70px rgba(0,0,0,.25);
+    }
+
+    .panel-label {
+      margin-bottom: 17px;
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 5px;
+    }
+
+    .panel h2 {
+      font-size: clamp(27px, 5vw, 40px);
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .panel-description {
+      max-width: 500px;
+      margin: 15px auto 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .mystery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .mystery-card {
+      padding: 23px 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255,255,255,.025);
+      transition: .25s;
+    }
+
+    .mystery-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56,245,163,.45);
+    }
+
+    .mystery-icon {
+      margin-bottom: 13px;
+      font-size: 27px;
+    }
+
+    .mystery-card h3 {
+      color: var(--green-soft);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .mystery-footer {
+      margin-top: 28px;
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    .teaser {
+      position: relative;
+      width: min(520px, 100%);
+      min-height: 240px;
+      margin: 55px auto 0;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(56,245,163,.3);
+      border-radius: 20px;
+      background: radial-gradient(ellipse at center, #164c37, #080d12 75%);
+    }
+
+    .teaser::before,
+    .teaser::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border: 1px solid rgba(56,245,163,.25);
+      border-radius: 50%;
+      animation: rotate 22s linear infinite;
+    }
+
+    .teaser::after {
+      width: 185px;
+      height: 185px;
+      border-style: dashed;
+      animation-duration: 30s;
+      animation-direction: reverse;
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    .teaser-content {
+      position: relative;
+      z-index: 2;
+      padding: 25px;
+    }
+
+    .crown {
+      margin-bottom: 13px;
+      font-size: 55px;
+      animation: float 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      to { transform: translateY(-8px); }
+    }
+
+    .teaser-title {
+      color: var(--green);
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 4px;
+    }
+
+    .teaser-subtitle {
+      margin-top: 11px;
+      color: #b4c0c0;
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
+
+    .teaser-line {
+      width: 55px;
+      height: 2px;
+      margin: 18px auto 0;
+      background: var(--green);
+      box-shadow: 0 0 15px var(--green);
+    }
+
+    .event-section {
+      width: min(680px, 100%);
+      margin: 75px auto 0;
+      padding: 38px 25px;
+      border: 1px solid rgba(255,214,90,.35);
+      border-radius: 20px;
+      background: linear-gradient(145deg, #19170c, #090a0c);
+      box-shadow: 0 15px 60px rgba(0,0,0,.35);
+    }
+
+    .event-heading {
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 5px;
+    }
+
+    .event-title {
+      margin-top: 12px;
+      font-size: clamp(28px, 6vw, 43px);
+      font-weight: 900;
+    }
+
+    .event-subtitle {
+      margin: 12px 0 30px;
+      color: #aaa;
+      font-size: 11px;
+      letter-spacing: 2px;
+      line-height: 1.8;
+    }
+
+    .event-countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .event-time {
+      padding: 19px 5px;
+      border: 1px solid rgba(255,214,90,.3);
+      border-radius: 11px;
+      background: rgba(255,214,90,.06);
+    }
+
+    .event-number {
+      display: block;
+      color: var(--gold);
+      font-size: clamp(25px, 6vw, 39px);
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .event-unit {
+      display: block;
+      margin-top: 8px;
+      color: #aaa;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .event-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .event-detail {
+      padding: 17px 9px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .event-detail-label {
+      margin-bottom: 9px;
+      color: var(--gold);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .event-detail-time {
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .event-detail-date {
+      margin-top: 7px;
+      color: #999;
+      font-size: 10px;
+    }
+
+    .calendar-button {
+      width: 100%;
+      padding: 17px;
+      border: 0;
+      border-radius: 9px;
+      background: var(--gold);
+      color: #080808;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .calendar-button:hover {
+      transform: translateY(-3px);
+      background: #fff09a;
+    }
+
+    .bottom-text {
+      margin-top: 48px;
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    /* INFORMATION SECTIONS */
+
+    .information-section {
+      width: min(850px, 91%);
+      margin: 35px auto;
+      padding: 35px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(12,18,25,.88);
+      scroll-margin-top: 25px;
+    }
+
+    .information-section .section-kicker {
+      margin-bottom: 12px;
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 4px;
+    }
+
+    .information-section h2 {
+      margin-bottom: 20px;
+      font-size: clamp(25px, 5vw, 35px);
+      font-weight: 900;
+    }
+
+    .information-section h3 {
+      margin: 23px 0 8px;
+      color: var(--green-soft);
+      font-size: 14px;
+    }
+
+    .information-section p,
+    .information-section li {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .information-section ul {
+      padding-left: 20px;
+    }
+
+    .information-section li {
+      margin: 7px 0;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 20px;
+      padding: 19px;
+      border: 1px solid rgba(56,245,163,.2);
+      border-radius: 12px;
+      background: rgba(56,245,163,.04);
+    }
+
+    .contact-label {
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .contact-name {
+      margin-top: 7px;
+      color: var(--green);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .copy-button {
+      padding: 12px 16px;
+      border: 1px solid rgba(56,245,163,.4);
+      border-radius: 7px;
+      background: rgba(56,245,163,.1);
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .copy-button:hover {
+      background: rgba(56,245,163,.2);
+    }
+
+    .back-top {
+      display: inline-block;
+      margin-top: 25px;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 65px;
+      padding: 30px 15px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-bottom: 23px;
+    }
+
+    .footer-links a {
+      color: #aab5bf;
+      font-size: 10px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--green);
+    }
+
+    .footer-credit {
+      color: #77848d;
+      font-size: 9px;
+      letter-spacing: 2px;
+      line-height: 2;
+    }
+
+    .footer-credit span {
+      color: var(--green);
+    }
+
+    .footer-note {
+      margin-top: 9px;
+      color: #59656e;
+      font-size: 9px;
+    }
+
+    @media(max-width: 600px) {
+      header {
+        padding: 20px 0;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      .status {
+        padding: 9px 10px;
+        font-size: 7px;
+        letter-spacing: 1px;
+      }
+
+      main {
+        padding-top: 70px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .eyebrow {
+        font-size: 8px;
+        letter-spacing: 3px;
+      }
+
+      .hero-description {
+        font-size: 12px;
+      }
+
+      .time-box {
+        width: calc(50% - 8px);
+        max-width: 145px;
+      }
+
+      .panel {
+        padding: 30px 14px;
+      }
+
+      .mystery-grid {
+        gap: 7px;
+      }
+
+      .mystery-card {
+        padding: 17px 5px;
+      }
+
+      .mystery-card h3 {
+        font-size: 8px;
+        letter-spacing: 1px;
+      }
+
+      .event-section {
+        padding: 28px 13px;
+      }
+
+      .event-countdown {
+        gap: 6px;
+      }
+
+      .event-time {
+        padding: 15px 3px;
+      }
+
+      .event-unit {
+        font-size: 7px;
+        letter-spacing: 1px;
+      }
+
+      .event-details {
+        gap: 7px;
+      }
+
+      .event-detail-time {
+        font-size: 11px;
+      }
+
+      .information-section {
+        padding: 25px 18px;
+      }
+
+      .contact-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .bottom-text {
+        font-size: 8px;
+        letter-spacing: 2px;
+      }
+
+      .footer-links {
+        gap: 17px;
+      }
+    }
+
+    @media(prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body id="top">
 
-<div class="grid-background"></div>
-<div class="ambient one"></div>
-<div class="ambient two"></div>
+  <div class="background-grid"></div>
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
 
-<header>
-  <div class="logo">COMING<span>SOON</span></div>
-  <div class="status">
-    <span class="status-dot"></span>
-    2027 DEVELOPMENT
-  </div>
-</header>
+  <header>
+    <a class="logo" href="#top">COMING<span>SOON</span></a>
 
-<main>
-
-  <div class="eyebrow">THE NEXT ERA STARTS HERE</div>
-
-  <h1>
-    SOMETHING
-    <span>BIG IS COMING.</span>
-  </h1>
-
-  <p class="subtitle">
-    A new experience is taking shape.
-    A new destination is being built.
-    The next chapter begins with something extraordinary.
-  </p>
-
-  <div class="year-tag">
-    2027 — OFFICIAL DEVELOPMENT YEAR
-  </div>
-
-  <div class="section-label">
-    COUNTDOWN TO THE NEXT CHAPTER
-  </div>
-
-  <div class="countdown">
-    <div class="timebox">
-      <span class="number" id="days">00</span>
-      <div class="label">DAYS</div>
+    <div class="status">
+      <span class="status-dot"></span>
+      2027 DEVELOPMENT
     </div>
+  </header>
 
-    <div class="timebox">
-      <span class="number" id="hours">00</span>
-      <div class="label">HOURS</div>
-    </div>
+  <main class="container">
 
-    <div class="timebox">
-      <span class="number" id="minutes">00</span>
-      <div class="label">MINUTES</div>
-    </div>
+    <div class="eyebrow">THE NEXT ERA STARTS HERE</div>
 
-    <div class="timebox">
-      <span class="number" id="seconds">00</span>
-      <div class="label">SECONDS</div>
-    </div>
-  </div>
+    <h1>
+      SOMETHING
+      <span>BIG IS COMING.</span>
+    </h1>
 
-  <section class="mystery">
-    <div class="mystery-label">CLASSIFIED PROJECT PREVIEW</div>
-
-    <h2>WHAT'S COMING?</h2>
-
-    <p class="mystery-description">
-      Something new is being imagined. Something different
-      is being created. Here's a tiny glimpse of what could
-      be waiting beyond the countdown...
+    <p class="hero-description">
+      A new experience is taking shape.
+      A new destination is being created.
+      The next chapter is closer than you think.
     </p>
 
-    <div class="mystery-grid">
-
-      <div class="mystery-card">
-        <div class="mystery-icon">🌐</div>
-        <div class="mystery-blur">???? EXPERIENCE</div>
-      </div>
-
-      <div class="mystery-card">
-        <div class="mystery-icon">✨</div>
-        <div class="mystery-blur">???? FEATURES</div>
-      </div>
-
-      <div class="mystery-card">
-        <div class="mystery-icon">👑</div>
-        <div class="mystery-blur">???? SURPRISE</div>
-      </div>
-
+    <div class="year-tag">
+      2027 — OFFICIAL DEVELOPMENT YEAR
     </div>
 
-    <div class="mystery-footer">
-      FULL REVEAL COMING IN 2027
+    <div class="section-label">
+      COUNTDOWN TO THE NEXT CHAPTER
     </div>
-  </section>
 
-  <section class="teaser">
-
-    <div class="teaser-content">
-      <div class="crown">👑</div>
-
-      <div class="teaser-title">VIDEO COMING SOON</div>
-
-      <div class="teaser-subtitle">
-        SOMETHING SPECIAL IS IN THE WORKS
+    <div class="countdown">
+      <div class="time-box">
+        <span class="number" id="days">00</span>
+        <div class="time-label">DAYS</div>
       </div>
 
-      <div class="teaser-line"></div>
+      <div class="time-box">
+        <span class="number" id="hours">00</span>
+        <div class="time-label">HOURS</div>
+      </div>
+
+      <div class="time-box">
+        <span class="number" id="minutes">00</span>
+        <div class="time-label">MINUTES</div>
+      </div>
+
+      <div class="time-box">
+        <span class="number" id="seconds">00</span>
+        <div class="time-label">SECONDS</div>
+      </div>
     </div>
 
-    <div class="teaser-caption">
-      EXCLUSIVE FIRST LOOK
+    <section class="panel">
+      <div class="panel-label">CLASSIFIED PROJECT PREVIEW</div>
+      <h2>WHAT'S COMING?</h2>
+
+      <p class="panel-description">
+        We're working behind the scenes on something different.
+        The details are staying secret for now, but the reveal is
+        getting closer. Here's a small glimpse of what's ahead.
+      </p>
+
+      <div class="mystery-grid">
+        <div class="mystery-card">
+          <div class="mystery-icon">🌐</div>
+          <h3>NEW EXPERIENCE</h3>
+        </div>
+
+        <div class="mystery-card">
+          <div class="mystery-icon">✨</div>
+          <h3>NEW FEATURES</h3>
+        </div>
+
+        <div class="mystery-card">
+          <div class="mystery-icon">👑</div>
+          <h3>BIG SURPRISE</h3>
+        </div>
+      </div>
+
+      <div class="mystery-footer">
+        FULL REVEAL COMING IN 2027
+      </div>
+    </section>
+
+    <section class="teaser">
+      <div class="teaser-content">
+        <div class="crown">👑</div>
+        <div class="teaser-title">VIDEO COMING SOON</div>
+        <div class="teaser-subtitle">
+          SOMETHING SPECIAL IS IN THE WORKS
+        </div>
+        <div class="teaser-line"></div>
+      </div>
+    </section>
+
+    <section class="event-section">
+      <div class="event-heading">SPECIAL EVENT</div>
+      <h2 class="event-title">THE NEXT ERA</h2>
+
+      <p class="event-subtitle">
+        ONE NEW ERA. ONE BIG MOMENT. SOMETHING IS COMING.
+      </p>
+
+      <div class="event-countdown">
+        <div class="event-time">
+          <span class="event-number" id="eventDays">00</span>
+          <span class="event-unit">DAYS</span>
+        </div>
+
+        <div class="event-time">
+          <span class="event-number" id="eventHours">00</span>
+          <span class="event-unit">HOURS</span>
+        </div>
+
+        <div class="event-time">
+          <span class="event-number" id="eventMinutes">00</span>
+          <span class="event-unit">MINUTES</span>
+        </div>
+
+        <div class="event-time">
+          <span class="event-number" id="eventSeconds">00</span>
+          <span class="event-unit">SECONDS</span>
+        </div>
+      </div>
+
+      <div class="event-details">
+        <div class="event-detail">
+          <div class="event-detail-label">DOORS OPEN</div>
+          <div class="event-detail-time">6:20 PM GMT</div>
+          <div class="event-detail-date">THU, DEC 31, 2026</div>
+        </div>
+
+        <div class="event-detail">
+          <div class="event-detail-label">EVENT STARTS</div>
+          <div class="event-detail-time">7:00 PM GMT</div>
+          <div class="event-detail-date">THU, DEC 31, 2026</div>
+        </div>
+      </div>
+
+      <button class="calendar-button" onclick="addEventToCalendar()">
+        ▦ &nbsp; ADD TO CALENDAR
+      </button>
+    </section>
+
+    <div class="bottom-text">
+      THE COUNTDOWN TO A NEW ERA HAS BEGUN.
     </div>
 
-  </section>
+  </main>
 
-  <section class="event-section">
+  <!-- CONTACT -->
 
-    <div class="event-heading">SPECIAL EVENT</div>
+  <section class="information-section" id="contact">
+    <div class="section-kicker">GET IN TOUCH</div>
+    <h2>CONTACT</h2>
 
-    <h2 class="event-title">THE NEXT ERA</h2>
-
-    <p class="event-subtitle">
-      THE COUNTDOWN HAS BEGUN.
+    <p>
+      Want to get in touch? Find us on Discord.
+      More community links may be added as the project develops.
     </p>
 
-    <div class="event-countdown">
-
-      <div class="event-time">
-        <span class="event-number" id="eventDays">00</span>
-        <span class="event-unit">DAYS</span>
+    <div class="contact-card">
+      <div>
+        <div class="contact-label">DISCORD USERNAME</div>
+        <div class="contact-name">nyxg7</div>
       </div>
 
-      <div class="event-time">
-        <span class="event-number" id="eventHours">00</span>
-        <span class="event-unit">HOURS</span>
-      </div>
-
-      <div class="event-time">
-        <span class="event-number" id="eventMinutes">00</span>
-        <span class="event-unit">MINUTES</span>
-      </div>
-
-      <div class="event-time">
-        <span class="event-number" id="eventSeconds">00</span>
-        <span class="event-unit">SECONDS</span>
-      </div>
-
+      <button class="copy-button" onclick="copyDiscord()">
+        COPY USERNAME
+      </button>
     </div>
 
-    <div class="event-details">
+    <p id="copyMessage" aria-live="polite" style="margin-top:12px;"></p>
 
-      <div class="event-detail">
-        <div class="event-detail-label">DOORS OPEN</div>
-        <div class="event-detail-time">6:20 PM GMT</div>
-        <div class="event-detail-date">SAT, DEC 5, 2026</div>
-      </div>
-
-      <div class="event-detail">
-        <div class="event-detail-label">EVENT STARTS</div>
-        <div class="event-detail-time">7:00 PM GMT</div>
-        <div class="event-detail-date">SAT, DEC 5, 2026</div>
-      </div>
-
-    </div>
-
-    <button class="calendar-button" onclick="addEventToCalendar()">
-      <span>▦</span>
-      ADD TO CALENDAR
-    </button>
-
+    <a class="back-top" href="#top">BACK TO TOP ↑</a>
   </section>
 
-  <div class="bottom-text">
-    THE COUNTDOWN TO A NEW ERA HAS BEGUN.
-  </div>
+  <!-- ABOUT -->
 
-</main>
+  <section class="information-section" id="about">
+    <div class="section-kicker">WHO WE ARE</div>
+    <h2>ABOUT COMING SOON</h2>
 
-<footer>
-  © 2027 · MADE BY <span>TAY</span> · THE NEXT ERA STARTS SOON
-</footer>
+    <p>
+      COMING SOON is an independent project currently in development.
+      This website is the home of our upcoming announcement and the
+      beginning of a new chapter.
+    </p>
 
-<script>
+    <h3>Our goal</h3>
+    <p>
+      To build something exciting, create a memorable experience
+      and share more details when the time is right.
+    </p>
 
-/* MAIN COUNTDOWN */
+    <h3>Development</h3>
+    <p>
+      Development is planned throughout 2027. Features, announcements
+      and release information may change as the project progresses.
+      Keep checking this website for future updates.
+    </p>
 
-const targetTime =
-  new Date("2027-01-01T00:00:00Z").getTime();
+    <a class="back-top" href="#top">BACK TO TOP ↑</a>
+  </section>
 
-function updateCountdown() {
+  <!-- PRIVACY POLICY -->
 
-  const remaining = Math.max(0, targetTime - Date.now());
+  <section class="information-section" id="privacy">
+    <div class="section-kicker">YOUR INFORMATION</div>
+    <h2>PRIVACY POLICY</h2>
 
-  const days = Math.floor(remaining / 86400000);
-  const hours = Math.floor((remaining % 86400000) / 3600000);
-  const minutes = Math.floor((remaining % 3600000) / 60000);
-  const seconds = Math.floor((remaining % 60000) / 1000);
+    <p><strong>Last updated: November 2026</strong></p>
 
-  document.getElementById("days").textContent =
-    String(days).padStart(2, "0");
+    <p style="margin-top:15px;">
+      This Privacy Policy explains how the COMING SOON website handles
+      information when you visit it. We aim to be clear about what
+      this website does and does not collect.
+    </p>
 
-  document.getElementById("hours").textContent =
-    String(hours).padStart(2, "0");
+    <h3>1. Information you provide</h3>
+    <p>
+      This website does not currently provide account registration,
+      user profiles, contact forms or payment facilities. Please do
+      not send private or sensitive information through public
+      social media channels.
+    </p>
 
-  document.getElementById("minutes").textContent =
-    String(minutes).padStart(2, "0");
+    <h3>2. Technical information</h3>
+    <p>
+      Our website is hosted using GitHub Pages. The hosting provider
+      may process technical information, such as IP addresses,
+      browser details and request information, as part of delivering
+      and securing the website. This processing is subject to the
+      provider's own policies and practices.
+    </p>
 
-  document.getElementById("seconds").textContent =
-    String(seconds).padStart(2, "0");
+    <h3>3. Cookies and storage</h3>
+    <p>
+      This website does not intentionally set advertising cookies
+      or use browser storage to create user profiles. Your browser
+      or third-party services may handle information separately.
+    </p>
 
-  if (remaining <= 0) {
-    document.querySelector(".section-label").textContent =
-      "OFFICIAL DEVELOPMENT YEAR";
+    <h3>4. External services and links</h3>
+    <p>
+      This website may use external services, including Google Fonts,
+      and may link to platforms such as Discord or TikTok. When you
+      visit those services, they may process information according
+      to their own privacy policies. We do not control their
+      practices.
+    </p>
 
-    document.querySelector(".bottom-text").textContent =
-      "THE NEXT CHAPTER STARTS NOW.";
-  }
-}
+    <h3>5. How information is used</h3>
+    <p>
+      Technical information processed by the hosting provider may
+      be used to deliver the website, maintain security, prevent
+      misuse and troubleshoot technical problems.
+    </p>
 
-/* EVENT COUNTDOWN */
+    <h3>6. Data sharing</h3>
+    <p>
+      We do not operate a user database or sell personal information
+      through this website. Hosting and other service providers may
+      process technical information as needed to provide their
+      services.
+    </p>
 
-const eventTime =
-  new Date("2026-12-05T19:00:00Z").getTime();
+    <h3>7. Your privacy rights</h3>
+    <p>
+      Depending on where you live, you may have rights relating to
+      personal information, including rights to request access,
+      correction or deletion. Information processed by third-party
+      providers may need to be handled through those providers.
+    </p>
 
-function updateEventCountdown() {
+    <h3>8. Children's privacy</h3>
+    <p>
+      This website is not designed to collect personal information
+      from children. We do not knowingly request personal details
+      through the website.
+    </p>
 
-  const remaining = Math.max(0, eventTime - Date.now());
+    <h3>9. Changes to this policy</h3>
+    <p>
+      This policy may be updated as the website changes. The latest
+      version will be published on this page with an updated date.
+    </p>
 
-  document.getElementById("eventDays").textContent =
-    String(Math.floor(remaining / 86400000)).padStart(2, "0");
+    <h3>10. Contact</h3>
+    <p>
+      For questions about this policy, contact us through the
+      Discord username listed on our Contact section.
+    </p>
 
-  document.getElementById("eventHours").textContent =
-    String(Math.floor((remaining % 86400000) / 3600000)).padStart(2, "0");
+    <a class="back-top" href="#top">BACK TO TOP ↑</a>
+  </section>
 
-  document.getElementById("eventMinutes").textContent =
-    String(Math.floor((remaining % 3600000) / 60000)).padStart(2, "0");
+  <!-- TERMS -->
 
-  document.getElementById("eventSeconds").textContent =
-    String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0");
+  <section class="information-section" id="terms">
+    <div class="section-kicker">WEBSITE GUIDELINES</div>
+    <h2>TERMS OF USE</h2>
 
-  if (remaining <= 0) {
-    document.querySelector(".event-subtitle").textContent =
-      "THE EVENT START TIME HAS ARRIVED.";
-  }
-}
+    <p><strong>Last updated: November 2026</strong></p>
 
-/* CALENDAR DOWNLOAD */
+    <h3>1. About this website</h3>
+    <p>
+      COMING SOON is an independent project website used to share
+      announcements, development information and future updates.
+    </p>
 
-function addEventToCalendar() {
+    <h3>2. Acceptable use</h3>
+    <p>
+      You agree not to misuse the website, attempt to disrupt its
+      operation, interfere with its security or use it for unlawful
+      purposes.
+    </p>
 
-  const stamp = new Date().toISOString()
-    .replace(/[-:]/g, "")
-    .replace(/\.\d{3}/, "");
+    <h3>3. Website content</h3>
+    <p>
+      Unless otherwise stated, the original branding, text and
+      design created for this website belong to their respective
+      owner. You may not present our content as your own or
+      redistribute it in a misleading way.
+    </p>
 
-  const calendar = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Coming Soon//Event//EN",
-    "CALSCALE:GREGORIAN",
-    "BEGIN:VEVENT",
-    "UID:next-era-event-20261205@example.com",
-    "DTSTAMP:" + stamp,
-    "DTSTART:20261205T182000Z",
-    "DTEND:20261205T193000Z",
-    "SUMMARY:The Next Era - Special Event",
-    "DESCRIPTION:Doors open at 6:20 PM GMT. Event starts at 7:00 PM GMT.",
-    "END:VEVENT",
-    "END:VCALENDAR"
-  ].join("\r\n");
+    <h3>4. Project information</h3>
+    <p>
+      Announcements, dates, previews and planned features may change.
+      A countdown or preview does not guarantee that a particular
+      feature or release will be available at a specific time.
+    </p>
 
-  const blob = new Blob([calendar], {
-    type: "text/calendar;charset=utf-8"
-  });
+    <h3>5. External websites</h3>
+    <p>
+      We may provide links to third-party websites and services.
+      We are not responsible for their content, availability,
+      security or privacy practices.
+    </p>
 
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
+    <h3>6. Availability</h3>
+    <p>
+      We aim to keep this website available, but we cannot guarantee
+      uninterrupted access. The website may be changed, suspended
+      or updated without notice.
+    </p>
 
-  link.href = url;
-  link.download = "the-next-era-event.ics";
+    <h3>7. Changes to these terms</h3>
+    <p>
+      These terms may be updated as the project develops.
+      Continued use of the website after an update means you
+      should review the revised terms.
+    </p>
 
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
+    <h3>8. Contact</h3>
+    <p>
+      Questions about these terms can be sent through the Discord
+      username listed in the Contact section.
+    </p>
 
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
+    <a class="back-top" href="#top">BACK TO TOP ↑</a>
+  </section>
 
-/* DISCOURAGE CASUAL COPYING */
+  <footer>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms</a>
+    </nav>
 
-document.addEventListener("contextmenu", function(event) {
-  event.preventDefault();
-});
+    <div class="footer-credit">
+      © 2027 · MADE BY <span>TAY</span> · THE NEXT ERA STARTS SOON
+    </div>
 
-document.addEventListener("selectstart", function(event) {
-  event.preventDefault();
-});
+    <div class="footer-note">
+      Independent project. All rights reserved.
+    </div>
+  </footer>
 
-document.addEventListener("copy", function(event) {
-  event.preventDefault();
-});
+  <script>
+    // MAIN COUNTDOWN TO 2027
 
-document.addEventListener("cut", function(event) {
-  event.preventDefault();
-});
+    const targetTime =
+      new Date("2027-01-01T00:00:00Z").getTime();
 
-document.addEventListener("dragstart", function(event) {
-  event.preventDefault();
-});
+    function updateCountdown() {
+      const remaining = Math.max(0, targetTime - Date.now());
 
-document.addEventListener("keydown", function(event) {
+      const days = Math.floor(remaining / 86400000);
+      const hours = Math.floor((remaining % 86400000) / 3600000);
+      const minutes = Math.floor((remaining % 3600000) / 60000);
+      const seconds = Math.floor((remaining % 60000) / 1000);
 
-  const key = event.key.toLowerCase();
+      document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
 
-  if ((event.ctrlKey || event.metaKey) &&
-      ["a", "c", "x", "s", "u", "p"].includes(key)) {
-    event.preventDefault();
-  }
+      document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
 
-});
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
 
-/* START */
+      document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
 
-updateCountdown();
-updateEventCountdown();
+      if (remaining <= 0) {
+        document.querySelector(".section-label").textContent =
+          "THE NEXT CHAPTER HAS BEGUN";
 
-setInterval(updateCountdown, 1000);
-setInterval(updateEventCountdown, 1000);
+        document.querySelector(".bottom-text").textContent =
+          "WELCOME TO THE NEXT ERA.";
+      }
+    }
 
-</script>
+    // SPECIAL EVENT COUNTDOWN
+
+    const eventTime =
+      new Date("2026-12-31T19:00:00Z").getTime();
+
+    function updateEventCountdown() {
+      const remaining = Math.max(0, eventTime - Date.now());
+
+      document.getElementById("eventDays").textContent =
+        String(Math.floor(remaining / 86400000)).padStart(2, "0");
+
+      document.getElementById("eventHours").textContent =
+        String(Math.floor((remaining % 86400000) / 3600000)).padStart(2, "0");
+
+      document.getElementById("eventMinutes").textContent =
+        String(Math.floor((remaining % 3600000) / 60000)).padStart(2, "0");
+
+      document.getElementById("eventSeconds").textContent =
+        String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0");
+
+      if (remaining <= 0) {
+        document.querySelector(".event-subtitle").textContent =
+          "THE EVENT START TIME HAS ARRIVED.";
+      }
+    }
+
+    // ADD EVENT TO CALENDAR
+
+    function addEventToCalendar() {
+      const stamp = new Date().toISOString()
+        .replace(/[-:]/g, "")
+        .replace(/\.\d{3}/, "");
+
+      const calendar = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Coming Soon//Event//EN",
+        "CALSCALE:GREGORIAN",
+        "BEGIN:VEVENT",
+        "UID:next-era-event-20261231@coming-soon",
+        "DTSTAMP:" + stamp,
+        "DTSTART:20261231T182000Z",
+        "DTEND:20261231T193000Z",
+        "SUMMARY:The Next Era - Special Event",
+        "DESCRIPTION:Doors open at 6:20 PM GMT. Event starts at 7:00 PM GMT.",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([calendar], {
+        type: "text/calendar;charset=utf-8"
+      });
+
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = "the-next-era-event.ics";
+
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    // COPY DISCORD USERNAME
+
+    async function copyDiscord() {
+      const username = "nyxg7";
+      const message = document.getElementById("copyMessage");
+
+      try {
+        await navigator.clipboard.writeText(username);
+        message.textContent = "Discord username copied!";
+      } catch (error) {
+        message.textContent = "Your Discord username is: " + username;
+      }
+    }
+
+    // START COUNTDOWNS
+
+    updateCountdown();
+    updateEventCountdown();
+
+    setInterval(updateCountdown, 1000);
+    setInterval(updateEventCountdown, 1000);
+  </script>
 
 </body>
 </html>
