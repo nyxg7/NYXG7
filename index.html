@@ -24,6 +24,7 @@
 <meta name="twitter:description" content="A brand new website launches 31 December 2026, with a PC app coming soon after.">
 <meta name="twitter:image" content="https://vexfnofficial.github.io/coming-soon/og.png">
 
+<script src="assets/app.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -483,7 +484,7 @@ $$("[data-cal]").forEach(b => b.addEventListener("click", () => {
 
 // Background particles
 (function(){
-  if (reduce) return;
+  if (reduce || document.documentElement.dataset.fx === "off") return;
   const c = $("#fx"), x = c.getContext("2d"); let W, H, P = [];
   function size(){ const r = devicePixelRatio || 1; W = innerWidth; H = innerHeight; c.width = W*r; c.height = H*r; c.style.width = W+"px"; c.style.height = H+"px"; x.setTransform(r,0,0,r,0,0);
     P = Array.from({length: Math.min(70, Math.round(W*H/18000))}, () => ({x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25, r: Math.random()*1.4+.4})); }
