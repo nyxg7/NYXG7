@@ -5,12 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#05070b">
-  <meta name="description" content="Something extraordinary is coming. Discover the next era in 2027.">
-  <title>COMING SOON — The Next Era</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="description" content="Something big is coming. Stay tuned for our 2027 announcement.">
+  <title>COMING SOON — Something Big Is Coming</title>
 
   <style>
     :root {
@@ -18,7 +14,6 @@
       --green-soft: #a5ffd5;
       --gold: #ffd65a;
       --background: #05070b;
-      --panel: #0c1219;
       --muted: #9aa8b5;
       --border: rgba(255,255,255,.1);
     }
@@ -57,7 +52,7 @@
     .background-grid {
       position: fixed;
       inset: 0;
-      z-index: -2;
+      z-index: 0;
       pointer-events: none;
       opacity: .12;
       background-image:
@@ -74,7 +69,7 @@
       border-radius: 50%;
       filter: blur(120px);
       pointer-events: none;
-      z-index: -1;
+      z-index: 0;
       opacity: .12;
     }
 
@@ -88,6 +83,11 @@
       background: #2874a9;
       right: -230px;
       bottom: 5%;
+    }
+
+    header, main, footer, .information-section {
+      position: relative;
+      z-index: 1;
     }
 
     .container {
@@ -513,8 +513,6 @@
       letter-spacing: 4px;
     }
 
-    /* INFORMATION SECTIONS */
-
     .information-section {
       width: min(850px, 91%);
       margin: 35px auto;
@@ -612,8 +610,6 @@
     }
 
     footer {
-      position: relative;
-      z-index: 1;
       margin-top: 65px;
       padding: 30px 15px;
       border-top: 1px solid var(--border);
@@ -784,7 +780,7 @@
 
   <main class="container">
 
-    <div class="eyebrow">THE NEXT ERA STARTS HERE</div>
+    <div class="eyebrow">SOMETHING BIG IS COMING</div>
 
     <h1>
       SOMETHING
@@ -794,7 +790,7 @@
     <p class="hero-description">
       A new experience is taking shape.
       A new destination is being created.
-      The next chapter is closer than you think.
+      More details will be revealed soon.
     </p>
 
     <div class="year-tag">
@@ -802,7 +798,7 @@
     </div>
 
     <div class="section-label">
-      COUNTDOWN TO THE NEXT CHAPTER
+      COUNTDOWN TO THE BIG REVEAL
     </div>
 
     <div class="countdown">
@@ -872,10 +868,10 @@
 
     <section class="event-section">
       <div class="event-heading">SPECIAL EVENT</div>
-      <h2 class="event-title">THE NEXT ERA</h2>
+      <h2 class="event-title">THE BIG REVEAL</h2>
 
       <p class="event-subtitle">
-        ONE NEW ERA. ONE BIG MOMENT. SOMETHING IS COMING.
+        ONE BIG ANNOUNCEMENT. ONE SPECIAL MOMENT. ARE YOU READY?
       </p>
 
       <div class="event-countdown">
@@ -920,7 +916,7 @@
     </section>
 
     <div class="bottom-text">
-      THE COUNTDOWN TO A NEW ERA HAS BEGUN.
+      THE COUNTDOWN HAS BEGUN.
     </div>
 
   </main>
@@ -960,8 +956,8 @@
 
     <p>
       COMING SOON is an independent project currently in development.
-      This website is the home of our upcoming announcement and the
-      beginning of a new chapter.
+      This website is the home of our upcoming announcement and
+      future updates.
     </p>
 
     <h3>Our goal</h3>
@@ -1020,11 +1016,10 @@
 
     <h3>4. External services and links</h3>
     <p>
-      This website may use external services, including Google Fonts,
-      and may link to platforms such as Discord or TikTok. When you
-      visit those services, they may process information according
-      to their own privacy policies. We do not control their
-      practices.
+      This website may use external services and may link to
+      platforms such as Discord or TikTok. When you visit those
+      services, they may process information according to their
+      own privacy policies. We do not control their practices.
     </p>
 
     <h3>5. How information is used</h3>
@@ -1125,8 +1120,7 @@
     <h3>7. Changes to these terms</h3>
     <p>
       These terms may be updated as the project develops.
-      Continued use of the website after an update means you
-      should review the revised terms.
+      Please review the latest version when visiting the website.
     </p>
 
     <h3>8. Contact</h3>
@@ -1147,7 +1141,7 @@
     </nav>
 
     <div class="footer-credit">
-      © 2027 · MADE BY <span>TAY</span> · THE NEXT ERA STARTS SOON
+      © 2027 · MADE BY <span>TAY</span> · SOMETHING BIG IS COMING
     </div>
 
     <div class="footer-note">
@@ -1183,10 +1177,10 @@
 
       if (remaining <= 0) {
         document.querySelector(".section-label").textContent =
-          "THE NEXT CHAPTER HAS BEGUN";
+          "THE BIG REVEAL HAS ARRIVED";
 
         document.querySelector(".bottom-text").textContent =
-          "WELCOME TO THE NEXT ERA.";
+          "WELCOME TO COMING SOON.";
       }
     }
 
@@ -1212,7 +1206,7 @@
 
       if (remaining <= 0) {
         document.querySelector(".event-subtitle").textContent =
-          "THE EVENT START TIME HAS ARRIVED.";
+          "THE BIG MOMENT IS HERE.";
       }
     }
 
@@ -1229,11 +1223,11 @@
         "PRODID:-//Coming Soon//Event//EN",
         "CALSCALE:GREGORIAN",
         "BEGIN:VEVENT",
-        "UID:next-era-event-20261231@coming-soon",
+        "UID:coming-soon-event-20261231@coming-soon",
         "DTSTAMP:" + stamp,
         "DTSTART:20261231T182000Z",
         "DTEND:20261231T193000Z",
-        "SUMMARY:The Next Era - Special Event",
+        "SUMMARY:Coming Soon - Special Event",
         "DESCRIPTION:Doors open at 6:20 PM GMT. Event starts at 7:00 PM GMT.",
         "END:VEVENT",
         "END:VCALENDAR"
@@ -1247,7 +1241,7 @@
       const link = document.createElement("a");
 
       link.href = url;
-      link.download = "the-next-era-event.ics";
+      link.download = "coming-soon-event.ics";
 
       document.body.appendChild(link);
       link.click();
