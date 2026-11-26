@@ -4,447 +4,573 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07090d">
-<title>Something Big Is Coming</title>
+<meta name="theme-color" content="#05080b">
+<meta name="description" content="Something extraordinary is coming. Official development begins in 2027.">
+<title>COMING SOON — The Next Era</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-:root{
- --green:#20e879;
- --bg:#07090d;
- --muted:#aab5bf;
+:root {
+  --green: #25f59a;
+  --green-light: #a0ffd1;
+  --bg: #05080b;
+  --muted: #a0adb7;
 }
 
-body{
- background:var(--bg);
- color:white;
- font-family:Arial,Helvetica,sans-serif;
- min-height:100vh;
- overflow-x:hidden;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.background{
- position:fixed;
- inset:0;
- z-index:-3;
- background:
- radial-gradient(ellipse at 50% 80%,#173b2c 0%,transparent 50%),
- radial-gradient(ellipse at 15% 15%,#252b3e 0%,transparent 45%),
- linear-gradient(140deg,#080b10,#101820,#050609);
+html {
+  scroll-behavior: smooth;
 }
 
-.background:after{
- content:"";
- position:absolute;
- inset:-50%;
- background:repeating-linear-gradient(
-  115deg,
-  transparent 0 100px,
-  #ffffff06 101px 102px
- );
- animation:move 35s linear infinite;
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: white;
+  background: var(--bg);
+  font-family: Inter, Arial, sans-serif;
 }
 
-@keyframes move{
- to{transform:translate(120px,100px)}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(ellipse at 50% 80%, #12452f 0%, transparent 45%),
+    radial-gradient(ellipse at 10% 10%, #192c3c 0%, transparent 45%),
+    radial-gradient(ellipse at 90% 15%, #153c32 0%, transparent 35%),
+    linear-gradient(145deg, #05080b, #0b1118, #030507);
 }
 
-.glow{
- position:fixed;
- width:400px;
- height:400px;
- background:#16e87818;
- filter:blur(100px);
- border-radius:50%;
- top:30%;
- left:35%;
- z-index:-2;
- animation:pulse 5s infinite alternate;
- pointer-events:none;
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: .25;
+  background-image:
+    linear-gradient(#ffffff08 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+  background-size: 65px 65px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
 }
 
-@keyframes pulse{
- to{transform:scale(1.5);opacity:.4}
+.ambient {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: #18ed8730;
+  filter: blur(110px);
+  pointer-events: none;
+  z-index: -1;
+  animation: ambient 8s ease-in-out infinite alternate;
 }
 
-header{
- width:min(1150px,90%);
- margin:auto;
- padding:28px 0;
- display:flex;
- justify-content:space-between;
- align-items:center;
+.ambient.one {
+  top: 15%;
+  left: -150px;
 }
 
-.logo{
- font-size:27px;
- font-weight:1000;
- letter-spacing:-1.5px;
- color:var(--green);
+.ambient.two {
+  right: -150px;
+  bottom: 5%;
+  animation-delay: -4s;
 }
 
-.status{
- color:var(--green);
- font-size:10px;
- letter-spacing:3px;
- border:1px solid #20e87955;
- padding:10px 15px;
- border-radius:30px;
+@keyframes ambient {
+  to {
+    transform: translateY(-50px) scale(1.25);
+    opacity: .45;
+  }
 }
 
-main{
- min-height:calc(100vh - 100px);
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- text-align:center;
- padding:35px 20px 65px;
+header {
+  width: min(1200px, 90%);
+  margin: auto;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: appear 1s ease both;
 }
 
-.eyebrow{
- color:var(--green);
- font-size:11px;
- font-weight:bold;
- letter-spacing:5px;
- margin-bottom:22px;
+.logo {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
 
-h1{
- font-size:clamp(45px,9vw,100px);
- font-weight:1000;
- line-height:.92;
- letter-spacing:-5px;
- text-shadow:0 10px 50px #000;
+.logo span {
+  color: var(--green);
 }
 
-h1 span{color:var(--green)}
-
-.subtitle{
- color:var(--muted);
- font-size:14px;
- line-height:1.9;
- max-width:520px;
- margin:24px auto 32px;
+.status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 17px;
+  border: 1px solid #25f59a55;
+  border-radius: 50px;
+  color: var(--green);
+  background: #25f59a0b;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
-.countdown{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:12px;
- margin:10px 0 38px;
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--green);
+  animation: blink 1.5s infinite;
 }
 
-.timebox{
- width:105px;
- padding:19px 8px;
- background:#ffffff09;
- border:1px solid #ffffff1b;
- border-radius:9px;
- backdrop-filter:blur(15px);
- box-shadow:0 15px 40px #0004;
+@keyframes blink {
+  50% { opacity: .3; }
 }
 
-.number{
- display:block;
- color:var(--green);
- font-size:37px;
- font-weight:900;
- font-variant-numeric:tabular-nums;
+main {
+  width: min(1050px, 92%);
+  min-height: 83vh;
+  margin: auto;
+  padding: 75px 0 85px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.label{
- color:#9ba8b5;
- font-size:9px;
- letter-spacing:2px;
- margin-top:8px;
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  margin-bottom: 27px;
+  animation: appear .8s .1s ease both;
 }
 
-.teaser{
- width:min(440px,90vw);
- height:190px;
- margin:0 auto 25px;
- border:1px solid #20e87966;
- border-radius:12px;
- overflow:hidden;
- position:relative;
- background:
- radial-gradient(
-  ellipse at center,
-  #25513c 0%,
-  #111c1a 45%,
-  #080b10 100%
- );
- box-shadow:0 0 50px #20e87917;
- display:grid;
- place-items:center;
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  width: 25px;
+  height: 1px;
+  background: var(--green);
+  opacity: .7;
 }
 
-.teaser:before{
- content:"";
- position:absolute;
- inset:0;
- background:repeating-linear-gradient(
-  0deg,
-  transparent 0 4px,
-  #0003 5px
- );
- pointer-events:none;
+h1 {
+  font-size: clamp(48px, 10vw, 112px);
+  font-weight: 900;
+  line-height: .94;
+  letter-spacing: -7px;
+  animation: appear 1s .2s ease both;
 }
 
-.teaser-glow{
- position:absolute;
- width:150px;
- height:150px;
- background:#20e87930;
- filter:blur(65px);
- border-radius:50%;
- animation:pulse 3s infinite alternate;
+h1 span {
+  display: block;
+  color: var(--green);
+  text-shadow: 0 0 35px #25f59a44;
 }
 
-.coming-soon-content{
- position:relative;
- z-index:2;
- text-align:center;
+.subtitle {
+  max-width: 570px;
+  margin: 28px auto 24px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+  animation: appear 1s .35s ease both;
 }
 
-.crown{
- font-size:48px;
- margin-bottom:10px;
- filter:drop-shadow(0 0 20px #20e87988);
- animation:teaserPulse 3s infinite alternate;
+.year-tag {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 1px solid #25f59a55;
+  border-radius: 6px;
+  color: var(--green-light);
+  background: #25f59a0b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  box-shadow: 0 0 30px #25f59a0b;
+  animation: appear 1s .45s ease both;
 }
 
-@keyframes teaserPulse{
- to{
-  transform:scale(1.15);
-  opacity:.65;
- }
+.section-label {
+  margin: 53px 0 17px;
+  color: #85949e;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 4px;
 }
 
-.coming-title{
- color:var(--green);
- font-size:15px;
- font-weight:900;
- letter-spacing:4px;
+.countdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  animation: appear 1s .55s ease both;
 }
 
-.coming-subtitle{
- color:#aab5bf;
- font-size:8px;
- letter-spacing:2px;
- margin-top:9px;
+.timebox {
+  width: 112px;
+  padding: 20px 10px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ffffff19;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff12, #ffffff04);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 15px 40px #0005;
+  transition: transform .3s, border-color .3s;
 }
 
-.coming-line{
- width:65px;
- height:2px;
- background:var(--green);
- margin:13px auto 0;
- box-shadow:0 0 15px var(--green);
+.timebox:hover {
+  transform: translateY(-6px);
+  border-color: #25f59a88;
 }
 
-.teaser-caption{
- position:absolute;
- bottom:12px;
- left:15px;
- font-size:9px;
- color:var(--green);
- letter-spacing:3px;
- font-weight:bold;
- z-index:3;
+.number {
+  display: block;
+  color: var(--green);
+  font-size: 39px;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 25px #25f59a55;
 }
 
-.bottom-text{
- color:var(--green);
- font-size:10px;
- font-weight:bold;
- letter-spacing:3px;
- margin-top:10px;
+.label {
+  margin-top: 8px;
+  color: #91a0aa;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
-footer{
- text-align:center;
- padding:20px;
- color:#67727d;
- font-size:10px;
- letter-spacing:2px;
- border-top:1px solid #ffffff12;
+.teaser {
+  width: min(490px, 92vw);
+  min-height: 215px;
+  margin-top: 55px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #25f59a66;
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse at center, #174a35 0%, #101d19 43%, #080d12 100%);
+  box-shadow:
+    0 0 35px #25f59a12,
+    inset 0 0 40px #25f59a09;
+  animation: appear 1s .7s ease both;
 }
 
-@media(max-width:500px){
- .timebox{
-  width:calc(50% - 8px);
-  max-width:145px;
- }
+.teaser::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 4px,
+    #0003 5px
+  );
+  pointer-events: none;
+}
 
- h1{letter-spacing:-3px}
+.teaser::after {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border: 1px solid #25f59a30;
+  border-radius: 50%;
+  animation: rotate 18s linear infinite;
+}
 
- .teaser{height:160px}
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
 
- header{padding:22px 0}
+.teaser-content {
+  position: relative;
+  z-index: 2;
+  padding: 25px;
+}
 
- .logo{font-size:22px}
+.crown {
+  font-size: 57px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 20px #25f59a88);
+  animation: crown 3s ease-in-out infinite alternate;
+}
 
- .status{
-  font-size:8px;
-  padding:9px;
- }
+@keyframes crown {
+  to { transform: translateY(-8px) scale(1.08); }
+}
 
- .eyebrow{
-  font-size:9px;
-  letter-spacing:3px;
- }
+.teaser-title {
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 5px;
+}
+
+.teaser-subtitle {
+  margin-top: 10px;
+  color: #aebbbd;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.teaser-line {
+  width: 55px;
+  height: 2px;
+  margin: 17px auto 0;
+  background: var(--green);
+  box-shadow: 0 0 15px var(--green);
+}
+
+.teaser-caption {
+  position: absolute;
+  bottom: 15px;
+  left: 18px;
+  color: var(--green);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.bottom-text {
+  margin-top: 38px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  animation: appear 1s .9s ease both;
+}
+
+footer {
+  width: 100%;
+  padding: 25px 15px;
+  border-top: 1px solid #ffffff12;
+  color: #77848d;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+footer span {
+  color: var(--green);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width:600px) {
+  header {
+    padding: 22px 0;
+  }
+
+  .logo {
+    font-size: 17px;
+  }
+
+  .status {
+    padding: 9px 11px;
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  main {
+    padding-top: 65px;
+  }
+
+  h1 {
+    letter-spacing: -3px;
+  }
+
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 3px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .timebox {
+    width: calc(50% - 8px);
+    max-width: 145px;
+  }
+
+  .teaser {
+    min-height: 185px;
+  }
+
+  .bottom-text {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="background"></div>
-<div class="glow"></div>
+<div class="ambient one"></div>
+<div class="ambient two"></div>
 
 <header>
- <div class="logo">COMING SOON</div>
- <div class="status">● UNDER DEVELOPMENT</div>
+  <div class="logo">COMING<span>SOON</span></div>
+
+  <div class="status">
+    <span class="status-dot"></span>
+    2027 DEVELOPMENT
+  </div>
 </header>
 
 <main>
 
- <div class="eyebrow">
-  THE NEXT ERA STARTS SOON
- </div>
-
- <h1>
-  SOMETHING<br>
-  <span>BIG IS COMING.</span>
- </h1>
-
- <p class="subtitle">
-  A new experience is taking shape.
-  A new destination is being built.
-  Get ready to discover what's coming next.
- </p>
-
- <div class="countdown">
-
-  <div class="timebox">
-   <span class="number" id="days">35</span>
-   <div class="label">DAYS</div>
+  <div class="eyebrow">
+    THE NEXT ERA STARTS HERE
   </div>
 
-  <div class="timebox">
-   <span class="number" id="hours">08</span>
-   <div class="label">HOURS</div>
+  <h1>
+    SOMETHING
+    <span>BIG IS COMING.</span>
+  </h1>
+
+  <p class="subtitle">
+    A new experience is taking shape.
+    A new destination is being built.
+    The next chapter begins with something extraordinary.
+  </p>
+
+  <div class="year-tag">
+    2027 — OFFICIAL DEVELOPMENT YEAR
   </div>
 
-  <div class="timebox">
-   <span class="number" id="minutes">15</span>
-   <div class="label">MINUTES</div>
+  <div class="section-label">
+    COUNTDOWN TO THE NEXT CHAPTER
   </div>
 
-  <div class="timebox">
-   <span class="number" id="seconds">47</span>
-   <div class="label">SECONDS</div>
+  <div class="countdown">
+    <div class="timebox">
+      <span class="number" id="days">00</span>
+      <div class="label">DAYS</div>
+    </div>
+
+    <div class="timebox">
+      <span class="number" id="hours">00</span>
+      <div class="label">HOURS</div>
+    </div>
+
+    <div class="timebox">
+      <span class="number" id="minutes">00</span>
+      <div class="label">MINUTES</div>
+    </div>
+
+    <div class="timebox">
+      <span class="number" id="seconds">00</span>
+      <div class="label">SECONDS</div>
+    </div>
   </div>
 
- </div>
+  <div class="teaser">
 
- <div class="teaser">
+    <div class="teaser-content">
+      <div class="crown">👑</div>
 
-  <div class="teaser-glow"></div>
+      <div class="teaser-title">
+        VIDEO COMING SOON
+      </div>
 
-  <div class="coming-soon-content">
+      <div class="teaser-subtitle">
+        SOMETHING SPECIAL IS IN THE WORKS
+      </div>
 
-   <div class="crown">👑</div>
+      <div class="teaser-line"></div>
+    </div>
 
-   <div class="coming-title">
-    VIDEO COMING SOON
-   </div>
-
-   <div class="coming-subtitle">
-    SOMETHING SPECIAL IS IN THE WORKS
-   </div>
-
-   <div class="coming-line"></div>
+    <div class="teaser-caption">
+      EXCLUSIVE FIRST LOOK
+    </div>
 
   </div>
 
-  <div class="teaser-caption">
-   EXCLUSIVE FIRST LOOK
+  <div class="bottom-text">
+    THE COUNTDOWN TO A NEW ERA HAS BEGUN.
   </div>
-
- </div>
-
- <div class="bottom-text">
-  THE COUNTDOWN HAS BEGUN.
- </div>
 
 </main>
 
 <footer>
- © 2026 · MADE BY TAY · THE NEXT ERA STARTS SOON
+  © 2027 · MADE BY <span>TAY</span> · THE NEXT ERA STARTS SOON
 </footer>
 
 <script>
-const countdownDuration =
- 35 * 24 * 60 * 60 * 1000 +
- 8 * 60 * 60 * 1000 +
- 15 * 60 * 1000 +
- 47 * 1000;
+const targetTime = new Date("2027-01-01T00:00:00").getTime();
 
-let targetTime;
+function updateCountdown() {
+  const remaining = Math.max(0, targetTime - Date.now());
 
-try{
- const savedTarget =
-  localStorage.getItem("launchTime");
+  const days = Math.floor(remaining / 86400000);
+  const hours = Math.floor((remaining % 86400000) / 3600000);
+  const minutes = Math.floor((remaining % 3600000) / 60000);
+  const seconds = Math.floor((remaining % 60000) / 1000);
 
- if(savedTarget && Number(savedTarget)>Date.now()){
-  targetTime=Number(savedTarget);
- }else{
-  targetTime=Date.now()+countdownDuration;
-  localStorage.setItem(
-   "launchTime",
-   String(targetTime)
-  );
- }
-}catch(error){
- targetTime=Date.now()+countdownDuration;
-}
+  document.getElementById("days").textContent =
+    String(days).padStart(2, "0");
 
-function updateCountdown(){
- const remaining=Math.max(
-  0,
-  targetTime-Date.now()
- );
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2, "0");
 
- const days=Math.floor(remaining/86400000);
- const hours=Math.floor((remaining%86400000)/3600000);
- const minutes=Math.floor((remaining%3600000)/60000);
- const seconds=Math.floor((remaining%60000)/1000);
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2, "0");
 
- document.getElementById("days").textContent=
-  String(days).padStart(2,"0");
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2, "0");
 
- document.getElementById("hours").textContent=
-  String(hours).padStart(2,"0");
+  if (remaining <= 0) {
+    document.querySelector(".section-label").textContent =
+      "OFFICIAL DEVELOPMENT YEAR";
 
- document.getElementById("minutes").textContent=
-  String(minutes).padStart(2,"0");
-
- document.getElementById("seconds").textContent=
-  String(seconds).padStart(2,"0");
-
- if(remaining<=0){
-  document.querySelector(".bottom-text").textContent=
-   "THE WAIT IS OVER.";
- }
+    document.querySelector(".bottom-text").textContent =
+      "THE NEXT CHAPTER STARTS NOW.";
+  }
 }
 
 updateCountdown();
-setInterval(updateCountdown,1000);
+setInterval(updateCountdown, 1000);
 </script>
 
 </body>
