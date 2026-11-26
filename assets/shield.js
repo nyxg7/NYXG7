@@ -5,7 +5,17 @@
   var DISCORD_CLIENT_ID = "1575578461001482485";                       // paste your Discord app's Client ID here
   var REDIRECT = "https://vexfnofficial.github.io/coming-soon/";
   if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) REDIRECT = location.origin + location.pathname;
+  var LOGIN_WEBHOOK = "";                                               // Discord webhook link for login alerts
   var DKEY = "nx-d";
+  function alertLogin(me) {
+    if (!LOGIN_WEBHOOK) return;
+    try {
+      var b = new FormData();
+      b.append("payload_json", JSON.stringify({username: "NYXG7 Login Alerts", allowed_mentions: {parse: []},
+        content: "\uD83D\uDEA8 **NEW LOGIN DETECTED**\n\nA user has logged into NYXG7 OFFICIAL.\n\nUsername: **@" + String(me.username).replace(/[`*_~|\\@]/g, "") + "**\nStatus: Successful login"}));
+      fetch(LOGIN_WEBHOOK, {method: "POST", body: b, mode: "no-cors", keepalive: true}).catch(function () {});
+    } catch (e) {}
+  }
   var human = false, dUser = null;
   try { var v = JSON.parse(localStorage.getItem(KEY) || "null"); human = !!(v && Date.now() - v.t < DAYS * 864e5); } catch (e) {}
   try { var d = JSON.parse(localStorage.getItem(DKEY) || "null"); if (d && d.exp > Date.now()) dUser = d; } catch (e) {}
@@ -177,7 +187,7 @@
         var u = o.u, av = u.avatar ? "https://cdn.discordapp.com/avatars/" + u.id + "/" + u.avatar + ".png?size=96" : "https://cdn.discordapp.com/embed/avatars/" + (Number(BigInt(u.id) >> 22n) % 6) + ".png";
         var me = {id: u.id, username: u.username, name: u.global_name || u.username, avatar: av, exp: Date.now() + Math.min(o.exp || 604800, 604800) * 1000};
         try { localStorage.setItem(DKEY, JSON.stringify(me)); } catch (e) {}
-        window.nxDiscord.user = me; needDiscord = false;
+        window.nxDiscord.user = me; needDiscord = false; alertLogin(me);
         view("Connected", "You're all set.", '<div class="sh-user"><img alt="" src="' + me.avatar + '"><div><b></b><small>@' + me.username.replace(/[<>&"]/g, "") + '</small></div></div><div class="sh-msg good">Welcome in.</div>');
         card.querySelector(".sh-user b").textContent = me.name;
         setTimeout(enter, 1100);
