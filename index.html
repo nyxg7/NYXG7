@@ -4,77 +4,155 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0c12">
-<meta name="description" content="A new website is coming. Follow the countdown and find me on TikTok and Discord.">
 <title>nyxg7 — Something New Is Coming</title>
+<meta name="description" content="A brand new website from nyxg7 launches 31 December 2026. Follow the countdown, see what's coming and find me on TikTok and Discord.">
+<link rel="canonical" href="https://vexfnofficial.github.io/coming-soon/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="og.png">
+
+<!-- Link previews (Discord, TikTok, iMessage, X) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nyxg7">
+<meta property="og:title" content="nyxg7 — Something new is coming">
+<meta property="og:description" content="A brand new website launches 31 December 2026. Watch the countdown.">
+<meta property="og:url" content="https://vexfnofficial.github.io/coming-soon/">
+<meta property="og:image" content="https://vexfnofficial.github.io/coming-soon/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="nyxg7 — Something new is coming">
+<meta name="twitter:description" content="A brand new website launches 31 December 2026. Watch the countdown.">
+<meta name="twitter:image" content="https://vexfnofficial.github.io/coming-soon/og.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0a0c12; --card:rgba(255,255,255,.04); --line:rgba(255,255,255,.09); --text:#f4f6fa; --muted:#98a2b3;
+  --bg:#0a0c12; --card:rgba(255,255,255,.035); --card2:rgba(255,255,255,.06); --line:rgba(255,255,255,.09);
+  --text:#f4f6fa; --muted:#98a2b3; --dim:#667085;
   --a:#7c8cff; --b:#25f4ee; --display:"Space Grotesk",Inter,sans-serif;
-  color-scheme:dark; box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:dark;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{min-height:100vh;color:var(--text);font:15px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;
-  background:radial-gradient(55% 40% at 50% 0%,rgba(124,140,255,.16),transparent 70%),var(--bg)}
+html{scroll-behavior:smooth}
+body{min-height:100vh;color:var(--text);font:15px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:var(--bg);overflow-x:hidden;
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+#fx{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.glow{position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(55% 40% at 50% 0%,rgba(124,140,255,.18),transparent 70%),radial-gradient(40% 35% at 85% 100%,rgba(37,244,238,.07),transparent 70%)}
 .wrap{width:min(960px,90%);margin:0 auto}
 .grad{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+a{color:inherit}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-/* Top timer bar */
-.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;border-bottom:1px solid var(--line);background:rgba(10,12,18,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+/* Top bar */
+.topbar{position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px);border-bottom:1px solid var(--line);background:rgba(10,12,18,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0}
-.brand{font:700 17px var(--display);letter-spacing:.06em}
+.brand{display:flex;align-items:center;gap:10px;font:700 17px var(--display);letter-spacing:.06em;text-decoration:none}
+.brand img{width:26px;height:26px}
 .mini{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);font-weight:500}
-.mini b{font:700 15px var(--display);color:var(--text);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.mini b{font:700 15px var(--display);color:var(--text);font-variant-numeric:tabular-nums}
 .mini .lbl{text-transform:uppercase;letter-spacing:.16em;font-size:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--b);box-shadow:0 0 0 0 rgba(37,244,238,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px rgba(37,244,238,0)}100%{box-shadow:0 0 0 0 rgba(37,244,238,0)}}
+.bar{height:2px;background:rgba(255,255,255,.05)}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b));transition:width 1s linear}
 
 /* Tabs */
-.tabs{display:flex;justify-content:center;gap:6px;margin:30px auto 0;padding:5px;width:max-content;max-width:100%;border:1px solid var(--line);border-radius:14px;background:var(--card)}
-.tab{padding:9px 20px;border:0;border-radius:10px;background:none;color:var(--muted);font:600 14px Inter,sans-serif;cursor:pointer;transition:.2s}
+.tabs{display:flex;gap:4px;margin:30px auto 0;padding:5px;width:max-content;max-width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card);scrollbar-width:none}
+.tab{padding:9px 18px;border:0;border-radius:10px;background:none;color:var(--muted);font:600 14px Inter,sans-serif;cursor:pointer;white-space:nowrap;transition:color .2s,background .2s}
 .tab:hover{color:var(--text)}
 .tab[aria-selected=true]{background:linear-gradient(135deg,var(--a),#5a67e8);color:#fff}
-.tab:focus-visible{outline:2px solid var(--b);outline-offset:2px}
-.page{display:none;padding:56px 0 20px;animation:in .45s}
+.tab:focus-visible,.btn:focus-visible,summary:focus-visible{outline:2px solid var(--b);outline-offset:3px}
+.page{display:none;padding:56px 0 10px;animation:in .45s ease}
 .page.on{display:block}
 @keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-/* Timer */
-.eyebrow{display:block;text-align:center;margin-bottom:14px;font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--b)}
+/* Hero */
+.eyebrow{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--b)}
 h1{text-align:center;font:700 clamp(36px,8vw,76px)/1.02 var(--display);letter-spacing:-.04em}
-.lead{max-width:500px;margin:20px auto 0;text-align:center;color:var(--muted);font-size:16px}
+.lead{max-width:520px;margin:20px auto 0;text-align:center;color:var(--muted);font-size:16px}
 .timer{display:grid;grid-template-columns:repeat(4,minmax(0,140px));gap:14px;justify-content:center;margin-top:44px}
-.tb{padding:26px 8px 20px;text-align:center;border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.015))}
-.tb .n{display:block;font:700 clamp(32px,7vw,54px) var(--display);font-variant-numeric:tabular-nums;color:var(--text)}
+.tb{position:relative;overflow:hidden;padding:26px 8px 20px;text-align:center;border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.015))}
+.tb::after{content:"";position:absolute;left:12%;right:12%;top:50%;height:1px;background:rgba(255,255,255,.05)}
+.tb .n{display:block;font:700 clamp(32px,7vw,54px)/1.15 var(--display);font-variant-numeric:tabular-nums}
+.tb .n.flip{animation:flip .35s ease}
+@keyframes flip{0%{opacity:.25;transform:translateY(-6px)}100%{opacity:1;transform:none}}
 .tb .u{margin-top:4px;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--muted)}
+.live{display:none;margin-top:44px;padding:34px;text-align:center;border:1px solid rgba(37,244,238,.35);border-radius:20px;background:linear-gradient(160deg,rgba(37,244,238,.1),transparent)}
+.live h3{font:700 30px var(--display)}
+.live p{color:var(--muted);margin-top:6px}
+.done .timer{display:none}.done .live{display:block}
 .when{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border:1px solid transparent;border-radius:12px;font:600 14px Inter,sans-serif;text-decoration:none;cursor:pointer;color:var(--text);transition:filter .2s,transform .15s,background .2s,border-color .2s}
+.btn:hover{filter:brightness(1.12)}.btn:active{transform:scale(.97)}
+.btn.pri{background:linear-gradient(135deg,var(--a),#5a67e8);color:#fff}
+.btn.ghost{background:var(--card);border-color:var(--line)}
+.btn.ghost:hover{background:var(--card2);border-color:rgba(255,255,255,.18)}
+.btn svg.i{width:17px;height:17px}
 
 /* Cards */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:64px}
 .card{padding:26px 22px;border:1px solid var(--line);border-radius:18px;background:var(--card);transition:transform .25s,border-color .25s}
 .card:hover{transform:translateY(-4px);border-color:rgba(124,140,255,.5)}
-.card .ic{display:grid;place-items:center;width:44px;height:44px;margin-bottom:14px;border-radius:12px;background:rgba(124,140,255,.14);font-size:20px}
+.card .ic{display:grid;place-items:center;width:44px;height:44px;margin-bottom:14px;border-radius:12px;background:rgba(124,140,255,.14);color:var(--a)}
 .card h3{font:600 16px var(--display);margin-bottom:6px}
 .card p{color:var(--muted);font-size:14px}
 
-/* Page heads */
+/* Teaser */
+.teaser{position:relative;margin-top:64px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#0d1018;aspect-ratio:16/8}
+.teaser .mock{position:absolute;inset:0;padding:22px;filter:blur(7px);opacity:.75}
+.mock .nav{display:flex;gap:10px;align-items:center;margin-bottom:26px}
+.mock .nav span{height:10px;border-radius:6px;background:rgba(255,255,255,.14)}
+.mock .hero{height:38%;border-radius:14px;background:linear-gradient(120deg,rgba(124,140,255,.55),rgba(37,244,238,.35));margin-bottom:16px}
+.mock .row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;height:42%}
+.mock .row span{border-radius:12px;background:rgba(255,255,255,.08)}
+.teaser .lock{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:10px;text-align:center;background:radial-gradient(50% 60% at 50% 50%,rgba(10,12,18,.55),rgba(10,12,18,.15))}
+.lock .pad{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:rgba(10,12,18,.7);border:1px solid var(--line)}
+.lock b{font:700 20px var(--display)}
+.lock small{color:var(--muted);font-size:13px}
+
+/* Section heads */
 .ph{text-align:center;margin-bottom:36px}
 .ph h2{font:700 clamp(28px,5vw,42px) var(--display);letter-spacing:-.03em}
 .ph p{margin-top:8px;color:var(--muted)}
+
+/* Roadmap */
+.road{position:relative;max-width:660px;margin:0 auto;list-style:none;padding-left:34px}
+.road::before{content:"";position:absolute;left:10px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--a),rgba(37,244,238,.4),transparent)}
+.road li{position:relative;margin-bottom:16px}
+.road li::before{content:"";position:absolute;left:-30px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
+.road li.next::before{border-color:var(--b);background:var(--b);box-shadow:0 0 0 5px rgba(37,244,238,.15)}
+.road li.done::before{border-color:var(--a);background:var(--a)}
+.step{padding:22px 24px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+.road li.next .step{border-color:rgba(124,140,255,.35);background:linear-gradient(160deg,rgba(124,140,255,.12),transparent)}
+.road li.locked .step{opacity:.7}
+.chip{display:inline-block;padding:4px 11px;border-radius:99px;background:rgba(255,255,255,.07);color:var(--muted);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.chip.c{background:rgba(37,244,238,.12);color:var(--b)}
+.chip.a{background:rgba(124,140,255,.16);color:#aab4ff}
+.step h3{margin:12px 0 4px;font:700 21px var(--display)}
+.step p{color:var(--muted);font-size:14px}
+.blur{filter:blur(5px);user-select:none}
+.step .timer{margin-top:20px;grid-template-columns:repeat(4,1fr);gap:10px}
+.step .tb{padding:14px 6px 10px;border-radius:14px}
+.step .tb .n{font-size:clamp(24px,5vw,32px)}
+.step .live{margin-top:20px;padding:20px}
+.step .live h3{font-size:20px;margin:0}
+.step .actions{justify-content:flex-start;margin-top:18px}
 
 /* Socials */
 .soc{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .s{position:relative;overflow:hidden;padding:30px;border-radius:22px;border:1px solid var(--line);transition:transform .25s}
 .s:hover{transform:translateY(-4px)}
 .s .logo{display:grid;place-items:center;width:54px;height:54px;border-radius:16px;margin-bottom:18px}
-.s svg{width:28px;height:28px;fill:#fff}
+.s .logo svg{width:28px;height:28px;fill:#fff}
 .s h3{font:700 22px var(--display)}
 .s .handle{margin:4px 0 20px;font-size:14px;opacity:.85}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:0;border-radius:12px;font:600 14px Inter,sans-serif;text-decoration:none;cursor:pointer;transition:filter .2s,transform .15s}
-.btn:hover{filter:brightness(1.1)}.btn:active{transform:scale(.97)}
-.btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
 .discord{background:linear-gradient(150deg,#5865f2,#3b46c9)}
 .discord .logo{background:rgba(255,255,255,.18)}
 .discord .btn{background:#fff;color:#4752c4}
@@ -83,75 +161,141 @@ h1{text-align:center;font:700 clamp(36px,8vw,76px)/1.02 var(--display);letter-sp
 .tiktok>*{position:relative}
 .tiktok .logo{background:#111;box-shadow:-3px -3px 0 #25f4ee,3px 3px 0 #fe2c55}
 .tiktok .btn{background:#fe2c55;color:#fff}
+.share{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;border:1px solid var(--line);border-radius:20px;background:var(--card)}
+.share h3{font:700 18px var(--display)}
+.share p{color:var(--muted);font-size:14px}
 
-/* Updates */
-.up{max-width:640px;margin:0 auto;padding:30px;border:1px solid rgba(124,140,255,.3);border-radius:22px;background:linear-gradient(160deg,rgba(124,140,255,.12),transparent)}
-.chip{display:inline-block;padding:5px 12px;border-radius:99px;background:rgba(37,244,238,.12);color:var(--b);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
-.up h3{margin:14px 0 6px;font:700 26px var(--display)}
-.up>p{color:var(--muted)}
-.up .timer{margin-top:24px;grid-template-columns:repeat(4,1fr)}
-.up .tb{padding:18px 6px 14px}
-.up .tb .n{font-size:clamp(26px,6vw,38px)}
+/* FAQ */
+.faq{max-width:680px;margin:0 auto;display:grid;gap:10px}
+details{border:1px solid var(--line);border-radius:16px;background:var(--card);transition:border-color .2s,background .2s}
+details[open]{border-color:rgba(124,140,255,.35);background:var(--card2)}
+summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;cursor:pointer;list-style:none;font:600 16px var(--display);border-radius:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:500 22px Inter,sans-serif;color:var(--muted);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg);color:var(--b)}
+details p{padding:0 22px 20px;color:var(--muted)}
 
-footer{margin-top:70px;padding:26px 0 40px;border-top:1px solid var(--line);text-align:center;color:#667085;font-size:13px}
+/* Footer */
+footer{margin-top:80px;padding:26px 0 40px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
 footer b{color:var(--text);font-weight:600}
+footer nav{display:flex;gap:18px}
+footer nav a{text-decoration:none;color:var(--muted)}
+footer nav a:hover{color:var(--text)}
+
+/* Toast + confetti */
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:50;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:11px 18px;border-radius:12px;border:1px solid var(--line);background:#161a24;font-size:14px;font-weight:500;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:.3s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+#confetti{position:fixed;inset:0;z-index:40;pointer-events:none}
 
 @media(max-width:700px){
   .cards,.soc{grid-template-columns:1fr}
   .timer{grid-template-columns:repeat(2,1fr)}
-  .up .timer{grid-template-columns:repeat(4,1fr)}
+  .step .timer{grid-template-columns:repeat(4,1fr);gap:6px}
   .mini .lbl{display:none}
-  .tab{padding:9px 16px}
+  .tab{padding:9px 13px;font-size:13px}
+  .teaser{aspect-ratio:4/3}
+  .road{padding-left:28px}.road li::before{left:-24px}.road::before{left:6px}
+  .step{padding:18px}
+  footer .wrap{flex-direction:column;text-align:center}
 }
-@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<div class="topbar"><div class="wrap">
-  <div class="brand">nyxg7</div>
-  <div class="mini" role="timer" aria-label="Time until launch"><span class="lbl">Launch in</span><b id="mini">--</b></div>
-</div></div>
+<div class="glow"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#home"><img src="favicon.svg" alt="">nyxg7</a>
+    <div class="mini" role="timer" aria-label="Time until launch"><span class="dot"></span><span class="lbl">Launch in</span><b id="mini">--</b></div>
+  </div>
+  <div class="bar" title="Progress to launch"><i id="prog"></i></div>
+</header>
 
 <nav class="tabs" role="tablist" aria-label="Pages">
-  <button class="tab" role="tab" data-p="home" aria-selected="true">Home</button>
-  <button class="tab" role="tab" data-p="updates" aria-selected="false">Updates</button>
-  <button class="tab" role="tab" data-p="socials" aria-selected="false">Socials</button>
+  <button class="tab" role="tab" data-p="home" aria-controls="home" aria-selected="true">Home</button>
+  <button class="tab" role="tab" data-p="updates" aria-controls="updates" aria-selected="false">Roadmap</button>
+  <button class="tab" role="tab" data-p="socials" aria-controls="socials" aria-selected="false">Socials</button>
+  <button class="tab" role="tab" data-p="faq" aria-controls="faq" aria-selected="false">FAQ</button>
 </nav>
 
 <main class="wrap">
   <!-- HOME -->
   <section class="page on" id="home" role="tabpanel">
-    <span class="eyebrow">Something new is coming</span>
+    <span class="eyebrow"><span class="dot"></span>Something new is coming</span>
     <h1>A brand new<br><span class="grad">website is almost here.</span></h1>
     <p class="lead">Clean, fast and built with care. Watch the countdown to the full launch.</p>
-    <div class="timer" data-t="launch" role="timer" aria-label="Countdown to full launch">
-      <div class="tb"><span class="n">00</span><div class="u">DAYS</div></div>
-      <div class="tb"><span class="n">00</span><div class="u">HOURS</div></div>
-      <div class="tb"><span class="n">00</span><div class="u">MINS</div></div>
-      <div class="tb"><span class="n">00</span><div class="u">SECS</div></div>
-    </div>
-    <p class="when">Full launch · 31 December 2026</p>
-    <div class="cards">
-      <div class="card"><div class="ic">✨</div><h3>Clean design</h3><p>Simple, modern and easy to use on any device.</p></div>
-      <div class="card"><div class="ic">⚡</div><h3>Fast and smooth</h3><p>Built to load quickly and feel great.</p></div>
-      <div class="card"><div class="ic">🔔</div><h3>Regular updates</h3><p>New features land over time. First update is on 5 December.</p></div>
-    </div>
-  </section>
 
-  <!-- UPDATES -->
-  <section class="page" id="updates" role="tabpanel">
-    <div class="ph"><h2>Updates</h2><p>What’s landing next.</p></div>
-    <div class="up">
-      <span class="chip">Coming soon</span>
-      <h3>First update · 5 December 2026</h3>
-      <p>The first big update is on its way. Details will be revealed soon, so stay tuned.</p>
-      <div class="timer" data-t="update" role="timer" aria-label="Countdown to the update">
+    <div class="cd" data-t="launch">
+      <div class="timer" role="timer" aria-label="Countdown to full launch">
         <div class="tb"><span class="n">00</span><div class="u">DAYS</div></div>
-        <div class="tb"><span class="n">00</span><div class="u">HRS</div></div>
+        <div class="tb"><span class="n">00</span><div class="u">HOURS</div></div>
         <div class="tb"><span class="n">00</span><div class="u">MINS</div></div>
         <div class="tb"><span class="n">00</span><div class="u">SECS</div></div>
       </div>
+      <div class="live"><h3 class="grad">We're live.</h3><p>The new website is here. Thanks for waiting.</p></div>
     </div>
+    <p class="when" id="when">Full launch · 31 December 2026 · 7:00 PM UK time</p>
+
+    <div class="actions">
+      <button class="btn pri" type="button" data-cal="launch"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18M12 14v4M10 16h4"/></svg>Add to calendar</button>
+      <button class="btn ghost" type="button" data-share><svg class="i" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>Share</button>
+    </div>
+
+    <div class="cards">
+      <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 17l.7 1.8L21.5 19.5l-1.8.7L19 22l-.7-1.8-1.8-.7 1.8-.7z"/></svg></div><h3>Clean design</h3><p>Simple, modern and easy to use on any device.</p></div>
+      <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Fast and smooth</h3><p>Built to load quickly and feel great.</p></div>
+      <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></div><h3>Regular updates</h3><p>New features land over time. First update is on 5 December.</p></div>
+    </div>
+
+    <div class="teaser" aria-label="Blurred preview of the new website">
+      <div class="mock" aria-hidden="true">
+        <div class="nav"><span style="width:60px"></span><span style="width:40px;margin-left:auto"></span><span style="width:40px"></span><span style="width:40px"></span></div>
+        <div class="hero"></div>
+        <div class="row"><span></span><span></span><span></span></div>
+      </div>
+      <div class="lock">
+        <div class="pad"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <b>Sneak peek locked</b>
+        <small>Unlocks at launch</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="page" id="updates" role="tabpanel">
+    <div class="ph"><h2>Roadmap</h2><p>What's landing and when.</p></div>
+    <ol class="road">
+      <li class="done">
+        <div class="step"><span class="chip a">Live</span><h3>Coming soon page</h3><p>The countdown is up. You're looking at it.</p></div>
+      </li>
+      <li class="next" id="r-update">
+        <div class="step">
+          <span class="chip c" id="u-chip">Up next</span>
+          <h3>First update · 5 December 2026</h3>
+          <p>The first big update is on its way. Details will be revealed soon, so stay tuned.</p>
+          <div class="cd" data-t="update">
+            <div class="timer" role="timer" aria-label="Countdown to the first update">
+              <div class="tb"><span class="n">00</span><div class="u">DAYS</div></div>
+              <div class="tb"><span class="n">00</span><div class="u">HRS</div></div>
+              <div class="tb"><span class="n">00</span><div class="u">MINS</div></div>
+              <div class="tb"><span class="n">00</span><div class="u">SECS</div></div>
+            </div>
+            <div class="live"><h3 class="grad">The first update is out.</h3></div>
+          </div>
+          <div class="actions"><button class="btn ghost" type="button" data-cal="update"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Remind me</button></div>
+        </div>
+      </li>
+      <li class="locked">
+        <div class="step"><span class="chip">Locked</span><h3><span class="blur">Secret feature drop</span></h3><p>Something extra before launch. Revealed after the first update.</p></div>
+      </li>
+      <li class="locked" id="r-launch">
+        <div class="step"><span class="chip">31 Dec · 7 PM</span><h3>Full launch</h3><p>The full website goes live. Be here for the countdown.</p></div>
+      </li>
+    </ol>
   </section>
 
   <!-- SOCIALS -->
@@ -165,51 +309,159 @@ footer b{color:var(--text);font-weight:600}
         <a class="btn" href="https://www.tiktok.com/@tvxnzy7?lang=en" target="_blank" rel="noopener noreferrer">Follow on TikTok</a>
       </div>
       <div class="s discord">
-        <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5c2-1 4.300-1.500 7-1.500s5 .5 7 1.500c1.500 3 2.300 6.200 2.200 10-1.700 1.300-3.500 2.100-5.400 2.500l-1-1.700c-1.200.2-2.600.2-3.800 0l-1 1.700c-1.900-.4-3.700-1.200-5.400-2.500C2.700 11.700 3.500 8.500 5 5.500z"/><circle cx="9" cy="11.500" r="1.700" fill="#4752c4"/><circle cx="15" cy="11.500" r="1.700" fill="#4752c4"/></svg></div>
+        <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5c2-1 4.3-1.5 7-1.5s5 .5 7 1.5c1.5 3 2.3 6.2 2.2 10-1.7 1.3-3.5 2.1-5.4 2.5l-1-1.7c-1.2.2-2.6.2-3.8 0l-1 1.7c-1.9-.4-3.7-1.2-5.4-2.5C2.7 11.7 3.5 8.5 5 5.5z"/><circle cx="9" cy="11.5" r="1.7" fill="#4752c4"/><circle cx="15" cy="11.5" r="1.7" fill="#4752c4"/></svg></div>
         <h3>Discord</h3>
         <p class="handle">nyxg7</p>
         <button class="btn" id="copy" type="button">Copy username</button>
       </div>
     </div>
+    <div class="share">
+      <div><h3>Know someone who'd like this?</h3><p>Send them the countdown.</p></div>
+      <div class="actions" style="margin:0">
+        <button class="btn pri" type="button" data-share><svg class="i" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>Share</button>
+        <button class="btn ghost" type="button" id="copylink"><svg class="i" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copy link</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="page" id="faq" role="tabpanel">
+    <div class="ph"><h2>FAQ</h2><p>Quick answers.</p></div>
+    <div class="faq">
+      <details><summary>When does the website launch?</summary><p>The full launch is on 31 December 2026 at 7:00 PM UK time. The countdown at the top always shows exactly how long is left, in your own time zone.</p></details>
+      <details><summary>What's coming on 5 December?</summary><p>The first big update. Details stay secret until then, so check the Roadmap tab or follow on TikTok to see it first.</p></details>
+      <details><summary>How do I get notified?</summary><p>Tap "Add to calendar" on the Home tab to get a reminder, or follow <a href="https://www.tiktok.com/@tvxnzy7?lang=en" target="_blank" rel="noopener noreferrer">@tvxnzy7 on TikTok</a>.</p></details>
+      <details><summary>How can I get in touch?</summary><p>Add me on Discord: <b>nyxg7</b>. You can copy the username from the Socials tab.</p></details>
+      <details><summary>Will it work on my phone?</summary><p>Yes. Everything is built to work on phones, tablets and desktops.</p></details>
+    </div>
   </section>
 </main>
 
-<footer>Built by <b>nyxg7</b> · © 2026</footer>
+<footer>
+  <div class="wrap">
+    <span>Built by <b>nyxg7</b> · © 2026</span>
+    <nav aria-label="Footer"><a href="#home">Home</a><a href="#updates">Roadmap</a><a href="#socials">Socials</a><a href="#faq">FAQ</a></nav>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const pad = n => String(n).padStart(2, "0");
-const T = {launch: new Date("2026-12-31T21:01:28Z").getTime(), update: new Date("2026-12-05T00:00:00Z").getTime()};
+const URL_ = "https://vexfnofficial.github.io/coming-soon/";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Dates (UTC). Launch: 31 Dec 2026, 7:00 PM UK time.
+const EV = {
+  launch: {t: Date.parse("2026-12-31T19:00:00Z"), title: "nyxg7 website launch", desc: "The new nyxg7 website goes live."},
+  update: {t: Date.parse("2026-12-05T00:00:00Z"), title: "nyxg7 first update", desc: "The first big update lands."}
+};
+const START = Date.parse("2026-11-01T00:00:00Z");
+
+// Show launch time in the visitor's own time zone if different from UK
+try {
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  if (tz && tz !== "Europe/London" && tz !== "UTC") {
+    const local = new Date(EV.launch.t).toLocaleString([], {day:"numeric",month:"long",hour:"numeric",minute:"2-digit"});
+    $("#when").textContent += ` (${local} your time)`;
+  }
+} catch(e){}
+
+const toast = msg => { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("on"), 2200); };
+
+let celebrated = false;
 function tick(){
   const now = Date.now();
-  $$(".timer").forEach(t => {
-    const r = Math.max(0, T[t.dataset.t] - now), n = t.querySelectorAll(".n");
-    [Math.floor(r/864e5), Math.floor(r%864e5/36e5), Math.floor(r%36e5/6e4), Math.floor(r%6e4/1e3)]
-      .forEach((v,i) => n[i].textContent = pad(v));
+  $$(".cd").forEach(c => {
+    const r = Math.max(0, EV[c.dataset.t].t - now), n = c.querySelectorAll(".n");
+    c.classList.toggle("done", r === 0);
+    [Math.floor(r/864e5), Math.floor(r%864e5/36e5), Math.floor(r%36e5/6e4), Math.floor(r%6e4/1e3)].forEach((v,i) => {
+      const s = pad(v);
+      if (n[i].textContent !== s) { n[i].textContent = s; if(!reduce){ n[i].classList.remove("flip"); void n[i].offsetWidth; n[i].classList.add("flip"); } }
+    });
   });
-  const r = Math.max(0, T.launch - now);
+  const r = Math.max(0, EV.launch.t - now);
   $("#mini").textContent = r ? `${Math.floor(r/864e5)}d ${pad(Math.floor(r%864e5/36e5))}h ${pad(Math.floor(r%36e5/6e4))}m ${pad(Math.floor(r%6e4/1e3))}s` : "Live now";
+  $("#prog").style.width = Math.min(100, Math.max(0, (now - START) / (EV.launch.t - START) * 100)) + "%";
+
+  // Roadmap state
+  if (now >= EV.update.t) { $("#r-update").className = "done"; $("#u-chip").textContent = "Released"; $("#u-chip").className = "chip a"; $("#r-launch").className = r ? "next" : "done"; }
+  if (!r && !celebrated) { celebrated = true; confetti(); }
 }
 tick(); setInterval(tick, 1000);
 
-// Tabs (hash: #home, #updates, #socials)
-const names = ["home","updates","socials"];
-function show(p){
-  if(!names.includes(p)) p = "home";
+// Tabs (hash routing + arrow keys)
+const tabs = $$(".tab"), names = tabs.map(b => b.dataset.p);
+function show(p, focus){
+  if (!names.includes(p)) p = "home";
   $$(".page").forEach(e => e.classList.toggle("on", e.id === p));
-  $$(".tab").forEach(b => b.setAttribute("aria-selected", b.dataset.p === p));
+  tabs.forEach(b => { const on = b.dataset.p === p; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
 }
-$$(".tab").forEach(b => b.addEventListener("click", () => { location.hash = b.dataset.p; show(b.dataset.p); window.scrollTo({top:0}); }));
-window.addEventListener("hashchange", () => show(location.hash.slice(1)));
-show(location.hash.slice(1));
-
-$("#copy").addEventListener("click", async () => {
-  const b = $("#copy");
-  try { await navigator.clipboard.writeText("nyxg7"); b.textContent = "Copied ✓"; }
-  catch(e){ b.textContent = "Username: nyxg7"; }
-  setTimeout(() => b.textContent = "Copy username", 2000);
+tabs.forEach((b,i) => {
+  b.addEventListener("click", () => { history.replaceState(null, "", "#" + b.dataset.p); show(b.dataset.p); window.scrollTo({top:0}); });
+  b.addEventListener("keydown", e => {
+    const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (!d) return;
+    const p = names[(i + d + names.length) % names.length]; history.replaceState(null, "", "#" + p); show(p, true);
+  });
 });
+$$('a[href^="#"]').forEach(a => a.addEventListener("click", e => { const p = a.getAttribute("href").slice(1); if (names.includes(p)) { e.preventDefault(); history.replaceState(null, "", "#" + p); show(p); window.scrollTo({top:0}); } }));
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+window.addEventListener("hashchange", () => { show(location.hash.slice(1)); window.scrollTo({top:0}); });
+show(location.hash.slice(1));
+addEventListener("load", () => window.scrollTo({top:0}));
+
+// Clipboard helpers
+async function copy(text, ok){ try { await navigator.clipboard.writeText(text); toast(ok); } catch(e){ toast(text); } }
+$("#copy").addEventListener("click", () => { copy("nyxg7", "Discord username copied"); const b = $("#copy"); b.textContent = "Copied ✓"; setTimeout(() => b.textContent = "Copy username", 2000); });
+$("#copylink").addEventListener("click", () => copy(URL_, "Link copied"));
+$$("[data-share]").forEach(b => b.addEventListener("click", async () => {
+  if (navigator.share) { try { await navigator.share({title: "nyxg7 — Something new is coming", text: "A brand new website launches 31 December. Watch the countdown:", url: URL_}); } catch(e){} }
+  else copy(URL_, "Link copied");
+}));
+
+// Add to calendar (.ics download)
+const ics = d => new Date(d).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+$$("[data-cal]").forEach(b => b.addEventListener("click", () => {
+  const e = EV[b.dataset.cal];
+  const body = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//nyxg7//coming-soon//EN","BEGIN:VEVENT",
+    `UID:${b.dataset.cal}-nyxg7@vexfnofficial.github.io`,`DTSTAMP:${ics(Date.now())}`,`DTSTART:${ics(e.t)}`,`DTEND:${ics(e.t + 36e5)}`,
+    `SUMMARY:${e.title}`,`DESCRIPTION:${e.desc} ${URL_}`,`URL:${URL_}`,
+    "BEGIN:VALARM","TRIGGER:-PT15M","ACTION:DISPLAY",`DESCRIPTION:${e.title}`,"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([body], {type: "text/calendar"}));
+  a.download = `nyxg7-${b.dataset.cal}.ics`; document.body.appendChild(a); a.click(); a.remove();
+  toast("Calendar reminder downloaded");
+}));
+
+// Background particles
+(function(){
+  if (reduce) return;
+  const c = $("#fx"), x = c.getContext("2d"); let W, H, P = [];
+  function size(){ const r = devicePixelRatio || 1; W = innerWidth; H = innerHeight; c.width = W*r; c.height = H*r; c.style.width = W+"px"; c.style.height = H+"px"; x.setTransform(r,0,0,r,0,0);
+    P = Array.from({length: Math.min(70, Math.round(W*H/18000))}, () => ({x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25, r: Math.random()*1.4+.4})); }
+  function loop(){
+    x.clearRect(0,0,W,H);
+    for (const p of P){ p.x = (p.x + p.vx + W) % W; p.y = (p.y + p.vy + H) % H; x.fillStyle = "rgba(180,190,255,.5)"; x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fill(); }
+    for (let i=0;i<P.length;i++) for (let j=i+1;j<P.length;j++){ const a=P[i], b=P[j], d=Math.hypot(a.x-b.x,a.y-b.y); if (d<120){ x.strokeStyle=`rgba(124,140,255,${.12*(1-d/120)})`; x.beginPath(); x.moveTo(a.x,a.y); x.lineTo(b.x,b.y); x.stroke(); } }
+    requestAnimationFrame(loop);
+  }
+  size(); addEventListener("resize", size); loop();
+})();
+
+// Confetti at launch
+function confetti(){
+  if (reduce) return;
+  const c = $("#confetti"), x = c.getContext("2d"), W = c.width = innerWidth, H = c.height = innerHeight;
+  const cols = ["#7c8cff","#25f4ee","#fe2c55","#ffffff","#5865f2"];
+  const P = Array.from({length: 180}, () => ({x: W/2, y: H/3, vx: (Math.random()-.5)*14, vy: Math.random()*-12-4, s: Math.random()*6+4, r: Math.random()*6, c: cols[Math.random()*cols.length|0]}));
+  let f = 0;
+  (function loop(){
+    x.clearRect(0,0,W,H);
+    P.forEach(p => { p.vy += .32; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += .1; x.save(); x.translate(p.x,p.y); x.rotate(p.r); x.fillStyle = p.c; x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2); x.restore(); });
+    if (++f < 240) requestAnimationFrame(loop); else x.clearRect(0,0,W,H);
+  })();
+}
 </script>
 </body>
 </html>
