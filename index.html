@@ -25,6 +25,7 @@
 <meta name="twitter:image" content="https://vexfnofficial.github.io/coming-soon/og.png">
 
 <script src="assets/app.js"></script>
+<script src="assets/shield.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -819,6 +820,7 @@ ck_.addEventListener("click", e => { if (e.target === ck_) cmd(false); });
 $("#kbdhint").addEventListener("click", () => cmd(true));
 const typing = el => el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA");
 addEventListener("keydown", e => {
+  if (document.documentElement.classList.contains("gate")) return;
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); cmd(!ck_.classList.contains("on")); return; }
   if (e.key === "Escape") { cmd(false); openChat(false); return; }
   if (typing(document.activeElement) || ck_.classList.contains("on")) return;
@@ -840,6 +842,7 @@ $(".brand").addEventListener("click", () => { clicks++; clearTimeout(ct); ct = s
   if (clicks === 7) { clicks = 0; document.documentElement.classList.add("glitch"); setTimeout(() => document.documentElement.classList.remove("glitch"), 1600); secret("seven", "Lucky seven"); } });
 const KON = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"]; let ki = 0, buf = "";
 addEventListener("keydown", e => {
+  if (document.documentElement.classList.contains("gate")) return;
   if (typing(document.activeElement)) return;
   ki = e.key === KON[ki] || e.key.toLowerCase() === KON[ki] ? ki + 1 : (e.key === KON[0] ? 1 : 0);
   if (ki === KON.length) { ki = 0; const on = document.documentElement.classList.toggle("retro"); secret("konami", on ? "Retro mode on" : "Retro mode off"); }
