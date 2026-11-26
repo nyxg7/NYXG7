@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0c12">
+<meta name="color-scheme" content="dark">
+<title>nyxg7 — Something New Is Coming</title>
+<meta name="description" content="A brand new website from nyxg7 launches 31 December 2026, with a PC app coming soon after. Follow the countdown and find me on TikTok and Discord.">
+<link rel="canonical" href="https://vexfnofficial.github.io/coming-soon/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="og.png">
+
+<!-- Link previews (Discord, TikTok, iMessage, X) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nyxg7">
+<meta property="og:title" content="nyxg7 — Something new is coming">
+<meta property="og:description" content="A brand new website launches 31 December 2026, with a PC app coming soon after.">
+<meta property="og:url" content="https://vexfnofficial.github.io/coming-soon/">
+<meta property="og:image" content="https://vexfnofficial.github.io/coming-soon/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="nyxg7 — Something new is coming">
+<meta name="twitter:description" content="A brand new website launches 31 December 2026, with a PC app coming soon after.">
+<meta name="twitter:image" content="https://vexfnofficial.github.io/coming-soon/og.png">
+
+<script>
+// ===== Birthday celebration (Roadmap item 18) =====
+// Choose one name and set the birthday as YYYY-MM-DD to enable the automatic celebration.
+const BIRTHDAY_NAME = "NYXG7"; // Change to "Tay" or "Kairo" if preferred.
+const BIRTHDAY_DATE = "2027-03-04"; // Birthday celebration date: 4 March 2027.
+document.addEventListener("DOMContentLoaded", function birthdayCelebration(){
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(BIRTHDAY_DATE)) return;
+  const now = new Date();
+  const today = [now.getFullYear(),String(now.getMonth()+1).padStart(2,"0"),String(now.getDate()).padStart(2,"0")].join("-");
+  if (today !== BIRTHDAY_DATE) return;
+  const banner = document.createElement("aside"); banner.className = "birthday-toast"; banner.setAttribute("role","status");
+  banner.innerHTML = `<strong>🎉 Happy Birthday ${String(BIRTHDAY_NAME).replace(/[&<>\"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#39;"}[c]))}! 🎂</strong><span>Wishing you an amazing day — let’s celebrate!</span><button type="button">Let’s celebrate ✨</button>`;
+  document.body.appendChild(banner);
+  const icons = ["🎈","🎉","✨","🎊","🎂","💜"];
+  function burst(x,y){ if (reduce) return; for(let i=0;i<9;i++){ const el=document.createElement("span"); el.className="bday-particle"; el.textContent=icons[Math.random()*icons.length|0]; el.style.left=(x+(Math.random()-.5)*100)+"px"; el.style.top=(y+(Math.random()-.5)*50)+"px"; document.body.appendChild(el); setTimeout(()=>el.remove(),4600); } }
+  banner.querySelector("button").addEventListener("click",()=>burst(innerWidth/2,innerHeight*.3));
+  document.addEventListener("pointerdown",e=>{ if(!e.target.closest(".birthday-toast")) burst(e.clientX,e.clientY); });
+  burst(innerWidth/2,innerHeight*.45);
+});
+
+</script>
+<!-- No external shield script required; the site runs as a static website. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0c12; --card:rgba(255,255,255,.035); --card2:rgba(255,255,255,.06); --line:rgba(255,255,255,.09);
+  --text:#f4f6fa; --muted:#98a2b3; --dim:#667085;
+  --a:#7c8cff; --b:#25f4ee; --display:"Space Grotesk",Inter,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{min-height:100vh;color:var(--text);font:15px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:var(--bg);overflow-x:hidden;
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+#fx{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.glow{position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(55% 40% at 50% 0%,rgba(124,140,255,.18),transparent 70%),radial-gradient(40% 35% at 85% 100%,rgba(37,244,238,.07),transparent 70%)}
+.wrap{width:min(960px,90%);margin:0 auto}
+.grad{background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+a{color:inherit}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* Top bar */
+.topbar{position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px);border-bottom:1px solid var(--line);background:rgba(10,12,18,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;font:700 17px var(--display);letter-spacing:.06em;text-decoration:none}
+.brand img{width:26px;height:26px}
+.mini{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);font-weight:500}
+.mini b{font:700 15px var(--display);color:var(--text);font-variant-numeric:tabular-nums}
+.mini .lbl{text-transform:uppercase;letter-spacing:.16em;font-size:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--b);box-shadow:0 0 0 0 rgba(37,244,238,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px rgba(37,244,238,0)}100%{box-shadow:0 0 0 0 rgba(37,244,238,0)}}
+.bar{height:2px;background:rgba(255,255,255,.05)}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b));transition:width 1s linear}
+
+/* Tabs */
+.tabs{display:flex;gap:4px;margin:30px auto 0;padding:5px;width:max-content;max-width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card);scrollbar-width:none}
+.tab{padding:9px 18px;border:0;border-radius:10px;background:none;color:var(--muted);font:600 14px Inter,sans-serif;cursor:pointer;white-space:nowrap;transition:color .2s,background .2s}
+.tab:hover{color:var(--text)}
+.tab[aria-selected=true]{background:linear-gradient(135deg,var(--a),#5a67e8);color:#fff}
+.tab:focus-visible,.btn:focus-visible,summary:focus-visible{outline:2px solid var(--b);outline-offset:3px}
+.page{display:none;padding:56px 0 10px;animation:in .45s ease}
+.page.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Hero */
+.eyebrow{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--b)}
+h1{text-align:center;font:700 clamp(36px,8vw,76px)/1.02 var(--display);letter-spacing:-.04em}
+.lead{max-width:520px;margin:20px auto 0;text-align:center;color:var(--muted);font-size:16px}
+.timer{display:grid;grid-template-columns:repeat(4,minmax(0,140px));gap:14px;justify-content:center;margin-top:44px}
+.tb{position:relative;overflow:hidden;padding:26px 8px 20px;text-align:center;border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.015))}
+.tb::after{content:"";position:absolute;left:12%;right:12%;top:50%;height:1px;background:rgba(255,255,255,.05)}
+.tb .n{display:block;font:700 clamp(32px,7vw,54px)/1.15 var(--display);font-variant-numeric:tabular-nums}
+.tb .n.flip{animation:flip .35s ease}
+@keyframes flip{0%{opacity:.25;transform:translateY(-6px)}100%{opacity:1;transform:none}}
+.tb .u{margin-top:4px;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--muted)}
+.live{display:none;margin-top:44px;padding:34px;text-align:center;border:1px solid rgba(37,244,238,.35);border-radius:20px;background:linear-gradient(160deg,rgba(37,244,238,.1),transparent)}
+.live h3{font:700 30px var(--display)}
+.live p{color:var(--muted);margin-top:6px}
+.done .timer{display:none}.done .live{display:block}
+.when{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border:1px solid transparent;border-radius:12px;font:600 14px Inter,sans-serif;text-decoration:none;cursor:pointer;color:var(--text);transition:filter .2s,transform .15s,background .2s,border-color .2s}
+.btn:hover{filter:brightness(1.12)}.btn:active{transform:scale(.97)}
+.btn.pri{background:linear-gradient(135deg,var(--a),#5a67e8);color:#fff}
+.btn.ghost{background:var(--card);border-color:var(--line)}
+.btn.ghost:hover{background:var(--card2);border-color:rgba(255,255,255,.18)}
+.btn svg.i{width:17px;height:17px}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:64px}
+.card{padding:26px 22px;border:1px solid var(--line);border-radius:18px;background:var(--card);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(124,140,255,.5)}
+.card .ic{display:grid;place-items:center;width:44px;height:44px;margin-bottom:14px;border-radius:12px;background:rgba(124,140,255,.14);color:var(--a)}
+.card h3{font:600 16px var(--display);margin-bottom:6px}
+.card p{color:var(--muted);font-size:14px}
+
+/* Teaser */
+.teaser{position:relative;margin-top:64px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#0d1018;aspect-ratio:16/8}
+.teaser .mock{position:absolute;inset:0;padding:22px;filter:blur(7px);opacity:.75}
+.mock .nav{display:flex;gap:10px;align-items:center;margin-bottom:26px}
+.mock .nav span{height:10px;border-radius:6px;background:rgba(255,255,255,.14)}
+.mock .hero{height:38%;border-radius:14px;background:linear-gradient(120deg,rgba(124,140,255,.55),rgba(37,244,238,.35));margin-bottom:16px}
+.mock .row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;height:42%}
+.mock .row span{border-radius:12px;background:rgba(255,255,255,.08)}
+.teaser .lock{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:10px;text-align:center;background:radial-gradient(50% 60% at 50% 50%,rgba(10,12,18,.55),rgba(10,12,18,.15))}
+.lock .pad{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:rgba(10,12,18,.7);border:1px solid var(--line)}
+.lock b{font:700 20px var(--display)}
+.lock small{color:var(--muted);font-size:13px}
+
+
+/* PC app */
+.app{margin-top:64px;display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;padding:34px;border:1px solid rgba(124,140,255,.3);border-radius:22px;background:linear-gradient(160deg,rgba(124,140,255,.12),rgba(37,244,238,.03))}
+.app h2{margin:12px 0 8px;font:700 clamp(26px,4vw,36px)/1.1 var(--display);letter-spacing:-.03em}
+.app>div>p{color:var(--muted)}
+.app ul{list-style:none;margin:18px 0 22px;display:grid;gap:8px}
+.app li{display:flex;gap:10px;align-items:center;font-size:14px}
+.app li svg.i{width:18px;height:18px;color:var(--b)}
+.btn[disabled]{opacity:.55;cursor:not-allowed;filter:none;transform:none}
+.pc{position:relative;padding:10px;border:1px solid var(--line);border-radius:14px;background:#0d1018;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.pc .tbar{display:flex;gap:6px;align-items:center;padding:2px 4px 10px}
+.pc .tbar span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.15)}
+.pc .tbar b{margin-left:8px;font:600 11px Inter;color:var(--muted);letter-spacing:.04em}
+.pc .scr{display:grid;grid-template-columns:52px 1fr;gap:10px;height:190px;filter:blur(3px)}
+.pc .side{border-radius:10px;background:rgba(255,255,255,.06)}
+.pc .main{display:grid;grid-template-rows:1.2fr 1fr;gap:10px}
+.pc .main span{border-radius:10px;background:linear-gradient(120deg,rgba(124,140,255,.5),rgba(37,244,238,.3))}
+.pc .main span+span{background:rgba(255,255,255,.07)}
+.pc .badge{position:absolute;inset:auto 50% 50% auto;transform:translate(50%,50%);padding:8px 14px;border-radius:99px;background:rgba(10,12,18,.85);border:1px solid var(--line);font:700 12px var(--display);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+
+
+/* PC app release progress */
+.pc-progress{margin:22px 0 18px;padding:16px;border:1px solid rgba(37,244,238,.18);border-radius:14px;background:rgba(5,8,18,.42)}
+.pc-progress-head{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px}
+.pc-progress-head b{color:var(--text);font-weight:600}.pc-progress-head strong{font:700 18px var(--display);color:var(--b);font-variant-numeric:tabular-nums}
+.pc-progress-track{height:10px;margin-top:12px;border-radius:99px;overflow:hidden;background:rgba(255,255,255,.09)}
+.pc-progress-track i{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--a),var(--b));box-shadow:0 0 16px rgba(37,244,238,.35);transition:width .8s ease}
+.pc-progress-status{margin-top:9px;color:var(--muted);font-size:12px}
+.pc-quality{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:12px;color:var(--muted);font-size:11px}
+.pc-quality span:first-child{color:var(--b)}
+.pc-released .pc-progress{border-color:rgba(37,244,238,.45)}
+@media(max-width:640px){.pc-progress{padding:13px}.pc-quality{gap:7px 10px}}
+
+/* Section heads */
+.ph{text-align:center;margin-bottom:36px}
+.ph h2{font:700 clamp(28px,5vw,42px) var(--display);letter-spacing:-.03em}
+.ph p{margin-top:8px;color:var(--muted)}
+
+/* Roadmap */
+.rm-sum{max-width:760px;margin:0 auto 22px;padding:24px 26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.015))}
+.rm-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+.rm-head small{display:block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.rm-head b{font:700 26px var(--display)}
+.rm-head .pct{font:700 34px var(--display);font-variant-numeric:tabular-nums}
+.track{position:relative;height:8px;margin:18px 0 14px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.track i{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;background:linear-gradient(90deg,var(--a),var(--b));transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.nodes{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.nodes button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 2px;border:0;border-radius:10px;background:none;color:var(--muted);font:600 11.5px Inter,sans-serif;cursor:pointer;text-align:center;transition:color .2s,background .2s}
+.nodes button:hover{background:rgba(255,255,255,.05);color:var(--text)}
+.nodes span{width:12px;height:12px;border-radius:50%;border:2px solid var(--muted)}
+.nodes .done span{background:var(--a);border-color:var(--a)}
+.nodes .next span{background:var(--b);border-color:var(--b);box-shadow:0 0 0 4px rgba(37,244,238,.18)}
+.nodes .next{color:var(--text)}
+.rm-filter{display:flex;justify-content:center;gap:6px;margin:0 auto 26px}
+.rm-filter button{padding:7px 14px;border:1px solid var(--line);border-radius:99px;background:none;color:var(--muted);font:600 13px Inter,sans-serif;cursor:pointer;transition:.2s}
+.rm-filter button[aria-pressed=true]{background:var(--card2);color:var(--text);border-color:rgba(255,255,255,.2)}
+.road{position:relative;max-width:760px;margin:0 auto;list-style:none;padding-left:40px}
+.road::before{content:"";position:absolute;left:12px;top:10px;bottom:10px;width:2px;background:rgba(255,255,255,.08)}
+.road .fill{position:absolute;left:12px;top:10px;width:2px;height:0;background:linear-gradient(var(--a),var(--b));transition:height 1.2s cubic-bezier(.2,.8,.2,1)}
+.road li{position:relative;margin-bottom:16px;scroll-margin-top:110px}
+.road li::before{content:"";position:absolute;left:-34px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--muted);z-index:1}
+.road li.next::before{border-color:var(--b);background:var(--b);box-shadow:0 0 0 6px rgba(37,244,238,.15);animation:pulse 2.2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(37,244,238,.05)}}
+.road li.done::before{border-color:var(--a);background:var(--a)}
+.road li.hide{display:none}
+.step{position:relative;padding:22px 24px;border:1px solid var(--line);border-radius:18px;background:var(--card);transition:border-color .25s,transform .25s}
+.step:hover{border-color:rgba(255,255,255,.16)}
+.road li.next .step{border-color:rgba(124,140,255,.35);background:linear-gradient(160deg,rgba(124,140,255,.12),transparent)}
+.road li.locked .step{background:rgba(255,255,255,.02)}
+.s-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.s-top .num{font:700 13px var(--display);color:var(--dim);letter-spacing:.06em}
+.s-top time,.s-top .date{margin-left:auto;font-size:12.5px;color:var(--muted);font-weight:500}
+.here{display:none;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--b)}
+.road li.next .here{display:inline-flex}
+.chip{display:inline-block;padding:4px 11px;border-radius:99px;background:rgba(255,255,255,.07);color:var(--muted);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.chip.c{background:rgba(37,244,238,.12);color:var(--b)}
+.chip.a{background:rgba(124,140,255,.16);color:#aab4ff}
+.step h3{margin:12px 0 4px;font:700 21px var(--display)}
+.step p{color:var(--muted);font-size:14px}
+.blur{filter:blur(5px);user-select:none}
+.checks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;margin-top:16px}
+.checks li{display:flex;align-items:center;gap:9px;margin:0;font-size:13.5px;color:var(--muted)}
+.checks li::before{display:none}
+.checks li .ck{display:grid;place-items:center;width:18px;height:18px;flex:none;border-radius:6px;border:1.5px solid rgba(255,255,255,.2)}
+.checks li.ok{color:var(--text)}
+.checks li.ok .ck{background:var(--a);border-color:var(--a)}
+.checks li.ok .ck::after{content:"";width:8px;height:5px;margin-top:-2px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.mini-bar{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.mini-bar div{flex:1;height:5px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.mini-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--b));border-radius:99px}
+.step .timer{margin-top:20px;grid-template-columns:repeat(4,1fr);gap:10px}
+.step .tb{padding:14px 6px 10px;border-radius:14px}
+.step .tb .n{font-size:clamp(24px,5vw,32px)}
+.step .live{margin-top:20px;padding:20px}
+.step .live h3{font-size:20px;margin:0}
+.step .actions{justify-content:flex-start;margin-top:18px}
+.rm-note{max-width:760px;margin:22px auto 0;text-align:center;color:var(--dim);font-size:13px}
+
+/* NYXG7 animated teaser — no external video file required */
+.vid{margin-top:64px}.vid .ph{margin-bottom:22px}
+.player{position:relative;isolation:isolate;border:1px solid rgba(124,140,255,.38);border-radius:22px;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#241052 0%,#0b0d19 58%,#05060c 100%);aspect-ratio:16/9;min-height:230px;box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 45px rgba(124,60,255,.12)}
+.player::before,.player::after{content:"";position:absolute;z-index:-1;left:50%;top:48%;width:38%;aspect-ratio:1;border:1px solid rgba(37,244,238,.55);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 35px rgba(37,244,238,.22),inset 0 0 35px rgba(124,60,255,.2);animation:nyxOrbit 9s linear infinite}
+.player::after{width:55%;border-color:rgba(168,85,247,.42);animation-duration:14s;animation-direction:reverse}
+@keyframes nyxOrbit{to{transform:translate(-50%,-50%) rotate(360deg) scale(1.08)}}
+.teaser-scene{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;padding:24px;opacity:0;transform:scale(.96);transition:opacity .45s,transform .6s}
+.player.started .teaser-scene{opacity:1;transform:scale(1)}
+.teaser-kicker{font-size:clamp(10px,1.6vw,13px);font-weight:800;letter-spacing:.38em;color:#25f4ee;text-transform:uppercase}
+.teaser-title{margin:12px 0;font:900 clamp(38px,9vw,92px)/.95 var(--display);letter-spacing:-.055em;background:linear-gradient(100deg,#fff 10%,#b77aff 48%,#25f4ee 90%);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:0 0 35px rgba(124,60,255,.16)}
+.teaser-subtitle{color:#d4d5e8;font-size:clamp(12px,2vw,16px);letter-spacing:.12em}
+.teaser-bottom{position:absolute;left:24px;right:24px;bottom:20px;display:flex;align-items:center;gap:12px;color:#c7c9df;font-size:12px;font-variant-numeric:tabular-nums}
+.teaser-track{height:4px;flex:1;background:rgba(255,255,255,.18);border-radius:99px;overflow:hidden}.teaser-fill{height:100%;width:0;background:linear-gradient(90deg,#9333ea,#25f4ee);border-radius:99px}
+.play{position:absolute;inset:0;z-index:3;display:flex;align-items:flex-end;justify-content:flex-start;gap:14px;padding:26px;border:0;background:linear-gradient(0deg,rgba(10,12,18,.8),transparent 55%);color:#fff;cursor:pointer;font:600 15px Inter,sans-serif;text-align:left}
+.play .ring{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--a),var(--b));box-shadow:0 0 0 10px rgba(124,140,255,.18);transition:transform .2s,box-shadow .2s}
+.play:hover .ring{transform:scale(1.07);box-shadow:0 0 0 16px rgba(124,140,255,.14)}.play svg{width:22px;height:22px;margin-left:3px;fill:#0a0c12}
+.play .pl{display:flex;flex-direction:column;align-self:center;line-height:1.3}.play .pl small{color:var(--muted);font-weight:500;font-size:12.5px}
+.player.started .play{display:none}.teaser-replay{display:none;position:absolute;z-index:4;right:16px;top:16px;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:9px 13px;background:rgba(8,9,18,.8);color:white;cursor:pointer}.player.finished .teaser-replay{display:block}
+@media(prefers-reduced-motion:reduce){.player::before,.player::after{animation:none}.teaser-scene{transition:none}}
+
+/* Spotlight on hover */
+.spot{position:relative}
+.spot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(124,140,255,.12),transparent 60%)}
+.spot:hover::after{opacity:1}
+
+/* Scroll reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+
+/* Socials */
+.soc{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.s{position:relative;overflow:hidden;padding:30px;border-radius:22px;border:1px solid var(--line);transition:transform .25s}
+.s:hover{transform:translateY(-4px)}
+.s .logo{display:grid;place-items:center;width:54px;height:54px;border-radius:16px;margin-bottom:18px}
+.s .logo svg{width:28px;height:28px;fill:#fff}
+.s h3{font:700 22px var(--display)}
+.s .handle{margin:4px 0 20px;font-size:14px;opacity:.85}
+.discord{background:linear-gradient(150deg,#5865f2,#3b46c9)}
+.discord .logo{background:rgba(255,255,255,.18)}
+.discord .btn{background:#fff;color:#4752c4}
+.tiktok{background:#000;border-color:rgba(255,255,255,.14)}
+.tiktok::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 60% at 100% 0%,rgba(37,244,238,.22),transparent 60%),radial-gradient(70% 60% at 0% 100%,rgba(254,44,85,.22),transparent 60%)}
+.tiktok>*{position:relative}
+.tiktok .logo{background:#111;box-shadow:-3px -3px 0 #25f4ee,3px 3px 0 #fe2c55}
+.tiktok .btn{background:#fe2c55;color:#fff}
+.share{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;border:1px solid var(--line);border-radius:20px;background:var(--card)}
+.share h3{font:700 18px var(--display)}
+.share p{color:var(--muted);font-size:14px}
+
+/* FAQ */
+.faq{max-width:680px;margin:0 auto;display:grid;gap:10px}
+details{border:1px solid var(--line);border-radius:16px;background:var(--card);transition:border-color .2s,background .2s}
+details[open]{border-color:rgba(124,140,255,.35);background:var(--card2)}
+summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;cursor:pointer;list-style:none;font:600 16px var(--display);border-radius:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:500 22px Inter,sans-serif;color:var(--muted);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg);color:var(--b)}
+details p{padding:0 22px 20px;color:var(--muted)}
+
+/* Footer */
+footer{margin-top:80px;padding:26px 0 40px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+footer b{color:var(--text);font-weight:600}
+footer nav{display:flex;gap:18px}
+footer nav a{text-decoration:none;color:var(--muted)}
+footer nav a:hover{color:var(--text)}
+
+/* Toast + confetti */
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:50;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:11px 18px;border-radius:12px;border:1px solid var(--line);background:#161a24;font-size:14px;font-weight:500;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:.3s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+#confetti{position:fixed;inset:0;z-index:40;pointer-events:none}
+
+
+/* Assistant */
+.fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:45;display:flex;align-items:center;gap:10px;padding:13px 18px 13px 14px;border:0;border-radius:99px;background:linear-gradient(135deg,var(--a),#5a67e8);color:#fff;font:600 14px Inter,sans-serif;cursor:pointer;box-shadow:0 12px 34px rgba(90,103,232,.45);transition:transform .2s}
+.fab:hover{transform:translateY(-2px)}
+.fab svg.i{width:20px;height:20px}
+.fab .pip{position:absolute;top:6px;right:8px;width:9px;height:9px;border-radius:50%;background:var(--b);border:2px solid #5a67e8}
+.chat{position:fixed;right:20px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:46;display:flex;flex-direction:column;width:min(380px,calc(100vw - 24px));height:min(560px,calc(100vh - 120px));border:1px solid var(--line);border-radius:22px;background:#10131c;box-shadow:0 30px 80px rgba(0,0,0,.55);opacity:0;transform:translateY(14px) scale(.98);pointer-events:none;transition:opacity .25s,transform .25s;overflow:hidden}
+.chat.on{opacity:1;transform:none;pointer-events:auto}
+.chat-h{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);background:linear-gradient(160deg,rgba(124,140,255,.14),transparent)}
+.chat-h .av{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#0a0c12;border:1px solid var(--line)}
+.chat-h .av img{width:24px}
+.chat-h b{display:block;font:700 15px var(--display)}
+.chat-h small{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:12px}
+.chat-h small i{width:7px;height:7px;border-radius:50%;background:#3ddc84}
+.chat-h .x{margin-left:auto;display:grid;place-items:center;width:34px;height:34px;border:0;border-radius:10px;background:none;color:var(--muted);cursor:pointer}
+.chat-h .x:hover{background:var(--card2);color:var(--text)}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.m{max-width:86%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.5;animation:in .25s ease}
+.m.bot{align-self:flex-start;background:var(--card2);border:1px solid var(--line);border-bottom-left-radius:6px}
+.m.me{align-self:flex-end;background:linear-gradient(135deg,var(--a),#5a67e8);color:#fff;border-bottom-right-radius:6px}
+.m a:not(.btn){color:var(--b)}
+.m .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.m .row .btn{padding:8px 12px;font-size:13px;border-radius:10px}
+.typing{display:inline-flex;gap:4px;padding:14px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:bob 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bob{50%{transform:translateY(-4px);opacity:.5}}
+.sugg{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;scrollbar-width:none}
+.sugg button{flex:none;padding:7px 12px;border:1px solid var(--line);border-radius:99px;background:none;color:var(--muted);font:500 12.5px Inter,sans-serif;cursor:pointer}
+.sugg button:hover{color:var(--text);border-color:rgba(255,255,255,.2)}
+.chat form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.chat input{flex:1;min-width:0;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:#0a0c12;color:var(--text);font:14px Inter,sans-serif}
+.chat input:focus{outline:none;border-color:rgba(124,140,255,.6)}
+.chat form button{display:grid;place-items:center;width:44px;border:0;border-radius:12px;background:linear-gradient(135deg,var(--a),#5a67e8);color:#fff;cursor:pointer}
+.speak{display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;border:0;border-top:1px solid var(--line);background:none;color:var(--muted);font:600 13px Inter,sans-serif;cursor:pointer}
+.speak:hover{color:var(--text);background:var(--card)}
+
+/* Command menu */
+.cmdk{position:fixed;inset:0;z-index:60;display:none;align-items:flex-start;justify-content:center;padding:12vh 16px 0;background:rgba(5,6,10,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.cmdk.on{display:flex}
+.cmdk .box{width:min(560px,100%);border:1px solid var(--line);border-radius:18px;background:#10131c;box-shadow:0 30px 80px rgba(0,0,0,.6);overflow:hidden;animation:in .2s}
+.cmdk input{width:100%;padding:18px 20px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--text);font:16px Inter,sans-serif}
+.cmdk input:focus{outline:none}
+.cmdk ul{list-style:none;max-height:340px;overflow-y:auto;padding:8px}
+.cmdk li{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:10px;cursor:pointer;color:var(--muted);font-size:14px}
+.cmdk li[aria-selected=true]{background:var(--card2);color:var(--text)}
+.cmdk li kbd{margin-left:auto}
+kbd{padding:2px 7px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;background:var(--card);font:600 11px Inter,sans-serif;color:var(--muted)}
+.kbd-hint{display:inline-flex;align-items:center;gap:6px;color:var(--dim);font-size:12.5px;background:none;border:0;cursor:pointer;font-family:inherit}
+.kbd-hint:hover{color:var(--muted)}
+
+/* Secrets */
+.secrets{display:none;align-items:center;gap:8px;padding:5px 11px;border:1px solid rgba(255,213,107,.3);border-radius:99px;color:#ffd56b;font-size:12px;font-weight:600;background:rgba(255,213,107,.06)}
+.secrets.on{display:inline-flex}
+html.glitch h1{animation:gl .5s steps(2) 3}
+@keyframes gl{0%{text-shadow:3px 0 #fe2c55,-3px 0 #25f4ee;transform:translateX(-2px)}50%{text-shadow:-3px 0 #fe2c55,3px 0 #25f4ee;transform:translateX(2px)}100%{text-shadow:none;transform:none}}
+html.retro body::after{content:"";position:fixed;inset:0;z-index:70;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+html.retro{--a:#39ff88;--b:#39ff88}
+html.retro .tb .n,html.retro h1,html.retro .brand{text-shadow:0 0 12px rgba(57,255,136,.6)}
+
+@media(max-width:700px){
+  .cards,.soc{grid-template-columns:1fr}
+  .timer{grid-template-columns:repeat(2,1fr)}
+  .step .timer{grid-template-columns:repeat(4,1fr);gap:6px}
+  .mini .lbl{display:none}
+  .tab{padding:9px 13px;font-size:13px}
+  .teaser{aspect-ratio:4/3}
+  .checks{grid-template-columns:1fr}
+  .play{padding:14px;gap:10px;font-size:13px}.play .ring{width:42px;height:42px;box-shadow:0 0 0 6px rgba(124,140,255,.18)}.play svg{width:17px;height:17px}.play .pl small{font-size:11px}
+  .nodes button{font-size:10px}
+  .rm-head .pct{font-size:28px}
+  .fab .lbl{display:none}.fab{padding:14px}
+  .chat{right:12px;bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+  .kbd-hint{display:none}
+  .app{grid-template-columns:1fr;padding:24px}
+  .road{padding-left:28px}.road li::before{left:-24px}.road::before{left:6px}
+  .step{padding:18px}
+  footer .wrap{flex-direction:column;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+
+/* ===== NYXG7 VISUAL UPGRADE ===== */
+:root{--a:#8b5cf6;--b:#22d3ee;--pink:#fb4f9b;--gold:#fbbf24;--green:#34d399;--display:"Space Grotesk",Inter,sans-serif}
+body{background:radial-gradient(ellipse at 12% 18%,rgba(139,92,246,.12),transparent 32%),radial-gradient(ellipse at 88% 38%,rgba(34,211,238,.075),transparent 30%),#080a11}
+.glow{background:radial-gradient(50% 35% at 50% 0%,rgba(139,92,246,.23),transparent 72%),radial-gradient(35% 35% at 95% 90%,rgba(34,211,238,.10),transparent 72%),radial-gradient(30% 30% at 0% 75%,rgba(251,79,155,.07),transparent 72%)}
+.topbar{background:rgba(8,10,17,.82);border-bottom-color:rgba(255,255,255,.1);box-shadow:0 10px 35px rgba(0,0,0,.18)}
+.brand{letter-spacing:.09em}.brand img{filter:drop-shadow(0 0 10px rgba(139,92,246,.55))}
+.tabs{width:min(100%,560px);justify-content:center;gap:7px;margin-top:24px;padding:7px;border-radius:18px;background:rgba(14,17,29,.82);border:1px solid rgba(255,255,255,.11);box-shadow:0 16px 45px rgba(0,0,0,.22)}
+.tab{position:relative;flex:1;padding:11px 18px;border:1px solid transparent;border-radius:12px;color:#a6afc2;font-weight:650;letter-spacing:.01em}
+.tab::before{content:"";position:absolute;inset:auto 22% 5px;height:2px;border-radius:9px;background:currentColor;opacity:0;transform:scaleX(.4);transition:.25s}
+.tab:hover{background:rgba(255,255,255,.055);transform:translateY(-1px)}
+.tab[data-p="home"][aria-selected="true"]{color:#fff;background:linear-gradient(135deg,#8b5cf6,#6545d8);box-shadow:0 7px 22px rgba(139,92,246,.28)}
+.tab[data-p="updates"][aria-selected="true"]{color:#06131a;background:linear-gradient(135deg,#22d3ee,#0ea5e9);box-shadow:0 7px 22px rgba(34,211,238,.22)}
+.tab[data-p="socials"][aria-selected="true"]{color:#fff;background:linear-gradient(135deg,#fb4f9b,#db2777);box-shadow:0 7px 22px rgba(251,79,155,.22)}
+.tab[data-p="faq"][aria-selected="true"]{color:#211604;background:linear-gradient(135deg,#fbbf24,#f59e0b);box-shadow:0 7px 22px rgba(251,191,36,.2)}
+.tab[aria-selected="true"]::before{opacity:0}
+.page{padding-top:62px}
+.eyebrow{letter-spacing:.24em;text-shadow:0 0 22px rgba(34,211,238,.25)}
+h1{ text-shadow:0 12px 55px rgba(139,92,246,.14)}
+.grad{background-image:linear-gradient(100deg,#a78bfa 0%,#22d3ee 48%,#fb4f9b 100%);background-size:180% auto;animation:gradflow 8s ease-in-out infinite}
+@keyframes gradflow{0%,100%{background-position:0% center}50%{background-position:100% center}}
+.tb,.card,.step,.rm-sum,.share,.faq details{box-shadow:0 14px 42px rgba(0,0,0,.16);backdrop-filter:blur(12px)}
+.tb{border-color:rgba(255,255,255,.12);background:linear-gradient(155deg,rgba(255,255,255,.09),rgba(255,255,255,.018))}
+.card{position:relative;overflow:hidden;border-color:rgba(255,255,255,.11);background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.018))}
+.card::before,.step::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--a),var(--b),var(--pink));opacity:.65}
+.card:hover{transform:translateY(-7px);border-color:rgba(167,139,250,.55);box-shadow:0 22px 55px rgba(0,0,0,.28)}
+.card .ic{background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(34,211,238,.12));color:#c4b5fd}
+.btn{box-shadow:0 5px 18px rgba(0,0,0,.12)}.btn.pri{background:linear-gradient(120deg,#8b5cf6,#6366f1 55%,#0ea5e9);box-shadow:0 8px 24px rgba(99,102,241,.24)}
+.app{border-color:rgba(139,92,246,.36);background:radial-gradient(80% 100% at 0% 0%,rgba(139,92,246,.19),transparent 70%),linear-gradient(145deg,rgba(255,255,255,.045),rgba(34,211,238,.025));box-shadow:0 25px 70px rgba(0,0,0,.18)}
+.rm-sum{border-color:rgba(139,92,246,.28);background:radial-gradient(90% 120% at 0% 0%,rgba(139,92,246,.16),transparent 65%),rgba(255,255,255,.025)}
+.track i,.road .fill,.mini-bar i{background:linear-gradient(90deg,#8b5cf6,#22d3ee,#fb4f9b)}
+.nodes .done span{background:#8b5cf6;border-color:#8b5cf6}.nodes .next span{background:#22d3ee;border-color:#22d3ee;box-shadow:0 0 0 5px rgba(34,211,238,.15)}
+.road::before{background:linear-gradient(180deg,rgba(139,92,246,.55),rgba(34,211,238,.24),rgba(255,255,255,.06))}
+.road .fill{background:linear-gradient(180deg,#8b5cf6,#22d3ee,#fb4f9b)}
+.road li.done::before{border-color:#8b5cf6;background:#8b5cf6;box-shadow:0 0 0 5px rgba(139,92,246,.12)}
+.road li.next::before{border-color:#22d3ee;background:#22d3ee;box-shadow:0 0 0 6px rgba(34,211,238,.15)}
+.step{overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border-color:rgba(255,255,255,.1)}
+.road li.next .step{border-color:rgba(34,211,238,.42);background:linear-gradient(145deg,rgba(34,211,238,.09),rgba(139,92,246,.055))}
+.chip.c{background:rgba(34,211,238,.13);color:#67e8f9}.chip.a{background:rgba(139,92,246,.18);color:#c4b5fd}
+.rm-filter button[aria-pressed=true]{background:linear-gradient(120deg,rgba(139,92,246,.2),rgba(34,211,238,.12));border-color:rgba(139,92,246,.4);color:#fff}
+.s{box-shadow:0 20px 50px rgba(0,0,0,.2)}.s:hover{transform:translateY(-7px)}
+details[open]{border-color:rgba(139,92,246,.48)}
+.fab{background:linear-gradient(130deg,#8b5cf6,#6366f1 60%,#0ea5e9);box-shadow:0 12px 38px rgba(99,102,241,.4)}
+.chat{border-color:rgba(139,92,246,.35);box-shadow:0 30px 90px rgba(0,0,0,.65)}
+footer{border-top-color:rgba(255,255,255,.1)}
+.horizon{max-width:760px;margin:42px auto 0;padding:28px;border:1px solid rgba(139,92,246,.25);border-radius:24px;background:radial-gradient(80% 100% at 100% 0%,rgba(34,211,238,.08),transparent 70%),linear-gradient(145deg,rgba(139,92,246,.09),rgba(255,255,255,.018));box-shadow:0 22px 60px rgba(0,0,0,.2);overflow:hidden}
+.horizon-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.horizon-live{display:flex;align-items:center;gap:8px;color:#a5f3fc;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.horizon-live i{width:7px;height:7px;border-radius:50%;background:#22d3ee;box-shadow:0 0 12px #22d3ee}
+.horizon h3{margin-top:18px;font:700 clamp(26px,4vw,36px)/1.15 var(--display);letter-spacing:-.035em}.horizon-intro{max-width:590px;margin-top:9px;color:var(--muted);font-size:14px}
+.horizon-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}.horizon-card{display:flex;align-items:center;gap:12px;min-width:0;padding:15px;border:1px solid rgba(255,255,255,.085);border-radius:15px;background:rgba(7,10,18,.38)}.horizon-card>div{flex:1;min-width:0}.horizon-card b{display:block;font:600 14px var(--display)}.horizon-card small{display:block;margin-top:3px;color:var(--muted);font-size:12px;line-height:1.45}.horizon-icon{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:12px;font-size:20px;background:rgba(255,255,255,.07)}.horizon-icon.violet{color:#c4b5fd;background:rgba(139,92,246,.16)}.horizon-icon.cyan{color:#67e8f9;background:rgba(34,211,238,.13)}.horizon-icon.pink{color:#f9a8d4;background:rgba(251,79,155,.13)}.horizon-icon.amber{color:#fcd34d;background:rgba(251,191,36,.13)}
+.soon-tag{padding:4px 7px;border-radius:99px;background:rgba(255,255,255,.07);color:#b8c1d2;font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+.horizon-foot{display:flex;align-items:center;gap:10px;margin-top:22px;color:#78839a;font-size:9px;font-weight:800;letter-spacing:.17em}.horizon-line{height:1px;flex:1;background:linear-gradient(90deg,rgba(139,92,246,.6),rgba(34,211,238,.12))}
+@media(max-width:700px){.tabs{justify-content:flex-start;overflow-x:auto;scrollbar-width:none}.tab{flex:0 0 auto;padding:10px 15px}.horizon{padding:20px}.horizon-grid{grid-template-columns:1fr}.horizon-card{padding:13px}.soon-tag{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.grad{animation:none}}
+
+
+/* Birthday celebration — Roadmap item 18 */
+.birthday-toast{position:fixed;z-index:10001;left:50%;top:18px;transform:translateX(-50%);width:min(92vw,680px);padding:18px 22px;border:1px solid rgba(255,210,100,.5);border-radius:20px;background:linear-gradient(120deg,rgba(65,35,100,.97),rgba(25,18,55,.97));box-shadow:0 18px 60px rgba(0,0,0,.4),0 0 35px rgba(255,190,80,.18);text-align:center;animation:bdayIn .7s cubic-bezier(.2,.8,.2,1) both}
+.birthday-toast strong{display:block;font:800 clamp(22px,5vw,34px) var(--display);color:#ffe29a;text-shadow:0 0 22px rgba(255,195,80,.4)}
+.birthday-toast span{display:block;margin-top:5px;color:#f4eaff;font-size:14px}
+.birthday-toast button{margin-top:12px;padding:8px 15px;border:1px solid rgba(255,226,154,.45);border-radius:99px;background:rgba(255,255,255,.08);color:#fff;cursor:pointer}
+.bday-particle{position:fixed;z-index:10000;pointer-events:none;font-size:clamp(20px,3vw,34px);animation:bdayFloat 4.5s ease-out forwards}
+@keyframes bdayIn{from{opacity:0;translate:0 -18px}to{opacity:1;translate:0 0}}
+@keyframes bdayFloat{0%{opacity:0;transform:translateY(25px) rotate(-12deg) scale(.6)}15%{opacity:1}100%{opacity:0;transform:translateY(-75vh) rotate(24deg) scale(1.15)}}
+@media(prefers-reduced-motion:reduce){.birthday-toast,.bday-particle{animation:none}}
+
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#home"><img src="favicon.svg" alt="">nyxg7</a>
+    <div class="mini" role="timer" aria-label="Time until launch"><span class="dot"></span><span class="lbl">Launch in</span><b id="mini">--</b></div>
+  </div>
+  <div class="bar" title="Progress to launch"><i id="prog"></i></div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Pages">
+  <button class="tab" role="tab" data-p="home" aria-controls="home" aria-selected="true">Home</button>
+  <button class="tab" role="tab" data-p="updates" aria-controls="updates" aria-selected="false">Roadmap</button>
+  <button class="tab" role="tab" data-p="socials" aria-controls="socials" aria-selected="false">Socials</button>
+  <button class="tab" role="tab" data-p="faq" aria-controls="faq" aria-selected="false">FAQ</button>
+</nav>
+
+<main class="wrap">
+  <!-- HOME -->
+  <section class="page on" id="home" role="tabpanel">
+    <span class="eyebrow"><span class="dot"></span>Something new is coming</span>
+    <h1>A brand new<br><span class="grad">website is almost here.</span></h1>
+    <p class="lead">Clean, fast and built with care. Watch the countdown to the full launch.</p>
+
+    <div class="cd" data-t="launch">
+      <div class="timer" role="timer" aria-label="Countdown to full launch">
+        <div class="tb"><span class="n">00</span><div class="u">DAYS</div></div>
+        <div class="tb"><span class="n">00</span><div class="u">HOURS</div></div>
+        <div class="tb"><span class="n">00</span><div class="u">MINS</div></div>
+        <div class="tb"><span class="n">00</span><div class="u">SECS</div></div>
+      </div>
+      <div class="live"><h3 class="grad">We're live.</h3><p>The new website is here. The PC app is up next.</p></div>
+    </div>
+    <p class="when" id="when">Full launch · 31 December 2026 · 7:00 PM UK time</p>
+
+    <div class="actions">
+      <button class="btn pri" type="button" data-cal="launch"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18M12 14v4M10 16h4"/></svg>Add to calendar</button>
+      <button class="btn ghost" type="button" data-share><svg class="i" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>Share</button>
+    </div>
+
+    <div class="cards rv">
+      <div class="card spot"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 17l.7 1.8L21.5 19.5l-1.8.7L19 22l-.7-1.8-1.8-.7 1.8-.7z"/></svg></div><h3>Clean design</h3><p>Simple, modern and easy to use on any device.</p></div>
+      <div class="card spot"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Fast and smooth</h3><p>Built to load quickly and feel great.</p></div>
+      <div class="card spot"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></div><h3>Regular updates</h3><p>New features land over time. First update is on 5 December.</p></div>
+    </div>
+
+    <div class="vid rv" id="teaser">
+      <div class="ph"><h2>Watch the <span class="grad">teaser</span></h2><p>18 seconds. No spoilers. Well, maybe one.</p></div>
+      <div class="player" id="player" aria-label="NYXG7 animated 18-second teaser">
+        <div class="teaser-scene" aria-live="polite">
+          <span class="teaser-kicker" id="teaserKicker">SOMETHING IS COMING</span>
+          <strong class="teaser-title" id="teaserTitle">NYXG7</strong>
+          <span class="teaser-subtitle" id="teaserSubtitle">A new experience is on its way.</span>
+        </div>
+        <button class="play" type="button" id="playbtn" aria-label="Play NYXG7 teaser"><span class="ring"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="pl">Play teaser<small>0:18 · Official NYXG7 preview</small></span></button>
+        <button class="teaser-replay" type="button" id="teaserReplay">↻ Replay</button>
+        <div class="teaser-bottom"><span id="teaserTime">0:00 / 0:18</span><div class="teaser-track"><div class="teaser-fill" id="teaserFill"></div></div><span>NYXG7</span></div>
+      </div>
+      
+    </div>
+
+    <div class="app rv" id="pc-app">
+      <div>
+        <span class="chip c">After launch</span>
+        <h2>The <span class="grad">nyxg7 PC app</span> is coming.</h2>
+        <p>The website is just the start. A desktop app for PC lands soon after the launch.</p>
+        <div class="pc-progress" aria-label="PC app release progress">
+          <div class="pc-progress-head"><b id="pc-progress-label">Development progress</b><strong id="pc-progress-percent">0%</strong></div>
+          <div class="pc-progress-track" role="progressbar" aria-label="PC app development progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pc-progressbar"><i id="pc-progress-fill"></i></div>
+          <p class="pc-progress-status" id="pc-progress-status">Not released yet · Development and testing updates coming soon.</p>
+          <div class="pc-quality"><span>✓ Feature testing</span><span>✓ Bug checks</span><span>✓ Release checks</span></div>
+        </div>
+        <ul>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg>Built for desktop</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg>Download from the website</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg>More details revealed after launch</li>
+        </ul>
+        <div class="actions" style="justify-content:flex-start;margin:0">
+          <a class="btn pri" id="pc-download" href="#" aria-disabled="true" tabindex="-1" style="pointer-events:none;opacity:.55"><svg class="i" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span id="pc-download-label">Download for PC · Soon</span></a>
+          <a class="btn ghost" href="#updates">See roadmap</a>
+        </div>
+      </div>
+      <div class="pc" aria-hidden="true">
+        <div class="tbar"><span></span><span></span><span></span><b>nyxg7</b></div>
+        <div class="scr"><div class="side"></div><div class="main"><span></span><span></span></div></div>
+        <div class="badge">Coming to PC</div>
+      </div>
+    </div>
+
+    <div class="teaser rv" aria-label="Blurred preview of the new website">
+      <div class="mock" aria-hidden="true">
+        <div class="nav"><span style="width:60px"></span><span style="width:40px;margin-left:auto"></span><span style="width:40px"></span><span style="width:40px"></span></div>
+        <div class="hero"></div>
+        <div class="row"><span></span><span></span><span></span></div>
+      </div>
+      <div class="lock">
+        <div class="pad"><svg class="i" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <b>Sneak peek locked</b>
+        <small>Unlocks at launch</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="page" id="updates" role="tabpanel">
+    <div class="ph"><h2>Roadmap</h2><p>Everything that's planned, in order. Updates itself as things go live.</p></div>
+
+    <div class="rm-sum">
+      <div class="rm-head">
+        <div><small>Overall progress</small><b id="rm-now">Phase 2 of 5 · First update</b></div>
+        <div class="pct" id="rm-pct">0%</div>
+      </div>
+      <div class="track"><i id="rm-bar"></i></div>
+      <div class="nodes" id="rm-nodes">
+        <button type="button" data-go="p1"><span></span>Page</button>
+        <button type="button" data-go="p2"><span></span>Update 1</button>
+        <button type="button" data-go="p3"><span></span>Secret</button>
+        <button type="button" data-go="p4"><span></span>Launch</button>
+        <button type="button" data-go="p5"><span></span>PC app</button>
+      </div>
+    </div>
+
+    <div class="rm-filter" role="group" aria-label="Filter roadmap">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="done" aria-pressed="false">Done</button>
+      <button type="button" data-f="todo" aria-pressed="false">Coming up</button>
+    </div>
+
+    <ol class="road" id="road">
+      <span class="fill" id="rm-fill" aria-hidden="true"></span>
+      <li id="p1" data-at="2026-11-01T00:00:00Z">
+        <div class="step spot">
+          <div class="s-top"><span class="num">01</span><span class="chip st">Done</span><span class="here"><span class="dot"></span>You are here</span><span class="date">November 2026</span></div>
+          <h3>Coming soon page</h3>
+          <p>The home for the countdown, news and everything that's on the way.</p>
+          <ul class="checks"><li class="ok"><span class="ck"></span>Live countdown</li><li class="ok"><span class="ck"></span>Roadmap and FAQ</li><li class="ok"><span class="ck"></span>Teaser video</li><li class="ok"><span class="ck"></span>Support assistant</li></ul>
+        </div>
+      </li>
+      <li id="p2" data-at="2026-12-05T00:00:00Z">
+        <div class="step spot">
+          <div class="s-top"><span class="num">02</span><span class="chip st">Up next</span><span class="here"><span class="dot"></span>You are here</span><time datetime="2026-12-05">5 December 2026</time></div>
+          <h3>First update</h3>
+          <p>The first big update is on its way. Details will be revealed soon, so stay tuned.</p>
+          <ul class="checks"><li class=""><span class="ck"></span><span class=blur>New features</span></li><li class=""><span class="ck"></span><span class=blur>Fresh look</span></li><li class=""><span class="ck"></span><span class=blur>A surprise</span></li><li class=""><span class="ck"></span>Revealed on the day</li></ul>
+          <div class="cd" data-t="update">
+            <div class="timer" role="timer" aria-label="Countdown to the first update">
+              <div class="tb"><span class="n">00</span><div class="u">DAYS</div></div>
+              <div class="tb"><span class="n">00</span><div class="u">HRS</div></div>
+              <div class="tb"><span class="n">00</span><div class="u">MINS</div></div>
+              <div class="tb"><span class="n">00</span><div class="u">SECS</div></div>
+            </div>
+            <div class="live"><h3 class="grad">The first update is out.</h3></div>
+          </div>
+          <div class="actions"><button class="btn ghost" type="button" data-cal="update"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Remind me</button></div>
+        </div>
+      </li>
+      <li id="p3">
+        <div class="step spot">
+          <div class="s-top"><span class="num">03</span><span class="chip st">Locked</span><span class="here"><span class="dot"></span>You are here</span><span class="date">December 2026</span></div>
+          <h3><span class="blur">Secret feature drop</span></h3>
+          <p>Something extra before launch. Revealed after the first update.</p>
+          <ul class="checks"><li class=""><span class="ck"></span><span class=blur>Classified</span></li><li class=""><span class="ck"></span><span class=blur>Classified</span></li></ul>
+        </div>
+      </li>
+      <li id="p4" data-at="2026-12-31T19:00:00Z">
+        <div class="step spot">
+          <div class="s-top"><span class="num">04</span><span class="chip st">Locked</span><span class="here"><span class="dot"></span>You are here</span><time datetime="2026-12-31T19:00Z">31 Dec 2026 · 7 PM UK</time></div>
+          <h3>Full website launch</h3>
+          <p>The full website goes live. Be here for the countdown, and the confetti.</p>
+          <ul class="checks"><li class=""><span class="ck"></span>Brand new website</li><li class=""><span class="ck"></span>Every page, finished</li><li class=""><span class="ck"></span>Built for every device</li><li class=""><span class="ck"></span>PC app announcement</li></ul>
+          <div class="mini-bar"><div><i id="p4-bar" style="width:0"></i></div><span id="p4-pct">0%</span></div>
+        </div>
+      </li>
+      <li id="p5">
+        <div class="step spot">
+          <div class="s-top"><span class="num">05</span><span class="chip st">Locked</span><span class="here"><span class="dot"></span>You are here</span><span class="date">Soon after launch</span></div>
+          <h3>nyxg7 PC app</h3>
+          <p>A desktop app for PC, coming soon after the website launch. More details revealed after launch.</p>
+          <ul class="checks"><li class=""><span class="ck"></span>Built for desktop</li><li class=""><span class="ck"></span>Download from the website</li><li class=""><span class="ck"></span>More details after launch</li></ul>
+        </div>
+      </li>
+      <li id="p18">
+        <div class="step spot">
+          <div class="s-top"><span class="num">18</span><span class="chip st">Planned</span><span class="date">Birthday special · Date TBA</span></div>
+          <h3>🎂 Happy Birthday NYXG7 / Tay / Kairo</h3>
+          <p>A special birthday takeover with a personalised greeting, floating balloons, confetti and fireworks. Visitors can tap or click anywhere to set off their own celebration burst.</p>
+          <ul class="checks"><li><span class="ck"></span>Personalised birthday banner</li><li><span class="ck"></span>Animated balloons and confetti</li><li><span class="ck"></span>Tap-anywhere fireworks</li><li><span class="ck"></span>Automatically returns to the normal theme</li></ul>
+        </div>
+      </li>
+    </ol>
+    <p class="rm-note">Dates can move. If anything changes, the roadmap changes with it.</p>
+
+    <section class="horizon rv" aria-label="More updates coming soon">
+      <div class="horizon-head"><span class="chip c">Beyond the roadmap</span><span class="horizon-live"><i></i> More is on the way</span></div>
+      <h3>And this is <span class="grad">only the beginning.</span></h3>
+      <p class="horizon-intro">The launch is the starting point. Keep an eye out for future announcements, extra features and new surprises. Details will be shared when they are ready.</p>
+      <div class="horizon-grid">
+        <article class="horizon-card"><span class="horizon-icon violet">✦</span><div><b>More website updates</b><small>Fresh improvements and new things to explore.</small></div><span class="soon-tag">Coming soon</span></article>
+        <article class="horizon-card"><span class="horizon-icon cyan">↗</span><div><b>New features</b><small>More details will be revealed in future updates.</small></div><span class="soon-tag">TBA</span></article>
+        <article class="horizon-card"><span class="horizon-icon pink">⌘</span><div><b>PC app news</b><small>Development news and download information.</small></div><span class="soon-tag">After launch</span></article>
+        <article class="horizon-card"><span class="horizon-icon amber">★</span><div><b>More surprises</b><small>Keep checking back so you don't miss anything.</small></div><span class="soon-tag">Secret</span></article>
+      </div>
+      <div class="horizon-foot"><span>STAY TUNED</span><span class="horizon-line"></span><span>NYXG7 · 2026 AND BEYOND</span></div>
+    </section>
+  </section>
+
+  <!-- SOCIALS -->
+  <section class="page" id="socials" role="tabpanel">
+    <div class="ph"><h2>Find me online</h2><p>Follow along for news and updates.</p></div>
+    <div class="soc">
+      <div class="s tiktok spot">
+        <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 6.7a4.8 4.8 0 0 1-3.8-4.2h-3.4v13.4a2.9 2.9 0 1 1-2-2.8V9.6a6.3 6.3 0 1 0 5.4 6.3V9.4a8.1 8.1 0 0 0 4.7 1.5V7.5a4.8 4.8 0 0 1-.9-.8z"/></svg></div>
+        <h3>TikTok</h3>
+        <p class="handle">@tvxnzy7</p>
+        <a class="btn" href="https://www.tiktok.com/@tvxnzy7?lang=en" target="_blank" rel="noopener noreferrer">Follow on TikTok</a>
+      </div>
+      <div class="s discord spot">
+        <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5c2-1 4.3-1.5 7-1.5s5 .5 7 1.5c1.5 3 2.3 6.2 2.2 10-1.7 1.3-3.5 2.1-5.4 2.5l-1-1.7c-1.2.2-2.6.2-3.8 0l-1 1.7c-1.9-.4-3.7-1.2-5.4-2.5C2.7 11.7 3.5 8.5 5 5.5z"/><circle cx="9" cy="11.5" r="1.7" fill="#4752c4"/><circle cx="15" cy="11.5" r="1.7" fill="#4752c4"/></svg></div>
+        <h3>Discord</h3>
+        <p class="handle">nyxg7</p>
+        <button class="btn" id="copy" type="button">Copy username</button>
+      </div>
+    </div>
+    <div class="share">
+      <div><h3>Know someone who'd like this?</h3><p>Send them the countdown.</p></div>
+      <div class="actions" style="margin:0">
+        <button class="btn pri" type="button" data-share><svg class="i" viewBox="0 0 24 24"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>Share</button>
+        <button class="btn ghost" type="button" id="copylink"><svg class="i" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copy link</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="page" id="faq" role="tabpanel">
+    <div class="ph"><h2>FAQ</h2><p>Quick answers.</p></div>
+    <div class="faq">
+      <details><summary>When does the website launch?</summary><p>The full launch is on 31 December 2026 at 7:00 PM UK time. The countdown at the top always shows exactly how long is left, in your own time zone.</p></details>
+      <details><summary>What's coming on 5 December?</summary><p>The first big update. Details stay secret until then, so check the Roadmap tab or follow on TikTok to see it first.</p></details>
+      <details><summary>How do I get notified?</summary><p>Tap "Add to calendar" on the Home tab to get a reminder, or follow <a href="https://www.tiktok.com/@tvxnzy7?lang=en" target="_blank" rel="noopener noreferrer">@tvxnzy7 on TikTok</a>.</p></details>
+      <details><summary>Is there a PC app?</summary><p>Yes. A nyxg7 desktop app for PC is coming soon after the website launch on 31 December. You'll be able to get it from this website, and more details will be shared after launch.</p></details>
+      <details><summary>How can I get in touch?</summary><p>Add me on Discord: <b>nyxg7</b>. You can copy the username from the Socials tab.</p></details>
+      <details><summary>Can I ask a question?</summary><p>Yes. Tap "Ask" in the bottom corner for instant answers. If you need a real person, choose "Speak to nyxg7".</p></details>
+      <details><summary>Are there secrets on this site?</summary><p>Maybe. Some people say there are three. Nobody's saying where.</p></details>
+      <details><summary>Will it work on my phone?</summary><p>Yes. Everything is built to work on phones, tablets and desktops.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Built by <b>nyxg7</b> · © 2026</span>
+    <button class="kbd-hint" type="button" id="kbdhint"><kbd>Ctrl</kbd><kbd>K</kbd> Quick menu</button>
+    <span class="secrets" id="secrets" title="Secrets found"><svg class="i" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.5 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg><span id="sc">0/3</span></span>
+    <nav aria-label="Footer"><a href="#home">Home</a><a href="#updates">Roadmap</a><a href="#socials">Socials</a><a href="#faq">FAQ</a></nav>
+  </div>
+</footer>
+
+
+<button class="fab" type="button" id="fab" aria-expanded="false" aria-controls="chat"><svg class="i" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg><span class="lbl">Ask</span><span class="pip"></span></button>
+<div class="chat" id="chat" role="dialog" aria-label="nyxg7 assistant">
+  <div class="chat-h">
+    <div class="av"><img src="favicon.svg" alt=""></div>
+    <div><b>nyxg7 Assistant</b><small id="who"><i></i>Instant answers, 24/7</small></div>
+    <button class="x" type="button" id="chatx" aria-label="Close"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="msgs" id="msgs" aria-live="polite"></div>
+  <div class="sugg" id="sugg"></div>
+  <form id="ask" autocomplete="off"><input id="q" placeholder="Ask anything about nyxg7..." aria-label="Your question" maxlength="200"><button type="submit" aria-label="Send"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+  <button class="speak" type="button" id="speak"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Speak to nyxg7</button>
+</div>
+
+<div class="cmdk" id="cmdk" role="dialog" aria-label="Quick menu">
+  <div class="box"><input id="cq" placeholder="Type a command or search..." aria-label="Search commands"><ul id="cl" role="listbox"></ul></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const pad = n => String(n).padStart(2, "0");
+const URL_ = "https://vexfnofficial.github.io/coming-soon/";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Dates (UTC). Launch: 31 Dec 2026, 7:00 PM UK time.
+const EV = {
+  launch: {t: Date.parse("2026-12-31T19:00:00Z"), title: "nyxg7 website launch", desc: "The new nyxg7 website goes live."},
+  update: {t: Date.parse("2026-12-05T00:00:00Z"), title: "nyxg7 first update", desc: "The first big update lands."}
+};
+const START = Date.parse("2026-11-01T00:00:00Z");
+
+// Show launch time in the visitor's own time zone if different from UK
+try {
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  if (tz && tz !== "Europe/London" && tz !== "UTC") {
+    const local = new Date(EV.launch.t).toLocaleString([], {day:"numeric",month:"long",hour:"numeric",minute:"2-digit"});
+    $("#when").textContent += ` (${local} your time)`;
+  }
+} catch(e){}
+
+const toast = msg => { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("on"), 2200); };
+
+let celebrated = false;
+function tick(){
+  const now = Date.now();
+  $$(".cd").forEach(c => {
+    const r = Math.max(0, EV[c.dataset.t].t - now), n = c.querySelectorAll(".n");
+    c.classList.toggle("done", r === 0);
+    [Math.floor(r/864e5), Math.floor(r%864e5/36e5), Math.floor(r%36e5/6e4), Math.floor(r%6e4/1e3)].forEach((v,i) => {
+      const s = pad(v);
+      if (n[i].textContent !== s) { n[i].textContent = s; if(!reduce){ n[i].classList.remove("flip"); void n[i].offsetWidth; n[i].classList.add("flip"); } }
+    });
+  });
+  const r = Math.max(0, EV.launch.t - now);
+  $("#mini").textContent = r ? `${Math.floor(r/864e5)}d ${pad(Math.floor(r%864e5/36e5))}h ${pad(Math.floor(r%36e5/6e4))}m ${pad(Math.floor(r%6e4/1e3))}s` : "Live now";
+  $("#prog").style.width = Math.min(100, Math.max(0, (now - START) / (EV.launch.t - START) * 100)) + "%";
+
+  roadmap(now);
+  if (!r && !celebrated) { celebrated = true; confetti(); }
+}
+
+// Tabs (hash routing + arrow keys)
+const tabs = $$(".tab"), names = tabs.map(b => b.dataset.p);
+function show(p, focus){
+  if (!names.includes(p)) p = "home";
+  $$(".page").forEach(e => e.classList.toggle("on", e.id === p));
+  tabs.forEach(b => { const on = b.dataset.p === p; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
+  if (p === "updates") requestAnimationFrame(fillLine);
+}
+tabs.forEach((b,i) => {
+  b.addEventListener("click", () => { history.replaceState(null, "", "#" + b.dataset.p); show(b.dataset.p); window.scrollTo({top:0}); });
+  b.addEventListener("keydown", e => {
+    const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (!d) return;
+    const p = names[(i + d + names.length) % names.length]; history.replaceState(null, "", "#" + p); show(p, true);
+  });
+});
+$$('a[href^="#"]').forEach(a => a.addEventListener("click", e => { const p = a.getAttribute("href").slice(1); if (names.includes(p)) { e.preventDefault(); history.replaceState(null, "", "#" + p); show(p); window.scrollTo({top:0}); } }));
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+window.addEventListener("hashchange", () => { show(location.hash.slice(1)); window.scrollTo({top:0}); });
+show(location.hash.slice(1));
+addEventListener("load", () => window.scrollTo({top:0}));
+
+// Clipboard helpers
+async function copy(text, ok){ try { await navigator.clipboard.writeText(text); toast(ok); } catch(e){ toast(text); } }
+$("#copy").addEventListener("click", () => { copy("nyxg7", "Discord username copied"); const b = $("#copy"); b.textContent = "Copied ✓"; setTimeout(() => b.textContent = "Copy username", 2000); });
+$("#copylink").addEventListener("click", () => copy(URL_, "Link copied"));
+$$("[data-share]").forEach(b => b.addEventListener("click", async () => {
+  if (navigator.share) { try { await navigator.share({title: "nyxg7 — Something new is coming", text: "A brand new website launches 31 December. Watch the countdown:", url: URL_}); } catch(e){} }
+  else copy(URL_, "Link copied");
+}));
+
+// Add to calendar (.ics download)
+const ics = d => new Date(d).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+$$("[data-cal]").forEach(b => b.addEventListener("click", () => {
+  const e = EV[b.dataset.cal];
+  const body = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//nyxg7//coming-soon//EN","BEGIN:VEVENT",
+    `UID:${b.dataset.cal}-nyxg7@vexfnofficial.github.io`,`DTSTAMP:${ics(Date.now())}`,`DTSTART:${ics(e.t)}`,`DTEND:${ics(e.t + 36e5)}`,
+    `SUMMARY:${e.title}`,`DESCRIPTION:${e.desc} ${URL_}`,`URL:${URL_}`,
+    "BEGIN:VALARM","TRIGGER:-PT15M","ACTION:DISPLAY",`DESCRIPTION:${e.title}`,"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([body], {type: "text/calendar"}));
+  a.download = `nyxg7-${b.dataset.cal}.ics`; document.body.appendChild(a); a.click(); a.remove();
+  toast("Calendar reminder downloaded");
+}));
+
+// ===== PC app release progress =====
+// Update these values when development advances. Only set released=true
+// and add the real download URL when the PC app is ready for public release.
+const PC_APP_PROGRESS = 0; // 0 to 99 while in development; 100 when released
+const PC_APP_RELEASED = false;
+const PC_APP_DOWNLOAD_URL = ""; // e.g. "downloads/nyxg7-setup.exe"
+(function initPCAppProgress(){
+  const pct = PC_APP_RELEASED ? 100 : Math.max(0, Math.min(99, Number(PC_APP_PROGRESS) || 0));
+  const bar = $("#pc-progressbar"), fill = $("#pc-progress-fill"), label = $("#pc-progress-label");
+  const number = $("#pc-progress-percent"), status = $("#pc-progress-status");
+  const download = $("#pc-download"), downloadLabel = $("#pc-download-label");
+  if (fill) fill.style.width = pct + "%";
+  if (number) number.textContent = pct + "%";
+  if (bar) bar.setAttribute("aria-valuenow", String(pct));
+  if (PC_APP_RELEASED && PC_APP_DOWNLOAD_URL) {
+    document.querySelector("#pc-app").classList.add("pc-released");
+    label.textContent = "Release status";
+    status.textContent = "Released! The PC app is ready to download.";
+    download.href = PC_APP_DOWNLOAD_URL;
+    download.removeAttribute("aria-disabled");
+    download.removeAttribute("tabindex");
+    download.style.pointerEvents = "";
+    download.style.opacity = "";
+    downloadLabel.textContent = "Download for PC";
+  } else if (PC_APP_RELEASED) {
+    if (fill) fill.style.width = "100%";
+    if (number) number.textContent = "100%";
+    if (bar) bar.setAttribute("aria-valuenow", "100");
+    label.textContent = "Release status";
+    status.textContent = "Ready for release — download link will appear when the installer is uploaded.";
+  } else {
+    status.textContent = pct === 0
+      ? "Not released yet · Development and testing updates coming soon."
+      : "In development · Features and bug checks are ongoing.";
+  }
+})();
+
+// ===== Roadmap =====
+const PH = $$("#road > li"), PH_NAMES = ["Coming soon page","First update","Secret feature drop","Full launch","PC app"];
+let rmKey = "";
+function roadmap(now){
+  const at = PH.map(li => li.dataset.at ? Date.parse(li.dataset.at) : null);
+  let lastDone = -1; at.forEach((t,i) => { if (t && now >= t) lastDone = i; });
+  const next = lastDone + 1;
+  const key = lastDone + "";
+  // launch phase progress (from page start to launch)
+  const lp = Math.min(100, Math.max(0, (now - START) / (EV.launch.t - START) * 100));
+  $("#p4-bar").style.width = lp.toFixed(1) + "%"; $("#p4-pct").textContent = Math.floor(lp) + "%";
+  if (key === rmKey) return; rmKey = key;
+  PH.forEach((li,i) => {
+    const st = i <= lastDone ? "done" : i === next ? "next" : "locked";
+    li.classList.remove("done","next","locked"); li.classList.add(st);
+    const c = li.querySelector(".st");
+    c.textContent = st === "done" ? (i === 0 ? "Live" : "Done") : st === "next" ? "Up next" : "Locked";
+    c.className = "chip st" + (st === "done" ? " a" : st === "next" ? " c" : "");
+    if (st === "done") li.querySelectorAll(".checks li").forEach(x => { x.classList.add("ok"); x.querySelectorAll(".blur").forEach(b => b.classList.remove("blur")); });
+    $$("#rm-nodes button")[i].className = st;
+  });
+  const done = lastDone + 1, pct = Math.round(done / PH.length * 100);
+  $("#rm-pct").textContent = pct + "%";
+  requestAnimationFrame(() => { $("#rm-bar").style.width = pct + "%"; });
+  $("#rm-now").textContent = next < PH.length ? `Phase ${next+1} of ${PH.length} · ${PH_NAMES[next]}` : "All phases complete";
+  fillLine();
+}
+function fillLine(){
+  const cur = $("#road > li.next") || $$("#road > li.done").pop(); if (!cur || !cur.offsetParent) return;
+  $("#rm-fill").style.height = (cur.offsetTop + 30) + "px";
+}
+$$("#rm-nodes button").forEach(b => b.addEventListener("click", () => { const el = document.getElementById(b.dataset.go); el.classList.remove("hide"); el.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "center"}); }));
+$$(".rm-filter button").forEach(b => b.addEventListener("click", () => {
+  $$(".rm-filter button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  PH.forEach(li => li.classList.toggle("hide", b.dataset.f === "done" ? !li.classList.contains("done") : b.dataset.f === "todo" ? li.classList.contains("done") : false));
+  $("#rm-fill").style.display = b.dataset.f === "all" ? "" : "none";
+}));
+addEventListener("resize", fillLine);
+
+// ===== NYXG7 animated 18-second teaser (self-contained; no MP4 needed) =====
+const teaserPlayer = $("#player");
+const teaserPlay = $("#playbtn");
+const teaserReplay = $("#teaserReplay");
+const teaserKicker = $("#teaserKicker");
+const teaserTitle = $("#teaserTitle");
+const teaserSubtitle = $("#teaserSubtitle");
+const teaserFill = $("#teaserFill");
+const teaserTime = $("#teaserTime");
+const teaserScenes = [
+  {at:0, kicker:"SOMETHING IS COMING", title:"NYXG7", subtitle:"A new experience is on its way."},
+  {at:3, kicker:"A NEW LOOK", title:"BUILT DIFFERENT", subtitle:"A fresh design. A whole new vibe."},
+  {at:7, kicker:"STAY CONNECTED", title:"ONE COMMUNITY", subtitle:"News. Updates. Surprises."},
+  {at:11, kicker:"THE NEXT CHAPTER", title:"NYXG7", subtitle:"More than a website."},
+  {at:15, kicker:"MARK THE DATE", title:"31 · 12 · 2026", subtitle:"7:00 PM UK TIME · STAY TUNED"}
+];
+let teaserStart = 0, teaserFrame = 0, teaserSceneIndex = -1, teaserRunning = false;
+function teaserTick(now) {
+  if (!teaserRunning) return;
+  const elapsed = Math.min((now - teaserStart) / 1000, 18);
+  const seconds = Math.floor(elapsed);
+  teaserFill.style.width = `${elapsed / 18 * 100}%`;
+  teaserTime.textContent = `0:${String(seconds).padStart(2,"0")} / 0:18`;
+  const nextIndex = teaserScenes.reduce((found, scene, index) => elapsed >= scene.at ? index : found, 0);
+  if (nextIndex !== teaserSceneIndex) {
+    teaserSceneIndex = nextIndex;
+    const scene = teaserScenes[nextIndex];
+    teaserKicker.textContent = scene.kicker;
+    teaserTitle.textContent = scene.title;
+    teaserSubtitle.textContent = scene.subtitle;
+  }
+  if (elapsed >= 18) {
+    teaserRunning = false;
+    teaserPlayer.classList.remove("started");
+    teaserPlayer.classList.add("finished");
+    teaserFill.style.width = "100%";
+    teaserTime.textContent = "0:18 / 0:18";
+    return;
+  }
+  teaserFrame = requestAnimationFrame(teaserTick);
+}
+function startNyxTeaser() {
+  cancelAnimationFrame(teaserFrame);
+  teaserRunning = true;
+  teaserSceneIndex = -1;
+  teaserStart = performance.now();
+  teaserPlayer.classList.remove("finished");
+  teaserPlayer.classList.add("started");
+  teaserFill.style.width = "0%";
+  teaserTick(teaserStart);
+}
+teaserPlay.addEventListener("click", startNyxTeaser);
+teaserReplay.addEventListener("click", startNyxTeaser);
+
+// ===== Spotlight + reveal =====
+document.addEventListener("pointermove", e => { const t = e.target.closest && e.target.closest(".spot"); if (!t) return; const r = t.getBoundingClientRect(); t.style.setProperty("--mx", (e.clientX - r.left) + "px"); t.style.setProperty("--my", (e.clientY - r.top) + "px"); });
+if ("IntersectionObserver" in window && !reduce) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold: .12});
+  $$(".rv").forEach(el => io.observe(el));
+} else $$(".rv").forEach(el => el.classList.add("in"));
+
+// ===== Assistant =====
+const msgs = $("#msgs"), chat = $("#chat"), fab = $("#fab");
+const left = () => { const r = Math.max(0, EV.launch.t - Date.now()); const d = Math.floor(r/864e5), h = Math.floor(r%864e5/36e5); return r ? `${d} day${d===1?"":"s"} and ${h} hour${h===1?"":"s"}` : "no time at all, it's live"; };
+const SPEAK = '<div class="row"><button class="btn pri" data-act="speak">Speak to nyxg7</button></div>';
+const KB = [
+  {k:["hi","hello","hey","yo","sup","hiya"], a:() => `Hey. I can answer questions about the launch, the first update, the PC app and more. What would you like to know?`},
+  {k:["launch","release","when","date","time","live","open","countdown","out"], a:() => `The full website launches on <b>31 December 2026 at 7:00 PM UK time</b>. That's ${left()} from now.<div class="row"><button class="btn ghost" data-act="cal-launch">Add to calendar</button></div>`},
+  {k:["update","5","december","dec","first","next","new feature","features"], a:() => `The first big update lands on <b>5 December 2026</b>. What's in it is still a secret, but it'll be revealed on the day.<div class="row"><button class="btn ghost" data-act="cal-update">Remind me</button><button class="btn ghost" data-act="tab-updates">See roadmap</button></div>`},
+  {k:["pc","app","download","desktop","windows","computer","laptop","install"], a:() => `Yes, there's a <b>nyxg7 PC app</b> coming soon after the website launch. You'll be able to download it from this website. More details are coming after launch.`},
+  {k:["roadmap","plan","plans","phase","progress","coming"], a:() => `There are 5 phases: the coming soon page, the first update (5 Dec), a secret feature drop, the full launch (31 Dec) and then the PC app.<div class="row"><button class="btn ghost" data-act="tab-updates">Open roadmap</button></div>`},
+  {k:["teaser","video","trailer","watch"], a:() => `There's an 18 second teaser on the Home tab.<div class="row"><button class="btn ghost" data-act="teaser">Watch teaser</button></div>`},
+  {k:["discord","contact","talk","human","person","real","speak","support","help","message","dm","email","owner","admin"], a:() => `You can reach nyxg7 directly. Here's how:` + SPEAK},
+  {k:["tiktok","social","socials","follow","instagram","youtube"], a:() => `Follow <a href="https://www.tiktok.com/@tvxnzy7?lang=en" target="_blank" rel="noopener noreferrer">@tvxnzy7 on TikTok</a> for news and sneak peeks. On Discord it's <b>nyxg7</b>.`},
+  {k:["price","cost","free","pay","money","paid"], a:() => `Pricing hasn't been announced yet. If you need to know now, ask nyxg7 directly.` + SPEAK},
+  {k:["phone","mobile","iphone","android","tablet","ipad"], a:() => `This site works on phones, tablets and computers. The upcoming app is for PC.`},
+  {k:["notify","remind","reminder","calendar","alert"], a:() => `I can add a reminder to your calendar.<div class="row"><button class="btn ghost" data-act="cal-launch">Launch reminder</button><button class="btn ghost" data-act="cal-update">Update reminder</button></div>`},
+  {k:["secret","secrets","easter","egg","hidden","hint"], a:() => `There are 3 secrets hidden here. A hint: <b>seven</b> is a lucky number, gamers know a famous code, and sometimes it's good to say your own name.`},
+  {k:["who","nyxg7","creator","made","built","about","you"], a:() => `nyxg7 is the creator behind this website and the upcoming PC app. I'm the assistant here, so I can answer the quick stuff.`},
+  {k:["logout","log out","sign out","signout","disconnect","account","logged"], a:() => window.nxDiscord && window.nxDiscord.user ? `You're signed in as <b>@${esc(window.nxDiscord.user.username)}</b>. You can sign out from the top of this chat.` : `You're not signed in with Discord right now.`},
+  {k:["thanks","thank","ty","cheers","thx"], a:() => `Any time. See you at the launch.`},
+  {k:["share","link","friend"], a:() => `Share the countdown with a friend:<div class="row"><button class="btn ghost" data-act="share">Share link</button></div>`},
+];
+function answer(q){
+  const t = " " + q.toLowerCase().replace(/[^a-z0-9 ]/g, " ") + " ";
+  let best = null, score = 0;
+  KB.forEach(e => { let s = 0; e.k.forEach(k => { if (t.includes(" " + k + " ") || (k.length > 4 && t.includes(k))) s += k.length > 3 ? 2 : 1; }); if (s > score) { score = s; best = e; } });
+  return best ? best.a() : `I'm not sure about that one yet. nyxg7 can help you directly.` + SPEAK;
+}
+let lastQ = "";
+const esc = t => String(t).replace(/[<>&"]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
+function who(){ const du = window.nxDiscord && window.nxDiscord.user; if (!du) return;
+  $("#who").innerHTML = `<img src="${esc(du.avatar)}" alt="" style="width:16px;height:16px;border-radius:50%">Signed in as @${esc(du.username)} · <button type="button" id="dcout" style="border:0;background:none;color:var(--muted);font:inherit;text-decoration:underline;cursor:pointer;padding:0">Sign out</button>`;
+  $("#dcout").addEventListener("click", () => window.nxDiscord.signOut()); }
+who(); document.addEventListener("nx:discord", who);
+function add(html, who){ const d = document.createElement("div"); d.className = "m " + who; d.innerHTML = html; msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight; return d; }
+function botSay(html){
+  const t = add('<span class="typing"><i></i><i></i><i></i></span>', "bot"); t.style.padding = "0";
+  setTimeout(() => { t.style.padding = ""; t.innerHTML = html; msgs.scrollTop = msgs.scrollHeight; }, reduce ? 0 : 550 + Math.min(700, html.length * 3));
+}
+function ask(q){ q = q.trim(); if (!q) return; lastQ = q; add(q.replace(/[<>&]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;"}[c])), "me"); botSay(answer(q)); }
+function speak(){
+  add("Speak to nyxg7", "me");
+  botSay(`No problem. Message nyxg7 directly on Discord or TikTok. ${lastQ ? "I can copy your question so you can paste it straight in." : ""}<div class="row"><button class="btn pri" data-act="discord">Copy Discord: nyxg7</button><a class="btn ghost" href="https://www.tiktok.com/@tvxnzy7?lang=en" target="_blank" rel="noopener noreferrer">Message on TikTok</a>${lastQ ? '<button class="btn ghost" data-act="copyq">Copy my question</button>' : ""}</div>`);
+}
+const SUG = ["When is the launch?","What's the PC app?","First update?","Any secrets?","Watch the teaser"];
+$("#sugg").innerHTML = SUG.map(s => `<button type="button">${s}</button>`).join("");
+$$("#sugg button").forEach(b => b.addEventListener("click", () => ask(b.textContent)));
+let greeted = false;
+function openChat(v){
+  const on = v ?? !chat.classList.contains("on"); chat.classList.toggle("on", on); fab.setAttribute("aria-expanded", on);
+  const pip = fab.querySelector(".pip"); if (pip) pip.remove();
+  if (on && !greeted) { greeted = true; const h = new Date().getHours(), du = window.nxDiscord && window.nxDiscord.user; botSay(`${h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening"}${du ? ", " + esc(du.name) : ""}. I'm the nyxg7 assistant. Ask me about the launch, the first update or the PC app. If you'd rather talk to a real person, tap <b>Speak to nyxg7</b> at any time.`); }
+  if (on) setTimeout(() => $("#q").focus(), 200);
+}
+fab.addEventListener("click", () => openChat());
+$("#chatx").addEventListener("click", () => openChat(false));
+$("#ask").addEventListener("submit", e => { e.preventDefault(); ask($("#q").value); $("#q").value = ""; });
+$("#speak").addEventListener("click", speak);
+const go = p => { history.replaceState(null, "", "#" + p); show(p); window.scrollTo({top:0}); };
+const ACT = {
+  speak, discord: () => copy("nyxg7", "Discord username copied"), copyq: () => copy(lastQ, "Question copied"),
+  "cal-launch": () => $('[data-cal="launch"]').click(), "cal-update": () => $('[data-cal="update"]').click(),
+  "tab-updates": () => go("updates"), share: () => $("[data-share]").click(),
+  teaser: () => { openChat(false); go("home"); setTimeout(() => $("#teaser").scrollIntoView({behavior: "smooth", block: "center"}), 60); }
+};
+msgs.addEventListener("click", e => { const b = e.target.closest("[data-act]"); if (b && ACT[b.dataset.act]) ACT[b.dataset.act](); });
+
+// ===== Quick menu (Ctrl/Cmd + K) =====
+const CMDS = [
+  ["Go to Home", () => go("home"), "1"], ["Go to Roadmap", () => go("updates"), "2"], ["Go to Socials", () => go("socials"), "3"], ["Go to FAQ", () => go("faq"), "4"],
+  ["Watch the teaser", ACT.teaser], ["Ask the assistant", () => openChat(true)], ["Speak to nyxg7", () => { openChat(true); setTimeout(speak, 250); }],
+  ["Add launch to calendar", ACT["cal-launch"]], ["Remind me about the first update", ACT["cal-update"]],
+  ["Copy Discord username", ACT.discord], ["Sign out of Discord", () => window.nxDiscord && window.nxDiscord.signOut()], ["Copy site link", () => copy(URL_, "Link copied")], ["Open TikTok", () => open("https://www.tiktok.com/@tvxnzy7?lang=en", "_blank", "noopener")],
+];
+const ck_ = $("#cmdk"), cq = $("#cq"), cl = $("#cl"); let sel = 0, list = CMDS;
+function renderCmd(){ list = CMDS.filter(c => c[0].toLowerCase().includes(cq.value.toLowerCase())); sel = Math.min(sel, Math.max(0, list.length - 1));
+  cl.innerHTML = list.length ? list.map((c,i) => `<li role="option" aria-selected="${i===sel}" data-i="${i}">${c[0]}${c[2] ? `<kbd>${c[2]}</kbd>` : ""}</li>`).join("") : '<li>No results</li>'; }
+function cmd(on){ ck_.classList.toggle("on", on); if (on) { cq.value = ""; sel = 0; renderCmd(); setTimeout(() => cq.focus(), 10); } }
+cq.addEventListener("input", () => { sel = 0; renderCmd(); });
+cq.addEventListener("keydown", e => {
+  if (e.key === "ArrowDown") { sel = (sel + 1) % list.length; renderCmd(); e.preventDefault(); }
+  else if (e.key === "ArrowUp") { sel = (sel - 1 + list.length) % list.length; renderCmd(); e.preventDefault(); }
+  else if (e.key === "Enter" && list[sel]) { cmd(false); list[sel][1](); }
+});
+cl.addEventListener("click", e => { const li = e.target.closest("[data-i]"); if (li) { cmd(false); list[+li.dataset.i][1](); } });
+ck_.addEventListener("click", e => { if (e.target === ck_) cmd(false); });
+$("#kbdhint").addEventListener("click", () => cmd(true));
+const typing = el => el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA");
+addEventListener("keydown", e => {
+  if (document.documentElement.classList.contains("gate")) return;
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); cmd(!ck_.classList.contains("on")); return; }
+  if (e.key === "Escape") { cmd(false); openChat(false); return; }
+  if (typing(document.activeElement) || ck_.classList.contains("on")) return;
+  if (e.key === "/") { e.preventDefault(); cmd(true); }
+  const n = ["1","2","3","4"].indexOf(e.key); if (n > -1 && !e.ctrlKey && !e.metaKey && !e.altKey) go(names[n]);
+});
+
+// ===== Secrets (3 to find) =====
+let found = []; try { found = JSON.parse(localStorage.getItem("nx-s") || "[]"); } catch(e){}
+function badge(){ const b = $("#secrets"); b.classList.toggle("on", found.length > 0); $("#sc").textContent = found.length + "/3"; }
+function secret(id, msg){
+  if (!found.includes(id)) { found.push(id); try { localStorage.setItem("nx-s", JSON.stringify(found)); } catch(e){} badge();
+    toast(found.length === 3 ? "All 3 secrets found. Legend." : `Secret found: ${msg} (${found.length}/3)`); if (found.length === 3) confetti(); }
+  else toast(msg);
+}
+badge();
+let clicks = 0, ct;
+$(".brand").addEventListener("click", () => { clicks++; clearTimeout(ct); ct = setTimeout(() => clicks = 0, 1500);
+  if (clicks === 7) { clicks = 0; document.documentElement.classList.add("glitch"); setTimeout(() => document.documentElement.classList.remove("glitch"), 1600); secret("seven", "Lucky seven"); } });
+const KON = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"]; let ki = 0, buf = "";
+addEventListener("keydown", e => {
+  if (document.documentElement.classList.contains("gate")) return;
+  if (typing(document.activeElement)) return;
+  ki = e.key === KON[ki] || e.key.toLowerCase() === KON[ki] ? ki + 1 : (e.key === KON[0] ? 1 : 0);
+  if (ki === KON.length) { ki = 0; const on = document.documentElement.classList.toggle("retro"); secret("konami", on ? "Retro mode on" : "Retro mode off"); }
+  if (e.key.length === 1) { buf = (buf + e.key.toLowerCase()).slice(-5); if (buf === "nyxg7") { buf = ""; confetti(); secret("name", "You said the name"); } }
+});
+
+tick(); setInterval(tick, 1000);
+
+// Background particles
+(function(){
+  if (reduce || document.documentElement.dataset.fx === "off") return;
+  const c = $("#fx"), x = c.getContext("2d"); let W, H, P = [];
+  function size(){ const r = devicePixelRatio || 1; W = innerWidth; H = innerHeight; c.width = W*r; c.height = H*r; c.style.width = W+"px"; c.style.height = H+"px"; x.setTransform(r,0,0,r,0,0);
+    P = Array.from({length: Math.min(70, Math.round(W*H/18000))}, () => ({x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25, r: Math.random()*1.4+.4})); }
+  function loop(){
+    x.clearRect(0,0,W,H);
+    for (const p of P){ p.x = (p.x + p.vx + W) % W; p.y = (p.y + p.vy + H) % H; x.fillStyle = "rgba(180,190,255,.5)"; x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fill(); }
+    for (let i=0;i<P.length;i++) for (let j=i+1;j<P.length;j++){ const a=P[i], b=P[j], d=Math.hypot(a.x-b.x,a.y-b.y); if (d<120){ x.strokeStyle=`rgba(124,140,255,${.12*(1-d/120)})`; x.beginPath(); x.moveTo(a.x,a.y); x.lineTo(b.x,b.y); x.stroke(); } }
+    requestAnimationFrame(loop);
+  }
+  size(); addEventListener("resize", size); loop();
+})();
+
+// Confetti at launch
+function confetti(){
+  if (reduce) return;
+  const c = $("#confetti"), x = c.getContext("2d"), W = c.width = innerWidth, H = c.height = innerHeight;
+  const cols = ["#7c8cff","#25f4ee","#fe2c55","#ffffff","#5865f2"];
+  const P = Array.from({length: 180}, () => ({x: W/2, y: H/3, vx: (Math.random()-.5)*14, vy: Math.random()*-12-4, s: Math.random()*6+4, r: Math.random()*6, c: cols[Math.random()*cols.length|0]}));
+  let f = 0;
+  (function loop(){
+    x.clearRect(0,0,W,H);
+    P.forEach(p => { p.vy += .32; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += .1; x.save(); x.translate(p.x,p.y); x.rotate(p.r); x.fillStyle = p.c; x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2); x.restore(); });
+    if (++f < 240) requestAnimationFrame(loop); else x.clearRect(0,0,W,H);
+  })();
+}
+</script>
+</body>
+</html>
