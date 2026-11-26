@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#05080b">
 <meta name="description" content="Something extraordinary is coming. The next era begins in 2027.">
+
 <title>COMING SOON — The Next Era</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +20,6 @@
   --yellow: #ffd600;
   --bg: #05080b;
   --muted: #9baab4;
-  --panel: rgba(255,255,255,.035);
 }
 
 * {
@@ -36,12 +36,19 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  background: var(--bg);
-  color: white;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 50% 70%, #12452f 0%, transparent 42%),
+    radial-gradient(ellipse at 5% 5%, #172c40 0%, transparent 40%),
+    radial-gradient(ellipse at 95% 10%, #123c30 0%, transparent 35%),
+    linear-gradient(145deg, #05080b, #0a1118, #030507);
+  background-attachment: fixed;
+  color: #fff;
   font-family: Inter, Arial, sans-serif;
+  position: relative;
 }
 
-/* DISCOURAGE CASUAL TEXT COPYING */
+/* DISCOURAGE CASUAL COPYING */
 
 body, body * {
   -webkit-user-select: none;
@@ -49,30 +56,21 @@ body, body * {
   -webkit-touch-callout: none;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  background:
-    radial-gradient(ellipse at 50% 70%, #12452f 0%, transparent 42%),
-    radial-gradient(ellipse at 5% 5%, #172c40 0%, transparent 40%),
-    radial-gradient(ellipse at 95% 10%, #123c30 0%, transparent 35%),
-    linear-gradient(145deg, #05080b, #0a1118, #030507);
-}
+/* BACKGROUND GRID */
 
-body::after {
-  content: "";
+.grid-background {
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: 0;
   pointer-events: none;
-  opacity: .2;
+  opacity: .16;
   background-image:
     linear-gradient(#ffffff0a 1px, transparent 1px),
     linear-gradient(90deg, #ffffff0a 1px, transparent 1px);
   background-size: 55px 55px;
 }
+
+/* AMBIENT LIGHT */
 
 .ambient {
   position: fixed;
@@ -82,7 +80,7 @@ body::after {
   background: #18ed8725;
   filter: blur(110px);
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
   animation: glow 9s ease-in-out infinite alternate;
 }
 
@@ -103,6 +101,13 @@ body::after {
     opacity: .65;
   }
 }
+
+header, main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* HEADER */
 
 header {
   width: min(1200px, 90%);
@@ -149,6 +154,8 @@ header {
 @keyframes blink {
   50% { opacity: .25; }
 }
+
+/* MAIN HERO */
 
 main {
   width: min(1100px, 92%);
@@ -215,6 +222,8 @@ h1 span {
   letter-spacing: 3px;
 }
 
+/* MAIN COUNTDOWN */
+
 .section-label {
   margin: 55px 0 19px;
   color: #91a0aa;
@@ -273,6 +282,7 @@ h1 span {
   border-radius: 20px;
   background: linear-gradient(145deg,#ffffff09,#25f59a08);
   box-shadow: 0 15px 60px #00000030;
+  backdrop-filter: blur(12px);
 }
 
 .mystery-label {
@@ -352,8 +362,7 @@ h1 span {
   overflow: hidden;
   border: 1px solid #25f59a50;
   border-radius: 20px;
-  background:
-    radial-gradient(ellipse at center,#174a35,#080d12 75%);
+  background: radial-gradient(ellipse at center,#174a35,#080d12 75%);
   box-shadow: 0 0 50px #25f59a10;
 }
 
@@ -430,7 +439,7 @@ h1 span {
   letter-spacing: 3px;
 }
 
-/* EVENT COUNTDOWN */
+/* SPECIAL EVENT */
 
 .event-section {
   width: min(680px,100%);
@@ -552,6 +561,8 @@ h1 span {
   box-shadow: 0 8px 25px #ffd60025;
 }
 
+/* FOOTER */
+
 .bottom-text {
   margin-top: 48px;
   color: var(--green);
@@ -574,6 +585,8 @@ footer span {
   color: var(--green);
 }
 
+/* ANIMATIONS */
+
 @keyframes appear {
   from {
     opacity: 0;
@@ -584,6 +597,8 @@ footer span {
     transform: translateY(0);
   }
 }
+
+/* MOBILE */
 
 @media(max-width:600px) {
   header {
@@ -688,6 +703,7 @@ footer span {
 
 <body>
 
+<div class="grid-background"></div>
 <div class="ambient one"></div>
 <div class="ambient two"></div>
 
@@ -727,14 +743,17 @@ footer span {
       <span class="number" id="days">00</span>
       <div class="label">DAYS</div>
     </div>
+
     <div class="timebox">
       <span class="number" id="hours">00</span>
       <div class="label">HOURS</div>
     </div>
+
     <div class="timebox">
       <span class="number" id="minutes">00</span>
       <div class="label">MINUTES</div>
     </div>
+
     <div class="timebox">
       <span class="number" id="seconds">00</span>
       <div class="label">SECONDS</div>
@@ -743,6 +762,7 @@ footer span {
 
   <section class="mystery">
     <div class="mystery-label">CLASSIFIED PROJECT PREVIEW</div>
+
     <h2>WHAT'S COMING?</h2>
 
     <p class="mystery-description">
@@ -752,18 +772,22 @@ footer span {
     </p>
 
     <div class="mystery-grid">
+
       <div class="mystery-card">
         <div class="mystery-icon">🌐</div>
         <div class="mystery-blur">???? EXPERIENCE</div>
       </div>
+
       <div class="mystery-card">
         <div class="mystery-icon">✨</div>
         <div class="mystery-blur">???? FEATURES</div>
       </div>
+
       <div class="mystery-card">
         <div class="mystery-icon">👑</div>
         <div class="mystery-blur">???? SURPRISE</div>
       </div>
+
     </div>
 
     <div class="mystery-footer">
@@ -772,43 +796,61 @@ footer span {
   </section>
 
   <section class="teaser">
+
     <div class="teaser-content">
       <div class="crown">👑</div>
+
       <div class="teaser-title">VIDEO COMING SOON</div>
+
       <div class="teaser-subtitle">
         SOMETHING SPECIAL IS IN THE WORKS
       </div>
+
       <div class="teaser-line"></div>
     </div>
-    <div class="teaser-caption">EXCLUSIVE FIRST LOOK</div>
+
+    <div class="teaser-caption">
+      EXCLUSIVE FIRST LOOK
+    </div>
+
   </section>
 
   <section class="event-section">
 
     <div class="event-heading">SPECIAL EVENT</div>
+
     <h2 class="event-title">THE NEXT ERA</h2>
-    <p class="event-subtitle">THE COUNTDOWN HAS BEGUN.</p>
+
+    <p class="event-subtitle">
+      THE COUNTDOWN HAS BEGUN.
+    </p>
 
     <div class="event-countdown">
+
       <div class="event-time">
         <span class="event-number" id="eventDays">00</span>
         <span class="event-unit">DAYS</span>
       </div>
+
       <div class="event-time">
         <span class="event-number" id="eventHours">00</span>
         <span class="event-unit">HOURS</span>
       </div>
+
       <div class="event-time">
         <span class="event-number" id="eventMinutes">00</span>
         <span class="event-unit">MINUTES</span>
       </div>
+
       <div class="event-time">
         <span class="event-number" id="eventSeconds">00</span>
         <span class="event-unit">SECONDS</span>
       </div>
+
     </div>
 
     <div class="event-details">
+
       <div class="event-detail">
         <div class="event-detail-label">DOORS OPEN</div>
         <div class="event-detail-time">6:20 PM GMT</div>
@@ -820,6 +862,7 @@ footer span {
         <div class="event-detail-time">7:00 PM GMT</div>
         <div class="event-detail-date">SAT, DEC 5, 2026</div>
       </div>
+
     </div>
 
     <button class="calendar-button" onclick="addEventToCalendar()">
@@ -840,11 +883,14 @@ footer span {
 </footer>
 
 <script>
-/* MAIN COUNTDOWN TO 2027 */
 
-const targetTime = new Date("2027-01-01T00:00:00Z").getTime();
+/* MAIN COUNTDOWN */
+
+const targetTime =
+  new Date("2027-01-01T00:00:00Z").getTime();
 
 function updateCountdown() {
+
   const remaining = Math.max(0, targetTime - Date.now());
 
   const days = Math.floor(remaining / 86400000);
@@ -873,11 +919,13 @@ function updateCountdown() {
   }
 }
 
-/* SPECIAL EVENT COUNTDOWN */
+/* EVENT COUNTDOWN */
 
-const eventTime = new Date("2026-12-05T19:00:00Z").getTime();
+const eventTime =
+  new Date("2026-12-05T19:00:00Z").getTime();
 
 function updateEventCountdown() {
+
   const remaining = Math.max(0, eventTime - Date.now());
 
   document.getElementById("eventDays").textContent =
@@ -901,6 +949,7 @@ function updateEventCountdown() {
 /* CALENDAR DOWNLOAD */
 
 function addEventToCalendar() {
+
   const stamp = new Date().toISOString()
     .replace(/[-:]/g, "")
     .replace(/\.\d{3}/, "");
@@ -938,7 +987,7 @@ function addEventToCalendar() {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-/* DISCOURAGE COPYING AND TEXT SELECTION */
+/* DISCOURAGE CASUAL COPYING */
 
 document.addEventListener("contextmenu", function(event) {
   event.preventDefault();
@@ -961,23 +1010,25 @@ document.addEventListener("dragstart", function(event) {
 });
 
 document.addEventListener("keydown", function(event) {
+
   const key = event.key.toLowerCase();
 
   if ((event.ctrlKey || event.metaKey) &&
       ["a", "c", "x", "s", "u", "p"].includes(key)) {
     event.preventDefault();
   }
+
 });
 
-/* START COUNTDOWNS */
+/* START */
 
 updateCountdown();
 updateEventCountdown();
 
 setInterval(updateCountdown, 1000);
 setInterval(updateEventCountdown, 1000);
+
 </script>
 
 </body>
 </html>
-
