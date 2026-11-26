@@ -24,9 +24,7 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   min-height: 100vh;
@@ -108,9 +106,7 @@ header {
   letter-spacing: 2px;
 }
 
-.logo span {
-  color: var(--green);
-}
+.logo span { color: var(--green); }
 
 .status {
   display: flex;
@@ -259,6 +255,105 @@ h1 span {
   letter-spacing: 2px;
 }
 
+/* MYSTERY INTRO */
+
+.mystery {
+  width: min(760px, 92vw);
+  margin: 65px auto 10px;
+  padding: 35px 22px;
+  border: 1px solid #25f59a30;
+  border-radius: 18px;
+  background: linear-gradient(145deg,#ffffff0c,#25f59a08);
+  box-shadow: 0 0 45px #25f59a0b;
+  animation: appear 1s 1s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.mystery::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg,transparent,#25f59a08,transparent);
+  transform: translateX(-100%);
+  animation: shine 7s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  50%, 100% { transform: translateX(100%); }
+}
+
+.mystery-label {
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  margin-bottom: 16px;
+}
+
+.mystery h2 {
+  font-size: clamp(25px,5vw,40px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 13px;
+}
+
+.mystery-description {
+  max-width: 470px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.mystery-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.mystery-card {
+  min-height: 105px;
+  padding: 20px 10px;
+  border: 1px solid #ffffff18;
+  border-radius: 10px;
+  background: #ffffff08;
+  overflow: hidden;
+  transition: transform .3s, border-color .3s;
+}
+
+.mystery-card:hover {
+  transform: translateY(-5px);
+  border-color: #25f59a77;
+}
+
+.mystery-icon {
+  font-size: 23px;
+  margin-bottom: 12px;
+  filter: blur(1px);
+}
+
+.mystery-blur {
+  color: var(--green-light);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  filter: blur(4px);
+  user-select: none;
+}
+
+.mystery-footer {
+  margin-top: 25px;
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+/* VIDEO TEASER */
+
 .teaser {
   width: min(490px, 92vw);
   min-height: 215px;
@@ -371,9 +466,7 @@ footer {
   letter-spacing: 2px;
 }
 
-footer span {
-  color: var(--green);
-}
+footer span { color: var(--green); }
 
 @keyframes appear {
   from {
@@ -387,13 +480,9 @@ footer span {
 }
 
 @media(max-width:600px) {
-  header {
-    padding: 22px 0;
-  }
+  header { padding: 22px 0; }
 
-  .logo {
-    font-size: 17px;
-  }
+  .logo { font-size: 17px; }
 
   .status {
     padding: 9px 11px;
@@ -401,35 +490,43 @@ footer span {
     letter-spacing: 1px;
   }
 
-  main {
-    padding-top: 65px;
-  }
+  main { padding-top: 65px; }
 
-  h1 {
-    letter-spacing: -3px;
-  }
+  h1 { letter-spacing: -3px; }
 
   .eyebrow {
     font-size: 8px;
     letter-spacing: 3px;
   }
 
-  .subtitle {
-    font-size: 12px;
-  }
+  .subtitle { font-size: 12px; }
 
   .timebox {
     width: calc(50% - 8px);
     max-width: 145px;
   }
 
-  .teaser {
-    min-height: 185px;
-  }
+  .teaser { min-height: 185px; }
 
   .bottom-text {
     font-size: 8px;
     letter-spacing: 2px;
+  }
+
+  .mystery {
+    padding: 28px 15px;
+  }
+
+  .mystery-grid { gap: 7px; }
+
+  .mystery-card {
+    min-height: 95px;
+    padding: 15px 5px;
+  }
+
+  .mystery-blur {
+    font-size: 8px;
+    letter-spacing: 1px;
   }
 }
 
@@ -504,6 +601,49 @@ footer span {
       <div class="label">SECONDS</div>
     </div>
   </div>
+
+  <!-- MYSTERY INTRO -->
+
+  <section class="mystery">
+
+    <div class="mystery-label">
+      CLASSIFIED PROJECT PREVIEW
+    </div>
+
+    <h2>WHAT'S COMING?</h2>
+
+    <p class="mystery-description">
+      Something new is being imagined. Something different
+      is being created. Here's a tiny glimpse of what could
+      be waiting beyond the countdown...
+    </p>
+
+    <div class="mystery-grid">
+
+      <div class="mystery-card">
+        <div class="mystery-icon">🌐</div>
+        <div class="mystery-blur">???? EXPERIENCE</div>
+      </div>
+
+      <div class="mystery-card">
+        <div class="mystery-icon">✨</div>
+        <div class="mystery-blur">???? FEATURES</div>
+      </div>
+
+      <div class="mystery-card">
+        <div class="mystery-icon">👑</div>
+        <div class="mystery-blur">???? SURPRISE</div>
+      </div>
+
+    </div>
+
+    <div class="mystery-footer">
+      FULL REVEAL COMING IN 2027
+    </div>
+
+  </section>
+
+  <!-- VIDEO TEASER -->
 
   <div class="teaser">
 
