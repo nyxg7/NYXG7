@@ -1,7 +1,18 @@
 /* nyxg7 Shield — human verification gate (client-side) */
 (function () {
   var KEY = "nx-h", DAYS = 7, R = document.documentElement;
-  try { var v = JSON.parse(localStorage.getItem(KEY) || "null"); if (v && Date.now() - v.t < DAYS * 864e5) return; } catch (e) {}
+  // ===== Discord login settings =====
+  var DISCORD_CLIENT_ID = "";                       // paste your Discord app's Client ID here
+  var REDIRECT = "https://vexfnofficial.github.io/coming-soon/";
+  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) REDIRECT = location.origin + location.pathname;
+  var DKEY = "nx-d";
+  var human = false, dUser = null;
+  try { var v = JSON.parse(localStorage.getItem(KEY) || "null"); human = !!(v && Date.now() - v.t < DAYS * 864e5); } catch (e) {}
+  try { var d = JSON.parse(localStorage.getItem(DKEY) || "null"); if (d && d.exp > Date.now()) dUser = d; } catch (e) {}
+  var qs = new URLSearchParams(location.search), returning = DISCORD_CLIENT_ID && (qs.has("code") || qs.has("error")) && sessionStorage.getItem("nx-pkce");
+  var needDiscord = !!DISCORD_CLIENT_ID && !dUser;
+  window.nxDiscord = { user: dUser, signOut: function () { try { localStorage.removeItem(DKEY); } catch (e) {} location.reload(); } };
+  if (human && !needDiscord) return;
   R.classList.add("gate");
 
   var css = "html.gate body{overflow:hidden}" +
@@ -45,6 +56,24 @@
     ".sh-msg{min-height:20px;margin-top:10px;font-size:13px;color:#98a2b3;text-align:center}" +
     ".sh-msg.err{color:#ff7a8e}.sh-msg.good{color:#3ddc84}" +
     ".sh-foot{display:flex;justify-content:space-between;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.07);font-size:11.5px;color:#667085}" +
+    ".sh-note{display:flex;gap:12px;padding:14px 16px;border:1px solid rgba(255,190,80,.35);border-radius:14px;background:rgba(255,190,80,.07);font-size:13.5px;line-height:1.55;color:#f4e6c8}" +
+    ".sh-note svg{width:20px;height:20px;flex:none;margin-top:1px;fill:none;stroke:#ffbe50;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}" +
+    ".sh-note b{display:block;color:#ffcf7a;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px}" +
+    ".sh-dc{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:16px;padding:14px 18px;border:0;border-radius:14px;background:#5865f2;color:#fff;font:600 15px Inter,sans-serif;cursor:pointer;transition:filter .2s,transform .15s}" +
+    ".sh-dc:hover{filter:brightness(1.1)}.sh-dc:active{transform:scale(.98)}.sh-dc:focus-visible{outline:2px solid #25f4ee;outline-offset:3px}" +
+    ".sh-dc svg{width:22px;height:22px;fill:#fff}.sh-dc[disabled]{opacity:.7;cursor:default}" +
+    ".sh-skip{display:block;margin:10px auto 0;border:0;background:none;color:#667085;font:500 13px Inter,sans-serif;cursor:pointer;text-decoration:underline;text-underline-offset:3px}" +
+    ".sh-skip:hover{color:#98a2b3}" +
+    ".sh-perm{display:grid;gap:6px;margin-top:14px;font-size:12.5px;color:#98a2b3}" +
+    ".sh-perm span{display:flex;align-items:center;gap:8px}.sh-perm i{width:6px;height:6px;border-radius:50%;background:#3ddc84}.sh-perm i.no{background:#fe2c55}" +
+    ".sh-deny{text-align:center;padding:8px 0 4px}" +
+    ".sh-deny .ic{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 14px;border-radius:18px;background:rgba(254,44,85,.12);color:#ff6b84}" +
+    ".sh-deny .ic svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}" +
+    ".sh-deny h3{font:700 22px 'Space Grotesk',Inter,sans-serif}.sh-deny p{margin-top:6px;color:#98a2b3;font-size:14px}" +
+    ".sh-wait{display:flex;flex-direction:column;align-items:center;gap:14px;padding:18px 0 6px;color:#98a2b3;font-size:14px}" +
+    ".sh-wait .sp{width:34px;height:34px;border-radius:50%;border:3px solid rgba(88,101,242,.25);border-top-color:#5865f2;animation:shsp .7s linear infinite}" +
+    ".sh-user{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid rgba(61,220,132,.3);border-radius:14px;background:rgba(61,220,132,.06)}" +
+    ".sh-user img{width:40px;height:40px;border-radius:50%}.sh-user b{display:block}.sh-user small{color:#98a2b3}" +
     "@media(prefers-reduced-motion:reduce){#shield *{animation:none!important}}";
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
 
@@ -84,17 +113,76 @@
     var others = [].slice.call(document.body.children).filter(function (n) { return n !== el; });
     others.forEach(function (n) { n.setAttribute("inert", ""); n.setAttribute("aria-hidden", "true"); });
     setTimeout(function () { cb.focus({preventScroll: true}); }, 300);
+    if (returning) { setTimeout(finish, 0); }
+    else if (human && needDiscord) { setTimeout(discordStep, 0); }
 
     function pass() {
       box.classList.remove("busy"); box.classList.add("ok"); cb.setAttribute("aria-checked", "true"); cb.disabled = true;
       lbl.innerHTML = "Verified<small>Welcome in</small>"; ch.classList.remove("on");
       msg.className = "sh-msg good"; msg.textContent = "You're human. Nice.";
       try { localStorage.setItem(KEY, JSON.stringify({t: Date.now()})); } catch (e) {}
-      setTimeout(function () {
-        el.classList.add("out"); R.classList.remove("gate");
-        others.forEach(function (n) { n.removeAttribute("inert"); n.removeAttribute("aria-hidden"); });
-        setTimeout(function () { el.remove(); removeEventListener("pointermove", onMove); }, 550);
-      }, 900);
+      human = true;
+      setTimeout(function () { if (needDiscord) discordStep(); else enter(); }, 900);
+    }
+    function enter() {
+      el.classList.add("out"); R.classList.remove("gate");
+      others.forEach(function (n) { n.removeAttribute("inert"); n.removeAttribute("aria-hidden"); });
+      setTimeout(function () { el.remove(); removeEventListener("pointermove", onMove); }, 550);
+      try { document.dispatchEvent(new CustomEvent("nx:discord", {detail: window.nxDiscord.user})); } catch (e) {}
+    }
+
+    // ===== Step 3: Discord =====
+    var DC_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.3 5.3A17 17 0 0 0 15 4l-.6 1.2a15.6 15.6 0 0 0-4.8 0L9 4a17 17 0 0 0-4.3 1.3C2 9.4 1.2 13.4 1.6 17.3A17.2 17.2 0 0 0 6.9 20l1.1-1.8c-.6-.2-1.2-.5-1.7-.8l.4-.3a12.3 12.3 0 0 0 10.6 0l.4.3c-.5.3-1.1.6-1.7.8l1.1 1.8a17.1 17.1 0 0 0 5.3-2.7c.5-4.5-.8-8.5-3.1-12zM8.7 14.9c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1zm6.6 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1z"/></svg>';
+    var card = el.querySelector(".sh-card"), head = '<div class="sh-top"><img src="favicon.svg" alt=""><div><b id="sh-t">TITLE</b><small>SUB</small></div></div>';
+    var foot = '<div class="sh-foot"><span>Protected by nyxg7 Shield</span><span>Secure login via Discord</span></div>';
+    function view(title, sub, body) { card.innerHTML = head.replace("TITLE", title).replace("SUB", sub) + body + foot; card.style.animation = "none"; void card.offsetWidth; card.style.animation = ""; }
+    function discordStep() {
+      view("Important notice", "One last step before you enter.",
+        '<div class="sh-note"><svg viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg><div><b>Important notice</b>You must connect your Discord account to use the AI messaging feature. Anyone who skips this step will be denied access to the website. Connecting Discord is required to continue. Thank you for your cooperation.</div></div>' +
+        '<button class="sh-dc" type="button" id="sh-dc">' + DC_ICON + 'Connect Discord</button>' +
+        '<div class="sh-perm"><span><i></i>Shares only your username and profile picture</span><span><i class="no"></i>Can\'t read your messages, servers or email</span><span><i class="no"></i>Can\'t post anything for you</span></div>' +
+        '<button class="sh-skip" type="button" id="sh-skip">Skip</button>');
+      $("sh-dc").addEventListener("click", connect); $("sh-skip").addEventListener("click", denied);
+      setTimeout(function () { $("sh-dc").focus({preventScroll: true}); }, 200);
+    }
+    function denied(reason) {
+      view("Access denied", "Discord connection required.",
+        '<div class="sh-deny"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></div><h3>You can\'t enter yet</h3><p>' +
+        (typeof reason === "string" ? reason : "Connecting Discord is required to continue. Connect your account to get access to the website.") + '</p></div>' +
+        '<button class="sh-dc" type="button" id="sh-dc">' + DC_ICON + 'Connect Discord</button>');
+      $("sh-dc").addEventListener("click", connect);
+    }
+    function b64u(buf) { return btoa(String.fromCharCode.apply(null, new Uint8Array(buf))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+    function connect() {
+      var b = $("sh-dc"); b.disabled = true; b.lastChild.textContent = "Opening Discord...";
+      var rnd = new Uint8Array(32); crypto.getRandomValues(rnd); var verifier = b64u(rnd), st = new Uint8Array(16); crypto.getRandomValues(st); var state = b64u(st);
+      crypto.subtle.digest("SHA-256", new TextEncoder().encode(verifier)).then(function (h) {
+        sessionStorage.setItem("nx-pkce", JSON.stringify({v: verifier, s: state}));
+        location.href = "https://discord.com/oauth2/authorize?" + new URLSearchParams({response_type: "code", client_id: DISCORD_CLIENT_ID, scope: "identify", redirect_uri: REDIRECT, code_challenge: b64u(h), code_challenge_method: "S256", state: state, prompt: "none"}).toString();
+      });
+    }
+    function finish() {
+      var pk = {}; try { pk = JSON.parse(sessionStorage.getItem("nx-pkce") || "{}"); } catch (e) {}
+      sessionStorage.removeItem("nx-pkce");
+      var code = qs.get("code"), err = qs.get("error"), state = qs.get("state");
+      history.replaceState(null, "", location.pathname + location.hash);
+      if (err) return denied("You cancelled the Discord connection. Connecting Discord is required to continue.");
+      if (!code || state !== pk.s) return denied("That login link didn't look right. Please connect again.");
+      view("Connecting", "Talking to Discord...", '<div class="sh-wait"><div class="sp"></div>Linking your Discord account</div>');
+      fetch("https://discord.com/api/oauth2/token", {method: "POST", headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: new URLSearchParams({grant_type: "authorization_code", code: code, redirect_uri: REDIRECT, client_id: DISCORD_CLIENT_ID, code_verifier: pk.v}).toString()})
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (t) { return fetch("https://discord.com/api/users/@me", {headers: {Authorization: "Bearer " + t.access_token}}).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (u) { return {u: u, exp: t.expires_in}; }); })
+      .then(function (o) {
+        var u = o.u, av = u.avatar ? "https://cdn.discordapp.com/avatars/" + u.id + "/" + u.avatar + ".png?size=96" : "https://cdn.discordapp.com/embed/avatars/" + (Number(BigInt(u.id) >> 22n) % 6) + ".png";
+        var me = {id: u.id, username: u.username, name: u.global_name || u.username, avatar: av, exp: Date.now() + Math.min(o.exp || 604800, 604800) * 1000};
+        try { localStorage.setItem(DKEY, JSON.stringify(me)); } catch (e) {}
+        window.nxDiscord.user = me; needDiscord = false;
+        view("Connected", "You're all set.", '<div class="sh-user"><img alt="" src="' + me.avatar + '"><div><b></b><small>@' + me.username.replace(/[<>&"]/g, "") + '</small></div></div><div class="sh-msg good">Welcome in.</div>');
+        card.querySelector(".sh-user b").textContent = me.name;
+        setTimeout(enter, 1100);
+      })
+      .catch(function () { denied("Couldn't connect to Discord. Please try again."); });
     }
 
     // ---- Step 1: checkbox + behaviour signals ----
@@ -159,7 +247,7 @@
       hint.style.opacity = pos > 8 ? 0 : 1;
     }
     function pieceX() { return 12 + pos / maxX() * (W - S - 24); }
-    function human(path, viaKeys) {
+    function humanPath(path, viaKeys) {
       if (viaKeys) return kSteps >= 4 && performance.now() - kStart > 500;
       if (path.length < 8) return false;
       var dur = path[path.length - 1].t - path[0].t; if (dur < 300 || dur > 30000) return false;
@@ -175,7 +263,7 @@
       return ease && drift;
     }
     function check(viaKeys) {
-      var ok = Math.abs(pieceX() - target) < 9 && human(trail, viaKeys);
+      var ok = Math.abs(pieceX() - target) < 9 && humanPath(trail, viaKeys);
       tries++;
       if (ok) { msg.className = "sh-msg good"; msg.textContent = "Perfect fit."; box.classList.add("busy"); setTimeout(pass, 500); return; }
       sl.classList.add("bad"); msg.className = "sh-msg err";
