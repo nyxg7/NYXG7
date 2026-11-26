@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0c12">
 <title>nyxg7 — Something New Is Coming</title>
-<meta name="description" content="A brand new website from nyxg7 launches 31 December 2026. Follow the countdown, see what's coming and find me on TikTok and Discord.">
+<meta name="description" content="A brand new website from nyxg7 launches 31 December 2026, with a PC app coming soon after. Follow the countdown and find me on TikTok and Discord.">
 <link rel="canonical" href="https://vexfnofficial.github.io/coming-soon/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="og.png">
@@ -14,14 +14,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="nyxg7">
 <meta property="og:title" content="nyxg7 — Something new is coming">
-<meta property="og:description" content="A brand new website launches 31 December 2026. Watch the countdown.">
+<meta property="og:description" content="A brand new website launches 31 December 2026, with a PC app coming soon after.">
 <meta property="og:url" content="https://vexfnofficial.github.io/coming-soon/">
 <meta property="og:image" content="https://vexfnofficial.github.io/coming-soon/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="nyxg7 — Something new is coming">
-<meta name="twitter:description" content="A brand new website launches 31 December 2026. Watch the countdown.">
+<meta name="twitter:description" content="A brand new website launches 31 December 2026, with a PC app coming soon after.">
 <meta name="twitter:image" content="https://vexfnofficial.github.io/coming-soon/og.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,6 +117,26 @@ h1{text-align:center;font:700 clamp(36px,8vw,76px)/1.02 var(--display);letter-sp
 .lock b{font:700 20px var(--display)}
 .lock small{color:var(--muted);font-size:13px}
 
+
+/* PC app */
+.app{margin-top:64px;display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;padding:34px;border:1px solid rgba(124,140,255,.3);border-radius:22px;background:linear-gradient(160deg,rgba(124,140,255,.12),rgba(37,244,238,.03))}
+.app h2{margin:12px 0 8px;font:700 clamp(26px,4vw,36px)/1.1 var(--display);letter-spacing:-.03em}
+.app>div>p{color:var(--muted)}
+.app ul{list-style:none;margin:18px 0 22px;display:grid;gap:8px}
+.app li{display:flex;gap:10px;align-items:center;font-size:14px}
+.app li svg.i{width:18px;height:18px;color:var(--b)}
+.btn[disabled]{opacity:.55;cursor:not-allowed;filter:none;transform:none}
+.pc{position:relative;padding:10px;border:1px solid var(--line);border-radius:14px;background:#0d1018;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.pc .tbar{display:flex;gap:6px;align-items:center;padding:2px 4px 10px}
+.pc .tbar span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.15)}
+.pc .tbar b{margin-left:8px;font:600 11px Inter;color:var(--muted);letter-spacing:.04em}
+.pc .scr{display:grid;grid-template-columns:52px 1fr;gap:10px;height:190px;filter:blur(3px)}
+.pc .side{border-radius:10px;background:rgba(255,255,255,.06)}
+.pc .main{display:grid;grid-template-rows:1.2fr 1fr;gap:10px}
+.pc .main span{border-radius:10px;background:linear-gradient(120deg,rgba(124,140,255,.5),rgba(37,244,238,.3))}
+.pc .main span+span{background:rgba(255,255,255,.07)}
+.pc .badge{position:absolute;inset:auto 50% 50% auto;transform:translate(50%,50%);padding:8px 14px;border-radius:99px;background:rgba(10,12,18,.85);border:1px solid var(--line);font:700 12px var(--display);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+
 /* Section heads */
 .ph{text-align:center;margin-bottom:36px}
 .ph h2{font:700 clamp(28px,5vw,42px) var(--display);letter-spacing:-.03em}
@@ -195,6 +215,7 @@ footer nav a:hover{color:var(--text)}
   .mini .lbl{display:none}
   .tab{padding:9px 13px;font-size:13px}
   .teaser{aspect-ratio:4/3}
+  .app{grid-template-columns:1fr;padding:24px}
   .road{padding-left:28px}.road li::before{left:-24px}.road::before{left:6px}
   .step{padding:18px}
   footer .wrap{flex-direction:column;text-align:center}
@@ -236,7 +257,7 @@ footer nav a:hover{color:var(--text)}
         <div class="tb"><span class="n">00</span><div class="u">MINS</div></div>
         <div class="tb"><span class="n">00</span><div class="u">SECS</div></div>
       </div>
-      <div class="live"><h3 class="grad">We're live.</h3><p>The new website is here. Thanks for waiting.</p></div>
+      <div class="live"><h3 class="grad">We're live.</h3><p>The new website is here. The PC app is up next.</p></div>
     </div>
     <p class="when" id="when">Full launch · 31 December 2026 · 7:00 PM UK time</p>
 
@@ -249,6 +270,28 @@ footer nav a:hover{color:var(--text)}
       <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 17l.7 1.8L21.5 19.5l-1.8.7L19 22l-.7-1.8-1.8-.7 1.8-.7z"/></svg></div><h3>Clean design</h3><p>Simple, modern and easy to use on any device.</p></div>
       <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Fast and smooth</h3><p>Built to load quickly and feel great.</p></div>
       <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></div><h3>Regular updates</h3><p>New features land over time. First update is on 5 December.</p></div>
+    </div>
+
+    <div class="app" id="pc-app">
+      <div>
+        <span class="chip c">After launch</span>
+        <h2>The <span class="grad">nyxg7 PC app</span> is coming.</h2>
+        <p>The website is just the start. A desktop app for PC lands soon after the launch.</p>
+        <ul>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg>Built for desktop</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg>Download from the website</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12l4.5 4.5L19 7"/></svg>More details revealed after launch</li>
+        </ul>
+        <div class="actions" style="justify-content:flex-start;margin:0">
+          <button class="btn pri" type="button" disabled aria-disabled="true"><svg class="i" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download for PC · Soon</button>
+          <a class="btn ghost" href="#updates">See roadmap</a>
+        </div>
+      </div>
+      <div class="pc" aria-hidden="true">
+        <div class="tbar"><span></span><span></span><span></span><b>nyxg7</b></div>
+        <div class="scr"><div class="side"></div><div class="main"><span></span><span></span></div></div>
+        <div class="badge">Coming to PC</div>
+      </div>
     </div>
 
     <div class="teaser" aria-label="Blurred preview of the new website">
@@ -295,6 +338,9 @@ footer nav a:hover{color:var(--text)}
       <li class="locked" id="r-launch">
         <div class="step"><span class="chip">31 Dec · 7 PM</span><h3>Full launch</h3><p>The full website goes live. Be here for the countdown.</p></div>
       </li>
+      <li class="locked" id="r-app">
+        <div class="step"><span class="chip">Coming soon</span><h3>nyxg7 PC app</h3><p>A desktop app for PC, coming soon after the website launch. More details revealed after launch.</p></div>
+      </li>
     </ol>
   </section>
 
@@ -331,6 +377,7 @@ footer nav a:hover{color:var(--text)}
       <details><summary>When does the website launch?</summary><p>The full launch is on 31 December 2026 at 7:00 PM UK time. The countdown at the top always shows exactly how long is left, in your own time zone.</p></details>
       <details><summary>What's coming on 5 December?</summary><p>The first big update. Details stay secret until then, so check the Roadmap tab or follow on TikTok to see it first.</p></details>
       <details><summary>How do I get notified?</summary><p>Tap "Add to calendar" on the Home tab to get a reminder, or follow <a href="https://www.tiktok.com/@tvxnzy7?lang=en" target="_blank" rel="noopener noreferrer">@tvxnzy7 on TikTok</a>.</p></details>
+      <details><summary>Is there a PC app?</summary><p>Yes. A nyxg7 desktop app for PC is coming soon after the website launch on 31 December. You'll be able to get it from this website, and more details will be shared after launch.</p></details>
       <details><summary>How can I get in touch?</summary><p>Add me on Discord: <b>nyxg7</b>. You can copy the username from the Socials tab.</p></details>
       <details><summary>Will it work on my phone?</summary><p>Yes. Everything is built to work on phones, tablets and desktops.</p></details>
     </div>
